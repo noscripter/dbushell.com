@@ -1,0 +1,29 @@
+{{>header}}
+
+<main class="main main--service" role="main">
+
+    <div class="block prose post">
+        <h1 class="post__title">{{ title }}</h1>
+        <div class="post__body">
+            <p class="post__image post__image--centred"><img src="{{ site_url }}assets/img/front-end-development.png" alt="Responsive Design on Google Chrome and an iPhone"></p>
+            {{{ contents }}}
+            <hr>
+            <h2>I also do&hellip;</h2>
+            <ul>
+                <li>
+                    <a href="{{ site_url }}responsive-design/">Responsive website design</a>
+                </li>
+                <li>
+                    <a href="{{ site_url }}process-and-strategy/">Process and strategy</a>
+                </li>
+                <li>
+                    <a href="{{ site_url }}wordpress-and-cms-integration/">WordPress &amp; CMS integration</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</main>
+<!--/.main-->
+
+{{>footer}}

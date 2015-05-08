@@ -1,0 +1,52 @@
+
+/**
+ * normalize: Remove most spacing between table cells.
+ */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.table {
+    width: 100%;
+
+    tr { border-bottom: 1px solid $colour__hairline; }
+
+    tbody {
+        tr:last-child { border-bottom: 0; }
+    }
+
+    th {
+        text-align: left;
+        font-weight: bold;
+    }
+
+    th, td {
+        @include font-size(16, $unit*3);
+        padding: em($unit);
+    }
+
+    table {
+        font-size: inherit;
+        line-height: inherit;
+    }
+}
+
+.table--striped {
+    tbody {
+        tr:nth-child(odd) {
+            background: $colour__canvas;
+        }
+    }
+}
+
+.table--bordered {
+    tr { border: none; }
+    th, td { border: 1px solid $colour__hairline; }
+}
+
+.table--condensed {
+    th, td {
+        padding: em($unit/2) em($unit);
+    }
+}

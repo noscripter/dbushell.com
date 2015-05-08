@@ -1,0 +1,100 @@
+
+@include critical {
+
+    .post {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .post__body {
+        margin-top: em($unit--baseline);
+    }
+
+    .post__date {
+        margin-bottom: 0;
+    }
+
+    .post__title {
+        margin-bottom: em($unit * 5, $unit--h1);
+
+        & + .post__date {
+            margin-top: em(-$unit * 2, $unit--p);
+        }
+
+        & + .p--large {
+            margin-top: em(-$unit, $unit--p--large);
+        }
+
+        @include respond-max($breakpoint--mobile - 1)
+        {
+            & > .nbsp:after {
+                display: inline-block;
+                content: '\a';
+                speak: none;
+                // white-space: pre;
+            }
+        }
+    }
+
+    .post--excerpt {
+
+        .post__title {
+            margin-bottom: em($unit * 2, $unit--h3);
+
+            & + .post__date {
+                margin-top: em(-$unit, $unit--p);
+            }
+        }
+
+        .post__body {
+            margin-top: em($unit);
+        }
+    }
+
+} // critical
+
+@include non-critical {
+
+    .post__image {
+        overflow: hidden;
+        margin: em($unit--baseline) 0;
+        margin-left: -#{inner-percent(7)};
+        margin-right: -#{inner-percent(7)};
+        padding: em($unit--baseline) inner-percent(7);
+        background: $colour__canvas;
+
+        img {
+            width: auto;
+        }
+
+        a {
+            text-shadow: none !important;
+            background: none !important;
+        }
+    }
+
+    .post__image--centred {
+        img {
+            margin: 0 auto;
+        }
+    }
+
+    @include respond-max($breakpoint--mobile - 1)
+    {
+        .post__body {
+            & > pre {
+                margin-left: -#{inner-percent(7)};
+                margin-right: -#{inner-percent(7)};
+            }
+        }
+    }
+
+    @include respond-min($breakpoint--mobile)
+    {
+        .post__image {
+            margin-right: 0;
+            padding-right: em($unit--gutter);
+        }
+    }
+
+} // non-critical

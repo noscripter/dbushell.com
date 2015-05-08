@@ -1,0 +1,34 @@
+{{>header}}
+
+<main class="main main--blog" role="main">
+    <div class="block">
+
+        <h1 class="main__title">Blog</h1>
+
+        {{# each pagination.files }}
+        <article class="prose post post--excerpt">
+            <h3 class="post__title"><a href="{{ site_url this.path }}">{{ this.title }}</a></h3>
+            <p class="post__date"><time datetime="{{ moment this.date "ISO" }}">{{ moment this.date "dddd" }} <strong>{{ moment this.date "D" }} <abbr title="{{ moment this.date "MMMM" }}">{{ moment this.date "MMM" }}</abbr> {{ moment this.date "YYYY" }}</strong></time></p>
+            <div class="post__body">
+                {{ post__excerpt this.contents }}
+            </div>
+        </article>
+        <hr>
+        {{/each}}
+
+        {{# either pagination.next pagination.previous }}
+        <div class="pagination">
+            {{# if pagination.next }}
+            <a href="{{ site_url pagination.next.path }}" class="button pagination__older">Older</a>
+            {{/ if }}
+            {{# if pagination.previous }}
+            <a href="{{ site_url pagination.previous.path }}" class="button pagination__newer">Newer</a>
+            {{/ if }}
+        </div>
+        {{/ either }}
+
+    </div>
+</main>
+<!--/.main-->
+
+{{>footer}}

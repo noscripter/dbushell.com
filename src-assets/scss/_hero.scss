@@ -1,0 +1,164 @@
+
+@include critical {
+
+    .hero {
+        // display: table;
+        // width: 100%;
+        // min-height: 100vh;
+    }
+
+    .hero__body {
+        // display: table-cell;
+        // vertical-align: middle;
+        // padding-top: em($unit--baseline);
+        @include clearfix;
+
+        // margin-top: em(-$unit);
+
+        @include respond-min($breakpoint--hero--3)
+        {
+            // margin-top: 0;
+            padding-top: em($unit--baseline);
+        }
+
+        @include respond-min($breakpoint--aside + 200)
+        {
+            padding-top: em($unit--baseline * 2);
+        }
+    }
+
+    .hero__footer {
+        margin-top: em($unit--baseline, $unit--p);
+
+        @include respond-max($breakpoint--hero--3 - 1)
+        {
+            @include visually-hidden;
+        }
+
+        @include respond-min(1280)
+        {
+            margin-top: em($unit--baseline * 2, $unit--p);
+        }
+    }
+
+    .hero__hr {
+        margin: em(($unit * 3) - 1) 0;
+
+        @include respond-min($breakpoint--hero--1)
+        {
+            margin: em(($unit * 4) - 1) 0;
+        }
+    }
+
+    .hero__content {
+        z-index: $z-index--main + 2;
+        position: relative;
+        float: left;
+        margin-right: -100%;
+    }
+
+    .hero__title {
+
+        span {
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        strong {
+            display: block;
+        }
+
+        @include respond-max($breakpoint--hero--3 - 1)
+        {
+            span {
+                display: block;
+            }
+        }
+
+        @include respond-min-max($breakpoint--aside, $breakpoint--aside + 200)
+        {
+            span {
+                display: block;
+            }
+        }
+    }
+
+    .hero__links {
+        list-style: none;
+        margin-bottom: em($unit--baseline);
+        margin-left: 0;
+
+        @include respond-min($breakpoint--hero--2)
+        {
+            li {
+                @include font-size($unit--p--large, $unit--baseline);
+                margin-bottom: em($unit * 2, $unit--p--large);
+            }
+        }
+    }
+
+} // critical
+
+@include non-critical {
+
+    .hero__image {
+        z-index: $z-index--main + 1;
+        position: relative;
+        float: left;
+        margin-top: em(-$unit * 12);
+        margin-right: -100%;
+        margin-left: 60%;
+        width: 40%;
+        max-width: em(500);
+
+        &:after {
+            position: relative;
+            display: block;
+            content: "";
+            left: 5%;
+            height: 0;
+            width: 100%;
+            padding-bottom: percentage(520/500);
+            background: transparent url("../img/origami-crane--small.png") top right no-repeat;
+            background-size: 100% 100%;
+
+            @include respond-min($breakpoint--mobile)
+            {
+                background-image: url("../img/origami-crane.png");
+            }
+        }
+
+
+        .lt-ie8 & {
+            background: transparent url("../img/origami-crane--small.png") top right no-repeat;
+            height: em(260);
+        }
+
+        @include respond-min($breakpoint--hero--1)
+        {
+            margin-top: em(-$unit * 15);
+            margin-left: 55%;
+            width: 45%;
+        }
+
+        @include respond-min($breakpoint--hero--2)
+        {
+            margin-top: em(-$unit * 24);
+            margin-left: 50%;
+            width: 50%;
+        }
+
+        @include respond-min($breakpoint--hero--3)
+        {
+            margin-top: em(-$unit * 15);
+            margin-left: 50%;
+            width: 50%;
+        }
+
+        @include respond-min-max($breakpoint--aside, $breakpoint--aside + 200)
+        {
+            margin-top: em(-$unit * 24);
+        }
+    }
+
+} // non-critical
