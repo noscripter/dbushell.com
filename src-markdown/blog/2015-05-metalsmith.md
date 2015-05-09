@@ -10,9 +10,9 @@ It’s a busy work schedule that is usually to blame for my lack of written outp
 
 ## Downtime
 
-As you may have noticed, my website has been going offline frequently. Not good, I’m no sys admin. After several failed attempts to fix the — admittedly self-inflicted — issue I decided a full nuking of my VPS was required.
+As you may have noticed, my website has been going offline frequently. Not good. After several failed attempts to fix the — admittedly self-inflicted — issue I decided a full nuking of my VPS was the only solution.
 
-I like to use [MAMP](http://MAMP.info) for local WordPress / PHP development. This is where I “backed up” my WordPress install. Before hitting the button of no return I had the foresight to create a static copy of my website using Wget, a technique I’ve used before to [preserve old websites](/2012/03/20/preserving-the-web/). The day was getting late by the time the new server was configured. I uploaded the static copy and made a task to re-install WordPress later that week.
+I use [MAMP](http://MAMP.info) for local WordPress / PHP development. That is where I “backed up” my WordPress install. Before hitting the button of no return I had the foresight to create a static copy of my website using Wget, a technique I’ve used before to [preserve old websites](/2012/03/20/preserving-the-web/). The day was getting late by the time the new server was configured. I uploaded the static copy and made a task to re-install WordPress later that week.
 
 That was the plan until I saw the state of the database. At almost seven years old, and seeing as many redesigns in that time, it had grown into a 60MB behemoth.
 
@@ -20,7 +20,7 @@ A good opportunity to try something new, don’t you think?
 
 ## Metalsmith
 
-Last summer I wrote my own Node script for a basic [Mustache](http://mustache.github.io/) templating engine (see: [How I built a Static Site Generator](/2014/07/09/how-i-built-a-static-site-generator/)). This was a fun project and has proved very useful in many of my front-end dev jobs. It’s not really a static site generator though. Suitable only for a handful of templates and placeholder content.
+Last summer I wrote my own Node script for a basic [Mustache](http://mustache.github.io/) templating engine (see: [How I built a Static Site Generator](/2014/07/09/how-i-built-a-static-site-generator/)). This was a fun project and has proven useful in many of my front-end dev jobs. It’s not really a static site generator though. Suitable only for a handful of templates and placeholder content.
 
 <p class="post__image"><img src="/images/blog/metalsmith.png" alt="Metalsmith"></p>
 
@@ -34,17 +34,17 @@ The first step was to prepare my content.
 
 ## Markdown
 
-WordPress can export content as an XML dump. Which is nice but XML hasn’t been “cool” for a long time. After some trial and error I found [Exitwp](https://github.com/thomasf/exitwp) by Thomas Frössman. Exitwp is a Python script that converts WordPress XML to [Markdown](http://daringfireball.net/projects/markdown/) files with a YAML header.  The format of choice for static site generators.
+WordPress can export content as XML. Which is nice but XML hasn’t been “cool” for a long time. After some trial and error I found [Exitwp](https://github.com/thomasf/exitwp) by Thomas Frössman. Exitwp is a Python script that converts WordPress XML to [Markdown](http://daringfireball.net/projects/markdown/) files with a YAML header.  The format of choice for static site generators.
 
-I had to modify the script several times to get the output I wanted. A tedious task for one not fond of, or indeed familiar with, Python. Following a final hour of manual editing, I had a directory for all **254 articles** in Markdown format.
+I had to modify the script several times to get the output I wanted. A tedious task for one not fond of, or indeed familiar with, Python. Following a final hour of manual editing, I had a directory of **254 articles** in Markdown format.
 
 <p class="post__image"><img src="/images/blog/metalsmith-markdown.png" alt="dbushel.com articles in markdown files"></p>
 
 ## Handlebars Templates
 
-With content ready, step two was to convert my WordPress theme to [Handlebars](http://handlebarsjs.com/). I’d already written a basic Mustache version of my templates so this didn’t long. I did need to write several helper functions to replicate functionality used in WordPress.
+With content ready, step two was to convert my WordPress theme to [Handlebars](http://handlebarsjs.com/). I’d already written a basic Mustache version of my templates so this didn’t take long. I did need to write several helper functions to replicate WordPress functionality.
 
-A basic one uses [Moment.js](http://momentjs.com/) to format dates:
+A basic example uses [Moment.js](http://momentjs.com/) to format dates:
 
 ````javascript
 Handlebars.registerHelper('moment', function(date, format) {
@@ -52,7 +52,7 @@ Handlebars.registerHelper('moment', function(date, format) {
 });
 ````
 
-With this in templates I can write:
+Using this in templates I can write:
 
 ````javascript
 {{ moment date 'dddd DD MM YYYY' }}
@@ -76,7 +76,7 @@ Handlebars.registerHelper('excerpt', function(contents) {
 });
 ````
 
-I prefer to configure Handlebars myself but an alternate approach would be to use the [Metalsmith excerpts plugin](https://github.com/segmentio/metalsmith-excerpts). This dynamically adds excerpt metadata prior to templating so `{{ this.excerpt }}` is available — whereas my approach requires `{{ post__excerpt this.contents }}`
+I prefer to configure Handlebars myself but an alternate approach would be to use the [Metalsmith excerpts plugin](https://github.com/segmentio/metalsmith-excerpts). This dynamically adds excerpt metadata prior to templating so `{{ this.excerpt }}` is available — whereas my approach requires `{{ excerpt this.contents }}`
 
 I could also manually write excerpts in my Markdown content if I really cared, but who reads excerpts? I’d wager most of my blog readers hit the article page directly via social media or search. An auto-generated excerpt works just fine for me.
 
@@ -84,7 +84,7 @@ I could also manually write excerpts in my Markdown content if I really cared, b
 
 With content and templates in place my website could be built once again. I checked a couple of file diffs with my local WordPress install to ensure both were generating effectively the same HTML.
 
-Now all that was missing was the XML sitemap. To generate this I wrote a Metalsmith plugin inspired by ExtraHop’s [metalsmith-sitemap](https://github.com/ExtraHop/metalsmith-sitemap). A simple solution that uses Handlebars to populate XML templates:
+Now all that was missing was an XML sitemap. To generate this I wrote a Metalsmith plugin inspired by ExtraHop’s [metalsmith-sitemap](https://github.com/ExtraHop/metalsmith-sitemap). A simple solution that uses Handlebars to populate XML templates:
 
 ````markup
 <url>
@@ -95,7 +95,7 @@ Now all that was missing was the XML sitemap. To generate this I wrote a Metalsm
 </url>
 ````
 
-The entries are then compiled into a single `sitemap.xml` file which is added to the Metalsmith files list. This in theory would then flow through the other Metalsmith plugins, if the sitemap plugin wasn’t the last one.
+The entries are compiled into a single `sitemap.xml` file which is added to the Metalsmith files list. This in theory would then flow through the other Metalsmith plugins, if the sitemap plugin wasn’t the last one.
 
 ## The Final Build
 
@@ -115,10 +115,10 @@ My final Metalsmith plugin order runs as following:
 <br><span class="p--small p--light">combined with [metalsmith-branch](https://github.com/ericgj/metalsmith-branch)</span>
 * *dbushell-metalsmith-**sitemap***
 
-As you can see, I’m not using Metalsmith to process any assets. I have an existing [Grunt workflow](https://github.com/dbushell/dbushell-Origin) to handles them.  I’ve [uploaded my website source](https://github.com/dbushell/dbushell-com) on Github for anyone interested. Both Metalsmith and Grunt build tasks have been combined.
+As you can see, I’m not using Metalsmith to process any assets. I have an existing [Grunt workflow](https://github.com/dbushell/dbushell-Origin) to handles them.  I’ve [uploaded my website source](https://github.com/dbushell/dbushell-com) to Github for anyone interested. Both Metalsmith and Grunt build tasks have been combined.
 
 There’s still a little work to do for deployment, but if you’re reading this article, I’ve got things running smoothly enough!
 
-There are plenty for Grunt plugins out there that could recreate what I’ve done with Metalsmith but I do like its focus as <q>an extremely simple, pluggable static site generator</q>. It does that very well.
+There are plenty of Grunt plugins out there that could recreate what I’ve done with Metalsmith but I do like its focus as <q>an extremely simple, pluggable static site generator</q>. It does that very well.
 
 Now that I’m writing in Markdown format I get to use the lovely [IA Writer Pro](https://ia.net/writer/mac).

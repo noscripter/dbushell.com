@@ -16,7 +16,7 @@ function plugin(grunt)
             distDate = Moment(new Date()).format('YYYY-MM-DD-HHmm');
 
         // remove legacy files
-        removeDir(distDir + '/images/');
+        // removeDir(distDir + '/images/');
         removeDir(distDir + '/wp-content/');
 
         // archive build directory
