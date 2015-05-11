@@ -115,7 +115,7 @@ My final Metalsmith plugin order runs as following:
 <br><span class="p--small p--light">combined with [metalsmith-branch](https://github.com/ericgj/metalsmith-branch)</span>
 * *dbushell-metalsmith-**sitemap***
 
-As you can see, I’m not using Metalsmith to process any assets. I have an existing [Grunt workflow](https://github.com/dbushell/dbushell-Origin) to handles them.  I’ve [uploaded my website source](https://github.com/dbushell/dbushell-com) to Github for anyone interested. Both Metalsmith and Grunt build tasks have been combined.
+As you can see, I’m not using Metalsmith to process any assets. I have an existing [Grunt workflow](https://github.com/dbushell/dbushell-Origin) to handle them.  I’ve [uploaded my website source](https://github.com/dbushell/dbushell-com) to Github for anyone interested. Both Metalsmith and Grunt build tasks have been combined.
 
 There’s still a little work to do for deployment, but if you’re reading this article, I’ve got things running smoothly enough!
 
