@@ -46,7 +46,7 @@ function plugin(options) {
                 entry.priority = '1.0';
             }
 
-            if (data.template.indexOf('service-') > -1) {
+            if (data.template && data.template.indexOf('service-') > -1) {
                 entry.changefreq = 'weekly';
                 entry.priority = '0.9';
             }
