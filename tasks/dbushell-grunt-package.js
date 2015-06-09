@@ -1,7 +1,7 @@
 var Moment = require('moment'),
 
-    fs = require("fs"),
-    cp = require("child_process");
+    fs = require('fs'),
+    cp = require('child_process');
 
 module.exports = plugin;
 
