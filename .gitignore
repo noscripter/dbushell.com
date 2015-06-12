@@ -12,3 +12,4 @@ httpdocs
 *.zip
 src-static/*
 build
+tasks/tmp

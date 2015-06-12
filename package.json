@@ -11,9 +11,12 @@
   "dependencies": {},
   "engine": "node >= 0.10.x",
   "devDependencies": {
+    "cheerio": "^0.19.0",
+    "express": "^4.12.4",
     "grunt": "^0.4.5",
     "grunt-autoprefixer": "^3.0.0",
     "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-nodeunit": "^0.4.1",
     "grunt-contrib-uglify": "^0.9.1",
     "grunt-imageoptim": "^1.4.1",
     "grunt-sass": "^1.0.0",

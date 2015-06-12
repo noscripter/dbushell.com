@@ -11,16 +11,20 @@ module.exports = function(grunt)
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
     grunt.registerTask('css',        [ 'sass', 'autoprefixer' ]);
     grunt.registerTask('assets',     [ 'copy', 'css', 'uglify', 'svgmin', 'svg2png', 'imageoptim' ]);
-    grunt.registerTask('content',    [ 'dbushell_metalsmith:dev' ]);
+    grunt.registerTask('content',    [ 'dbushell_metalsmith' ]);
 
-    grunt.registerTask('default',    [ 'jshint', 'dbushell_build', 'assets', 'content', ]);
-    grunt.registerTask('package',    [ 'jshint', 'dbushell_build', 'assets', 'dbushell_metalsmith:prod', 'dbushell_package:prod' ]);
+    grunt.registerTask('default',    [ 'jshint', 'dbushell_build', 'assets', 'content' ]);
+    grunt.registerTask('package',    [ 'jshint', 'dbushell_build', 'assets', 'content', 'dbushell_package' ]);
+
+    grunt.registerTask('test',       [ 'jshint', 'nodeunit' ]);
 
     grunt.event.on('watch', function(action, path) {
-        grunt.config('dbushell_metalsmith.watch.options.watching', path);
+        grunt.config('dbushell_metalsmith.all.options.watch', true);
+        grunt.config('dbushell_metalsmith.all.options.watching', path);
     });
 
     grunt.initConfig({
@@ -28,10 +32,13 @@ module.exports = function(grunt)
         pkg: '<json:package.json>',
 
         jshint: {
-            all: ['gruntfile.js', 'tasks/**/*.js']
+            all: ['gruntfile.js', 'tasks/*.js'],
+            test: ['src-tests/**/*.js'],
         },
 
         dbushell_build: { all: { } },
+
+        dbushell_server: { all: { } },
 
         dbushell_package: {
             prod: {
@@ -56,7 +63,7 @@ module.exports = function(grunt)
             },
             markdown: {
                 files: ['src-markdown/**/*.md'],
-                tasks: ['dbushell_metalsmith:watch'],
+                tasks: ['dbushell_metalsmith'],
                 options: {
                     spawn: false,
                     interrupt: true
@@ -64,33 +71,17 @@ module.exports = function(grunt)
             }
         },
 
+        nodeunit: {
+            test: ['src-tests/nodeunit/**/*.js'],
+            options: {
+                reporter: 'verbose'
+            }
+        },
+
         dbushell_metalsmith: {
-            // build for localhost (MAMP config) - changes only
-            watch: {
+            all: {
                 options: {
-                    watch: true,
-                    metadata: {
-                        site_ver  : '1.0.0',
-                        site_url  : 'http://dbushell-metalsmith.dev',
-                        site_name : 'David Bushell',
-                        site_desc : 'David Bushell make websites.'
-                    }
-                }
-            },
-            // build for localhost (MAMP config)
-            dev: {
-                options: {
-                    metadata: {
-                        site_ver  : '1.0.0',
-                        site_url  : 'http://dbushell-metalsmith.dev',
-                        site_name : 'David Bushell',
-                        site_desc : 'David Bushell make websites.'
-                    }
-                }
-            },
-            // build for live server
-            prod: {
-                options: {
+                    watch: false,
                     metadata: {
                         site_ver  : '7.2.0',
                         site_url  : 'http://dbushell.com',
@@ -137,7 +128,7 @@ module.exports = function(grunt)
                 files: [{
                     expand: true,
                     cwd: 'src-assets/',
-                    src: ['js/**/*.js', "!js/**/*.min.js", 'js/**/iscroll*.js'],
+                    src: ['js/**/*.js', '!js/**/*.min.js', 'js/**/iscroll*.js'],
                     dest: 'build/assets/',
                     ext: '.min.js'
                 }]
