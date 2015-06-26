@@ -257,6 +257,7 @@
             width: em(18, $unit--p);
             height: em(18, $unit--p);
             margin-right: em(4, $unit--p);
+            fill: currentColor;
 
             .no-svg & {
                 @include hidden;
@@ -264,29 +265,29 @@
         }
     }
 
-    .nav__item--twitter {
+    // .nav__item--twitter {
 
-        svg {
-            width: em(22, $unit--p);
-            fill: lighten(#55acee, 10);
-            margin-left: em(-4, $unit--p);
-        }
+    //     svg {
+    //         width: em(22, $unit--p);
+    //         fill: lighten(#55acee, 10);
+    //         margin-left: em(-4, $unit--p);
+    //     }
 
-        .nav__link {
-            color: lighten(#55acee, 10) !important;
-        }
-    }
+    //     .nav__link {
+    //         color: lighten(#55acee, 10) !important;
+    //     }
+    // }
 
-    .nav__item--google {
+    // .nav__item--google {
 
-        svg {
-            fill: lighten(#dc4b39, 10);
-        }
+    //     svg {
+    //         fill: lighten(#dc4b39, 10);
+    //     }
 
-        .nav__link {
-            color: lighten(#dc4b39, 10) !important;
-        }
-    }
+    //     .nav__link {
+    //         color: lighten(#dc4b39, 10) !important;
+    //     }
+    // }
 
     .nav__link {
         @include no-tap-highlight;
