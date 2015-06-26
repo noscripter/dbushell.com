@@ -1,5 +1,5 @@
 ---
-title: WordPress & CMS
+title: Process & Strategy
 slug: process-and-strategy
 template: service-strategy.html
 ---
