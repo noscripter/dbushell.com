@@ -14,7 +14,7 @@ Usually with books like this I will skip to the chapters that immediately catch 
 
 <p class="p--light p--small">Disclaimer: I was given the book for free with no strings attached. I’m under no obligation to review the book or write kind words, these are my genuine opinions.</p>
 
-As will all books in the series, this book collates the red hot topics that are defining front-end development in 2015 and the foreseeable future. The content is conference level of quality in detail, research, and delivery (and I’ve seen many of the authors speak).
+As with all books in the series, this book collates the red hot topics that are defining front-end development in 2015 and the foreseeable future. The content is conference level of quality in detail, research, and delivery (and I’ve seen many of the authors speak).
 
 I’ll highlight a few chapters I see myself referencing often:
 
