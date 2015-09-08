@@ -378,7 +378,10 @@
 
         .no-js & {
             a:not([class]) {
-                text-decoration: underline;
+
+                &:focus, &:hover {
+                    text-decoration: underline;
+                }
             }
         }
 
@@ -387,11 +390,15 @@
             a:not([class]) {
                 text-shadow: 2px 0 0 $colour__bg, -2px 0 0 $colour__bg;
                 background-image: linear-gradient(to left, rgba($colour__text--link, 0.5) 50%, rgba($colour__text--link, 0.5) 50%);
-                background-position: 0 em($unit--p + 1.1, $unit--p);
+                // background-position: 0 em($unit--p + 1.1, $unit--p);
+                background-position: 0 1.4em;
                 background-repeat: repeat-x;
                 background-size: 1px 1px;
 
                 &:focus, &:hover {
+                    background-color: $colour__highlight;
+                    text-shadow: 2px 0 0 $colour__highlight, -2px 0 0 $colour__highlight;
+                    box-shadow: -1px 0 0 2px $colour__highlight, 1px 0 0 2px $colour__highlight;
                     background-image: linear-gradient(to left, rgba($colour__text--link--hover, 0.5) 50%, rgba($colour__text--link--hover, 0.5) 50%);
                 }
             }
@@ -401,11 +408,14 @@
                 a:not([class]) {
                     text-shadow: 2px 0 0 $colour__bg, -2px 0 0 $colour__bg;
                     background-image: linear-gradient(to right, rgba($colour__text--light, 0.5) 0%, rgba($colour__text--light, 0.5) 100%);
-                    background-position: 0 em($unit--h1, $unit--h1);
+                    // background-position: 0 em($unit--h1, $unit--h1);
+                    background-position: 0 1.34em;
                     background-repeat: repeat-x;
                     background-size: 100% 1px;
 
                     &:focus, &:hover {
+                        box-shadow: none;
+                        background-color: transparent;
                         background-image: linear-gradient(to right, rgba($colour__brand, 0.7) 0%, rgba($colour__brand, 0.7) 100%);
                     }
                 }
@@ -446,7 +456,7 @@
             .wf-active & {
                 .h0 {
                      a:not([class]) {
-                        background-position: 0 em($unit--h0, $unit--h0);
+                        // background-position: 0 em($unit--h0, $unit--h0);
                      }
                 }
             }

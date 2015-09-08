@@ -6,7 +6,15 @@
             <h3>I’m David Bushell</h3>
             <p class="p--light"><a href="{{ site_url 'about' }}">I freelance</a> for small businesses, start-ups, individuals, and fellow web agencies.</p>
         </div>
+
+        {{# is "contact" }}
         <hr>
+        {{/ is }}
+        {{^ is "contact" }}
+        <a href="{{ site_url 'contact' }}" class="footer__hire">
+            <img src="{{ site_url 'assets/img/dbushell-for-hire.svg' }}" alt="Available for Hire">
+        </a>
+        {{/ is }}
 
         <aside class="prose footer__blog" role="complementary">
             <h3>From the Blog&hellip;</h3>

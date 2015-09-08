@@ -32,6 +32,17 @@
         }
     }
 
+    .footer__hire {
+        display: block;
+        overflow: hidden;
+        border-radius: em(10);
+        margin: em($unit--baseline) 0;
+
+        img {
+            width: 100%;
+        }
+    }
+
     .footer__blog {
 
         ul {

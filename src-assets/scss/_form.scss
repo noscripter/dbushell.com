@@ -135,6 +135,7 @@
         &:focus {
             color: $colour__text;
             border-color: $colour__text--link;
+            background-color: $colour__highlight;
         }
 
         .lt-ie8 & {

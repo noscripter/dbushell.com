@@ -63,6 +63,7 @@ function plugin(grunt)
         Handlebars.registerHelper('is', function(type, options) {
             var is = false;
             if (type === 'home' && ['index.html'].indexOf(this.template) > -1) is = true;
+            if (type === 'contact' && ['contact.html'].indexOf(this.template) > -1) is = true;
             if (type === 'single' && ['page.html', 'single.html'].indexOf(this.template) > -1) is = true;
             return is ? options.fn(this) : options.inverse(this);
         });
