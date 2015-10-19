@@ -21,6 +21,9 @@ function plugin(options) {
             var data = files[file].contents.toString();
             data = data.replace(/{%([a-z]*.*?)%}/g, '<$1>');
             files[file].contents = new Buffer(data);
+
+            // update metadata for metalsmith-layouts (from deprecated metalsmith-templates)
+            files[file].layout = files[file].template || 'page.html';
         }
 
         done();

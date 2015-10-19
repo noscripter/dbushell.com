@@ -8,7 +8,7 @@ var Metalsmith  = require('metalsmith'),
     ms_collections = require('metalsmith-collections'),
     ms_pagination  = require('metalsmith-pagination'),
     ms_markdown    = require('metalsmith-markdown'),
-    ms_templates   = require('metalsmith-templates'),
+    ms_layouts     = require('metalsmith-layouts'),
     ms_permalinks  = require('metalsmith-permalinks'),
     ms_db_markup   = require('./dbushell-metalsmith-markup'),
     ms_db_sitemap  = require('./dbushell-metalsmith-sitemap'),
@@ -64,9 +64,9 @@ function plugin(grunt)
         // replicate WordPress `is_frontpage` and `is_single` template functions
         Handlebars.registerHelper('is', function(type, options) {
             var is = false;
-            if (type === 'home' && ['index.html'].indexOf(this.template) > -1) is = true;
-            if (type === 'contact' && ['contact.html'].indexOf(this.template) > -1) is = true;
-            if (type === 'single' && ['page.html', 'single.html'].indexOf(this.template) > -1) is = true;
+            if (type === 'home' && ['index.html'].indexOf(this.layout) > -1) is = true;
+            if (type === 'contact' && ['contact.html'].indexOf(this.layout) > -1) is = true;
+            if (type === 'single' && ['page.html', 'single.html'].indexOf(this.layout) > -1) is = true;
             return is ? options.fn(this) : options.inverse(this);
         });
 
@@ -100,12 +100,12 @@ function plugin(grunt)
 
         // format meta content for <title>
         Handlebars.registerHelper('page_title', function(context, options) {
-            if (this.template === 'index.html') {
+            if (this.layout === 'index.html') {
                 return new Handlebars.SafeString(this.site_name + ' &#8211; ' + this.site_desc);
             }
             var title = this.title;
             if (!title) {
-                if (this.template === 'archive.html') {
+                if (this.layout === 'archive.html') {
                     title = 'Blog';
                     if (this.pagination.num > 1) {
                         title += ' (Page ' + this.pagination.num + ')';
@@ -191,7 +191,7 @@ function plugin(grunt)
                 'collections.blog': {
                     first: 'blog/index.html',
                     path: 'blog/page/:num/index.html',
-                    template: 'archive.html',
+                    layout: 'archive.html',
                     perPage: 7
                 }
             }))
@@ -224,10 +224,10 @@ function plugin(grunt)
                 }))
             )
 
-            .use(ms_templates({
+            .use(ms_layouts({
                 engine: 'handlebars',
                 directory: 'src-templates',
-                partials: options.partials
+                partials: 'src-templates/partials'
             }))
 
             .use(ms_db_sitemap({ }))
