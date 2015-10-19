@@ -2,6 +2,7 @@ var Metalsmith  = require('metalsmith'),
     Handlebars  = require('handlebars'),
     Moment      = require('moment'),
 
+    ms_feed        = require('metalsmith-feed'),
     ms_drafts      = require('metalsmith-drafts'),
     ms_branch      = require('metalsmith-branch'),
     ms_collections = require('metalsmith-collections'),
@@ -13,6 +14,7 @@ var Metalsmith  = require('metalsmith'),
     ms_db_sitemap  = require('./dbushell-metalsmith-sitemap'),
 
     fs          = require('fs'),
+    path        = require('path'),
     striptags   = require('striptags');
 
 module.exports = plugin;
@@ -115,8 +117,8 @@ function plugin(grunt)
             return new Handlebars.SafeString(title);
         });
 
-        // create post excerpt from content similar to WordPress
-        Handlebars.registerHelper('post__excerpt', function(contents) {
+        function post__excerpt(contents)
+        {
             if (typeof contents !== 'string') return '';
             var text = striptags(contents),
                 words = text.split(' ');
@@ -124,7 +126,10 @@ function plugin(grunt)
                 text = words.slice(0, 55).join(' ') + ' [&hellip;]';
             }
             return new Handlebars.SafeString('<p>' + text + '</p>');
-        });
+        }
+
+        // create post excerpt from content similar to WordPress
+        Handlebars.registerHelper('post__excerpt', post__excerpt);
 
         // format post title to avoid orphans
         Handlebars.registerHelper('post__title', function(title) {
@@ -156,6 +161,17 @@ function plugin(grunt)
             .use(ms_markdown({
                 smartypants: true
             }))
+
+            // metadata for RSS feed
+            .use(function(files, metalsmith, done) {
+                for (var file in files) {
+                    if (!/.html/.test(path.extname(file))) {
+                        continue;
+                    }
+                    files[file].rss_content = post__excerpt(files[file].contents.toString());
+                }
+                done();
+            })
 
             .use(ms_collections({
                 latest: {
@@ -215,6 +231,20 @@ function plugin(grunt)
             }))
 
             .use(ms_db_sitemap({ }))
+
+            .use(ms_feed({
+                author: 'David Bushell',
+                webMaster: 'hi@dbushell.com (David Bushell)',
+                title: 'dbushell.com',
+                description: 'David Bushell’s Web Design & Front-end Development Blog',
+                language: 'en',
+                site_url: 'http://dbushell.com',
+                destination: 'rss.xml',
+                collection: 'blog',
+                postDescription: function(file) {
+                    return file.rss_content || '';
+                }
+            }))
 
         ;
 
