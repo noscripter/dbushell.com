@@ -1,0 +1,38 @@
+$combined-css: true;
+@import "origin";
+@import "base";
+@import "typography";
+@import "post";
+
+$critical-css: true;
+$combined-css: false;
+@import "header";
+
+.main,
+.header {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.prose {
+    a:not([class]) {
+        text-decoration: underline;
+    }
+}
+
+.header__title a {
+    opacity: 1;
+}
+
+.post__title a {
+    color: $colour__text;
+    text-decoration: none !important;
+    // border-bottom: 1px solid rgba($colour__text--link, 0.5);
+
+    // &:focus, &:hover {
+    //     color: $colour__text--link--hover;
+    //     // border-bottom: 1px solid rgba($colour__text--link--hover, 0.5);
+    // }
+}
