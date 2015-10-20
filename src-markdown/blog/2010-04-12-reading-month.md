@@ -14,7 +14,7 @@ A combination of very busy work and moving flat has meant my iMac and camera hav
 
 My area of work (web design) generally starts with some kind of existing branding of the client. Sometimes I do get the odd chance to create a brand from scratch, but certainly not enough to keep my logo design skills finely tuned.
 
-![Logo Design Love - a guide to creating iconic brand identities](http://www.dbushell.com/images/blog/logo-design-love-book.jpg)
+![Logo Design Love - a guide to creating iconic brand identities](http://dbushell.com/images/blog/logo-design-love-book.jpg)
 
 To compensate I tend to browse a lot of design blogs including [Logo Design Love](http://www.logodesignlove.com) - run by [David Airey](http://www.davidairey.com). The [book](http://www.logodesignlovebook.com/) _"Logo Design Love - A Guide to Creating Iconic Brand Identities" _was released earlier this year and it filled one of my Mac-less weeks very nicely.
 

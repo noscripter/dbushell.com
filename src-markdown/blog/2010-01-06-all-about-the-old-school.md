@@ -12,7 +12,7 @@ So far this week has very much had a retro feel to it which is a tad odd since w
 
 Monday I was sidetracked for hours when I stumbled upon the website [Vintage Ad Browser](http://www.vintageadbrowser.com/).
 
-[![](http://www.dbushell.com/images/blog/lucky-strike-ad.jpg)](http://www.vintageadbrowser.com/tobacco-ads-1950s/2)
+[![](http://dbushell.com/images/blog/lucky-strike-ad.jpg)](http://www.vintageadbrowser.com/tobacco-ads-1950s/2)
 
 They don't make 'em like that anymore!
 
@@ -24,7 +24,7 @@ Mini-rant over and on to the next link:
 
 [The Movie title stills collection](http://www.annyas.com/screenshots/) does what it says on the tin. When we design a movie poster today we float the heads of the leading actors below Trajan (if the film is set in today's world) or Papyrus (if the film is set in the past or future).
 
-[![](http://www.dbushell.com/images/blog/anatomy-of-a-murder.jpg)](http://www.annyas.com/screenshots/)
+[![](http://dbushell.com/images/blog/anatomy-of-a-murder.jpg)](http://www.annyas.com/screenshots/)
 
 Back in the day the likes of Saul Bass were shaking things up with awesome typography.
 
