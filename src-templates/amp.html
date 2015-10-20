@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js">
+<!doctype html>
+<html amp lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--
-
-Copyright © David Bushell | @dbushell | http://dbushell.com
-
--->
 <title>{{ page_title }}</title>
-<link rel="shortcut icon" type="image/x-icon" href="{{ site_url 'assets/img/favicon.ico' }}">
 <link rel="canonical" href="{{ site_url canonical }}">
-<link rel="alternate" type="application/rss+xml" title="dbushell.com RSS Feed" href="{{ site_url 'rss.xml' }}">
-<link rel="stylesheet" href="{{ site_url 'assets/css/combined.css' }}?ver={{ site_ver }}">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<style>body {opacity: 0}</style><noscript><style>body {opacity: 1}</style></noscript>
+<script async src="https://cdn.ampproject.org/v0.js"></script>
+<style amp-custom>
+{{ inline 'assets/css/combined.css' }}
+</style>
 </head>
 <body>
 
@@ -24,18 +21,17 @@ Copyright © David Bushell | @dbushell | http://dbushell.com
 <main class="main main--single" role="main">
 
     <div class="block prose post">
-        <h1 class="post__title">{{ post__title title }}</h1>
+        <h1 class="post__title"><a rel="canonical" href="{{ site_url canonical }}">{{ post__title title }}</a></h1>
         <p class="post__date"><time datetime="{{ moment date "ISO" }}">{{ moment date "dddd" }} <strong>{{ moment date "D" }} <abbr title="{{ moment date "MMMM" }}">{{ moment date "MMM" }}</abbr> {{ moment date "YYYY" }}</strong></time></p>
         <div class="post__body">
         {{{ contents }}}
         </div>
 
-        {{>newsletter}}
-
         <hr>
 
-        <p><a rel="me" target="_blank" href="http://twitter.com/dbushell">Follow @dbushell on Twitter</a>
-            <br><a href="{{ site_url 'blog' }}">Return to Blog</a></p>
+        <p><a rel="me" target="_blank" href="http://twitter.com/dbushell">Follow @dbushell on Twitter</a></p>
+
+        <p class="p--small"><small>Copyright &copy; {{ moment today "YYYY" }} <a rel="author" href="{{ site_url }}">David Bushell</a></small></p>
 
     </div>
     <!--/.post-->

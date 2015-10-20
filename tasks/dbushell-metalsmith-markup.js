@@ -28,7 +28,7 @@ function plugin(options) {
             // update metadata for metalsmith-layouts (from deprecated metalsmith-templates)
             file.layout = file.template || 'page.html';
 
-            // clone blog posts for amp alternative (contents Buffer is referenced)
+            // clone blog posts for amp alternative (contents Buffer is referenced for now)
             if (file.layout === 'single.html') {
                 var amppath = filepath.replace(/^blog/, 'amp');
                 ampfiles[amppath] = _.clone(file);

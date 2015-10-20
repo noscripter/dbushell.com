@@ -12,6 +12,7 @@ var Metalsmith  = require('metalsmith'),
     ms_permalinks  = require('metalsmith-permalinks'),
     ms_db_markup   = require('./dbushell-metalsmith-markup'),
     ms_db_sitemap  = require('./dbushell-metalsmith-sitemap'),
+    ms_db_ampify   = require('./dbushell-metalsmith-ampify'),
 
     fs          = require('fs'),
     path        = require('path'),
@@ -113,7 +114,9 @@ function plugin(grunt)
                 }
             }
             title += ' &#8211; ' + this.site_name;
-            title += ' &#8211; ' + this.site_desc;
+            if (!this.amp) {
+                title += ' &#8211; ' + this.site_desc;
+            }
             return new Handlebars.SafeString(title);
         });
 
@@ -161,6 +164,8 @@ function plugin(grunt)
             .use(ms_markdown({
                 smartypants: true
             }))
+
+            .use(ms_branch('amp/*.html').use(ms_db_ampify({ })))
 
             // metadata for RSS feed
             .use(function (files, metalsmith, done) {
@@ -240,6 +245,7 @@ function plugin(grunt)
                 }))
             )
 
+            // update canonical for AMP alternatives
             .use(function (files, metalsmith, done) {
                 for (var file in files) {
                     if (files[file].amp !== true) continue;
@@ -262,7 +268,7 @@ function plugin(grunt)
                 title: 'dbushell.com',
                 description: 'David Bushell’s Web Design & Front-end Development Blog',
                 language: 'en',
-                site_url: 'http://dbushell.com',
+                site_url: options.metadata.site_url,
                 destination: 'rss.xml',
                 collection: 'blog',
                 postDescription: function(file) {
