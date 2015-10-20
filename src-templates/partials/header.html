@@ -17,6 +17,12 @@ Copyright © David Bushell | @dbushell | http://dbushell.com
 <title>{{ page_title }}</title>
 <link rel="shortcut icon" type="image/x-icon" href="{{ site_url 'assets/img/favicon.ico' }}">
 <link rel="apple-touch-icon" href="{{ site_url 'assets/img/apple-touch-icon.png' }}">
+<link rel="canonical" href="{{ site_url path }}">
+<link rel="alternate" type="application/rss+xml" title="dbushell.com RSS Feed" href="{{ site_url 'rss.xml' }}">
+{{# is "single" }}
+<link rel="amphtml" href="{{ site_url path }}amp/">
+<link rel="alternate amphtml" type="text/html" href="{{ site_url path }}amp/">
+{{/ is}}
 <!--[if lt IE 9]>
 <script src="{{ site_url 'assets/js/vendor/html5shiv.min.js' }}"></script>
 <![endif]-->
@@ -28,8 +34,6 @@ Copyright © David Bushell | @dbushell | http://dbushell.com
 {{ inline 'assets/js/loadrunner.min.js' }}
 loadCSS('{{ site_url 'assets/css/style.css' }}?ver={{ site_ver }}');
 </script>
-<link rel="canonical" href="{{ site_url path }}">
-<link rel="alternate" type="application/rss+xml" title="dbushell.com RSS Feed" href="{{ site_url 'rss.xml' }}">
 </head>
 <body>
 

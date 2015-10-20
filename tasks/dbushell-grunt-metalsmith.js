@@ -163,7 +163,7 @@ function plugin(grunt)
             }))
 
             // metadata for RSS feed
-            .use(function(files, metalsmith, done) {
+            .use(function (files, metalsmith, done) {
                 for (var file in files) {
                     if (!/.html/.test(path.extname(file))) {
                         continue;
@@ -204,17 +204,33 @@ function plugin(grunt)
             )
 
             // nested pages include parent slug (exclude blog posts)
-            .use(ms_branch('!blog/*.html').use(ms_branch('*/*.html').use(ms_branch('!index.html').use(ms_permalinks({
-                    pattern: ':parent/:slug'
-                }))))
+            .use(ms_branch('!blog/*.html')
+                .use(ms_branch('!amp/*.html')
+                .use(ms_branch('*/*.html')
+                .use(ms_branch('!index.html')
+                    .use(ms_permalinks({
+                        pattern: ':parent/:slug'
+                    }))
+                )))
             )
 
             // blog posts include date slug
-            .use(ms_branch('blog/*.html').use(ms_branch('!index.html').use(ms_permalinks({
-                    pattern: ':date/:slug',
+            .use(ms_branch('blog/*.html')
+                .use(ms_branch('!index.html')
+                    .use(ms_permalinks({
+                        pattern: ':date/:slug',
+                        date: 'YYYY/MM/DD',
+                        relative: false
+                    }))
+                )
+            )
+
+            // blog have alternative AMP version
+            .use(ms_branch('amp/*.html').use(ms_permalinks({
+                    pattern: ':date/:slug/amp',
                     date: 'YYYY/MM/DD',
                     relative: false
-                })))
+                }))
             )
 
             // blog pages use basic slug
@@ -223,6 +239,14 @@ function plugin(grunt)
                     relative: false
                 }))
             )
+
+            .use(function (files, metalsmith, done) {
+                for (var file in files) {
+                    if (files[file].amp !== true) continue;
+                    files[file].canonical = files[file].path.replace(/\/amp$/, '');
+                }
+                done();
+            })
 
             .use(ms_layouts({
                 engine: 'handlebars',

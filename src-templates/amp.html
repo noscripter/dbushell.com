@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--
+
+Copyright © David Bushell | @dbushell | http://dbushell.com
+
+-->
+<title>{{ page_title }}</title>
+<link rel="shortcut icon" type="image/x-icon" href="{{ site_url 'assets/img/favicon.ico' }}">
+<link rel="canonical" href="{{ site_url canonical }}">
+<link rel="alternate" type="application/rss+xml" title="dbushell.com RSS Feed" href="{{ site_url 'rss.xml' }}">
+<link rel="stylesheet" href="{{ site_url 'assets/css/combined.css' }}?ver={{ site_ver }}">
+</head>
+<body>
+
+<header class="header" id="top" role="banner">
+    <span class="header__title"><a rel="author" href="{{ site_url }}">David Bushell</a></span>
+</header>
+<!--/.header-->
+
+<main class="main main--single" role="main">
+
+    <div class="block prose post">
+        <h1 class="post__title">{{ post__title title }}</h1>
+        <p class="post__date"><time datetime="{{ moment date "ISO" }}">{{ moment date "dddd" }} <strong>{{ moment date "D" }} <abbr title="{{ moment date "MMMM" }}">{{ moment date "MMM" }}</abbr> {{ moment date "YYYY" }}</strong></time></p>
+        <div class="post__body">
+        {{{ contents }}}
+        </div>
+
+        {{>newsletter}}
+
+        <hr>
+
+        <p><a rel="me" target="_blank" href="http://twitter.com/dbushell">Follow @dbushell on Twitter</a>
+            <br><a href="{{ site_url 'blog' }}">Return to Blog</a></p>
+
+    </div>
+    <!--/.post-->
+
+</main>
+<!--/.main-->
+
+</body>
+</html>

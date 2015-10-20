@@ -25,7 +25,7 @@ function plugin(options) {
             }
 
             var data = files[file];
-            if (data.draft || data.private) {
+            if (data.draft || data.private || data.amp) {
                 return;
             }
 
