@@ -28,11 +28,11 @@
 
         a {
             color: $colour__text--light;
-            opacity: 0.5;
+            // opacity: 0.5;
 
             &:focus, &:hover {
                 color: $colour__brand;
-                opacity: 1;
+                // opacity: 1;
             }
         }
     }
