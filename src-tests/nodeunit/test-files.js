@@ -11,5 +11,6 @@ module.exports = {
         test.ok(fs.existsSync('build/contact-submit.php'), 'contact-submit.php');
         test.ok(fs.existsSync('build/sitemap.xml'), 'sitemap.xml');
         test.done();
-    },
+    }
+
 };
