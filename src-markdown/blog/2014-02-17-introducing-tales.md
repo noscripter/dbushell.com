@@ -10,7 +10,7 @@ For the last few weeks I've been working on a little project that I'm excited to
 
 {%p class="post__image"%}[![Tales WordPress theme preview](http://dbushell.com/wp-content/uploads/2014/02/tales-preview-large.png)](http://themes.dbushell.com/tales/){%/p%}
 
-**[Tales](http://themes.dbushell.com/tales/)** is a responsive WordPress theme tailored for a beautiful reading experience. Its strength and design principle can be summed up in one word; simplicity. Visit the [Tales Demo](http://themes.dbushell.com/tales-demo/) website to see a basic install in action. You can [buy Tales for $35](http://gum.co/tales/) at Gumroad (or [buy with PayPal](http://dbushell.fetchapp.com/sell/peibohqu)).
+**[Tales](http://themes.dbushell.com/tales/)** is a responsive WordPress theme tailored for a beautiful reading experience. Its strength and design principle can be summed up in one word; simplicity. Visit the [Tales Demo](http://themes.dbushell.com/tales-demo/) website to see a basic install in action.
 
 
 ## Typography
@@ -42,4 +42,4 @@ The design aligns to two complimentary grids and a loose baseline within the mai
 
 {%p class="post__image"%}![Tales WordPress theme grid design](http://dbushell.com/wp-content/uploads/2014/02/tales-grid-desktop.png){%/p%}
 
-Like what you see? Visit the [Tales website](http://themes.dbushell.com/tales/) for more info on the theme and where to buy it. I've also set up an [email newsletter](http://eepurl.com/M2I9P) for my side projects. Get signed up!
+Like what you see? Visit the [Tales website](http://themes.dbushell.com/tales/) for more info on the theme. I've also set up an [email newsletter](http://eepurl.com/M2I9P) for my side projects. Get signed up!
