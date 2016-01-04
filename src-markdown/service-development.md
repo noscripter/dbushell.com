@@ -26,3 +26,15 @@ HTML, CSS, and JavaScript web standards evolve daily. I take every project as a
 </ul>
 
 An intrinsic knowledge of front-end development is a cornerstone of usable website design.
+
+### Featured case studies
+
+* [CSS Framework for PartsGiant](/2016/01/04/css-framework-for-partsgiant/)
+* [CodePen Prototyping for Houden](/2015/03/18/responsive-design-for-houden/)
+* [Introducing Tales](/2014/02/17/introducing-tales/)
+
+### Featured articles
+
+* [Critical CSS and Performance](/2015/02/19/critical-css-and-performance/)
+* [WordPress to Metalsmith](/2015/05/11/wordpress-to-metalsmith/)
+* [Two Week Build](/2014/04/24/two-week-build/)

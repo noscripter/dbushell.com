@@ -10,15 +10,17 @@ Mobile phones, tablets, desktops — can we even categorise these days? I specia
 
 My web design and development process is heavily feedback driven. It allows for the best collaboration between both parties, utilising my expertise in web design alongside my clients unique understanding of their business.
 
-
-## Your Website
-
+## Your website
 
 Great design that _works_ can't be achieved in isolation. How does it work for your business? We'll figure that out in the browser as the website evolves.
 
 We'll discuss: content, information architecture, business requirements, brand values, user stories, user experience — everything that defines a successful website — all the while testing and interacting with the design on our favourite devices.
 
-It's a fluid, adaptive process. Tell me about your website and we'll go from there:
+It's a fluid, adaptive process. [Tell me about your website](/contact/) and we'll go from there.
 
+### Featured case studies
 
-[Get in Touch](/contact/)
+* [Responsive Design for Uwe Wittwer](/2014/05/07/responsive-design-for-uwe-wittwer/)
+* [Responsive Design for Houden](/2015/03/18/responsive-design-for-houden/)
+* [Responsive Design for King's Transfer](/2013/08/09/responsive-design-for-kings-transfer/)
+
