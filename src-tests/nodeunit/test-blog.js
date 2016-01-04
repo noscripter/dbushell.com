@@ -26,7 +26,7 @@ module.exports = {
         });
 
         test.ok(dir_count === new Date().getFullYear() - 2008, 'year directories exist (' + dir_count + ')');
-        test.ok(/^20[0-9]{2}$/.test(year_count / dir_count), 'year directories named correctly');
+        test.ok(/^20[0-9]{2}$/.test(Math.floor(year_count / dir_count)), 'year directories named correctly');
 
         dir_count = 0;
         files = fs.readdirSync('build/blog/page');
