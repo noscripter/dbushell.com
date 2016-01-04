@@ -102,7 +102,7 @@ function plugin(grunt)
         // format meta content for <title>
         Handlebars.registerHelper('page_title', function(context, options) {
             if (this.layout === 'index.html') {
-                return new Handlebars.SafeString(this.site_name + ' &#8211; ' + this.site_desc);
+                return new Handlebars.SafeString(this.site_name);// + ' &#8211; ' + this.site_desc);
             }
             var title = this.title;
             if (!title) {
@@ -114,9 +114,9 @@ function plugin(grunt)
                 }
             }
             title += ' &#8211; ' + this.site_name;
-            if (!this.amp) {
-                title += ' &#8211; ' + this.site_desc;
-            }
+            // if (!this.amp) {
+            //     title += ' &#8211; ' + this.site_desc;
+            // }
             return new Handlebars.SafeString(title);
         });
 
