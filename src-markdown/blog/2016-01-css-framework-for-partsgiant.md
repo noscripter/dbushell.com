@@ -16,13 +16,11 @@ I’ve always championed the idea of maintainable, future-proof coding practices
 
 ## Stage 1: Responsive Website
 
-To kick off the project *PartsGiant* provided wireframe designs for 15 templates.
+To kick off the project *PartsGiant* provided 15 template designs and an interactive wireframe mock-up of the website.
 
-I started by doing a ‘content’ or ‘component’ inventory. Basically, this means going through the design and itemising common elements and patterns. These can be coded once and reused across multiple templates. Or used as a base for more advanced components.
+I began by doing a ‘content’ or ‘component’ inventory. Basically, this means going through the design and itemising common elements and patterns. These can be coded once and reused across multiple templates (or used as a base for more advanced components).
 
-I started with typographic elements. This is usually a simple task but a vital ingredient to begin with. The client gave me freedom to adapt the designs to ensure consistency.
-
-I documented each component with HTML examples to show structure and CSS class names. I find a [BEM](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/)-like naming convention most usable.
+I started coding the typographic elements. This is usually a simple task but a vital ingredient. The client gave me freedom to adapt the designs to ensure consistency. I documented each component with HTML examples to show structure and CSS class names. I find a [BEM](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/)-like naming convention most usable.
 
 <p class="post__image"><img src="/images/portfolio/partsgiant-buttons.png" alt="Button component - PartsGiant CSS Framework"></p>
 
@@ -41,23 +39,25 @@ Products are listed across the *PartsGiant* website with varying amounts of cont
 
 Whilst developing these components I documented them in a pattern library (or "front-end style guide" if you prefer that terminology).
 
-To complete the library I identify common layout patterns. With these I could quickly piece together each template and insert the required components. Very little additional CSS was required for individual templates. In these cases I created larger component groups rather than applying unique styles to the page.
+To complete the library I identified common layout patterns. With these I could quickly piece together each template and insert the required components. Very little additional CSS was required for individual templates. In these cases I created larger component groups rather than applying unique styles to the page.
+
+The result is a modular CSS framework with minimal repetition.
 
 **The final CSS stylesheet was 147KB** (unminified and uncompressed). That's very small for such a large e-commerce website.
 
 ## Stage 2: Admin Interface
 
-Later in the year I was asked by *PartsGiant* to build their admin interface that would be used to manage products, customers, orders, and other content. Another 15 template wireframes were provided. The designs shared the style of the main website so it made sense to built upon the CSS framework I’d already developed.
+Later in the year I was asked by *PartsGiant* to build their admin interface that would be used to manage products, customers, orders, and other content. Another 15 template wireframes were provided. The design shared the style of the main website so it made sense to built upon the CSS framework I’d already developed.
 
 <p class="post__image"><img src="/images/portfolio/partsgiant-admin.png" alt="PartsGiant Admin Design"></p>
 
-I decided to keep the admin styles as a separate stylesheet rather than integrating back into the main CSS to avoid unnecessary bloat.
+I decided to keep the admin styles as a separate add-on, rather than integrating back into the main CSS to avoid unnecessary file size on the user-facing pages.
 
 **The final admin stylesheet was an additional 24KB** (on top of the 147KB base).
 
 ## Stage 3: Mobile Framework
 
-Although I had developed the main website with a responsive and ’mobile-first’ approach it was decided that a dedicated mobile website would allow for a more tailored experience. This also gave us an opportunity to finely tune page speed and performance for smaller devices.
+Although I had developed the main website with a responsive and ’mobile-first’ approach it was decided that a dedicated mobile website would allow for a more tailored experience. This also gave us an opportunity to finely tune page speed and performance for smaller screens.
 
 Usually I prefer one responsive website but for e-commerce I can understand the benefits of the mobile website approach.
 
@@ -71,12 +71,14 @@ On the main website I'd used jQuery for interactive components. On mobile I remo
 
 ## Final Thoughts
 
-It was a joy to work with *PartsGiant* and I look forward to any opportunity I might receive to work with them again. Most of the work I do is maintained by the website owner once the project is over. With this project it was a nice experience to jump back into my ‘old’ code and see for myself whether my methods are correct. Thankfully, they are!
+It was a joy to work with *PartsGiant* and I look forward to any opportunity I may receive to work with them again. Most of the work I do is maintained by the website owner once the project is over. With this project it was a nice experience to jump back into my ‘old’ code and see for myself how usable my methods are. Thankfully, they work!
 
 A big decision early on was to decide whether or not to build upon an existing 'framework' like [Bootstrap](http://getbootstrap.com/). As of v3.3.6 Bootstrap’s base CSS is 146KB alone — my final stylesheet was only 1KB larger. Had I built upon Bootstrap it would have been upwards of 250KB. It would also have been near impossible to achieve the 54KB slimline framework I developed for mobile.
 
-Bootstrap is a good tool for prototyping but in my opinion, unnecessary and overly complicated for production. On the surface these starter frameworks look tempting, but honestly, from experience they really doesn’t provide much of a head-start. Even before visual design is applied too many decisions have been made in the HTML & CSS that require resetting. This bloats the code and is much harder to understand and maintain.
+Bootstrap is a good tool for prototyping but in my opinion, unnecessary and overly complicated for production. On the surface these starter frameworks look tempting, but honestly, from experience they really don't provide much of a head-start. Even before visual design is applied too many decisions have been made in the HTML & CSS that require resetting. This bloats the code and is much harder to understand and maintain.
 
 Documentation is very important for a project like this. But it can be overdone. As I developed components for *PartsGiant* I place them on a single web page to test. I added notes and code examples only for the less intuitive ones. Eventually I categorised them on multiple pages using the website navigation and layout patterns for better formatting.
 
 Documentation wasn’t actually requested by the client (they were only expecting a few comments in the stylesheet). With my approach I was able to deliver something much more readable with very little overhead. What I delivered was simply a product of my process building the CSS framework.
+
+[Looking for a developer/designer for your project? Get in touch!](http://dbushell.com/contact/)
