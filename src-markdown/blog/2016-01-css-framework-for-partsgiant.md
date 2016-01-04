@@ -65,6 +65,8 @@ Usually I prefer one responsive website but for e-commerce I can understand the 
 
 Like the first two stages *PartsGiant* sent me wireframes to build (around 20 this time). I branched of the main CSS framework and created a reduced version for mobile. Many of the smaller components are shared. Those not used on mobile were removed.
 
+I coded each component as a [Sass](http://sass-lang.com/) include (in separate files) so nothing was duplicated. An update to the *Button* for example would update both the responsive and mobile frameworks.
+
 **The entire mobile CSS framework was only 54KB**.
 
 On the main website I'd used jQuery for interactive components. On mobile I removed this dependency; only 14KB of JavaScript was needed for the interactive components. All of which were progressively enhanced to ensure accessibility without JavaScript.
@@ -75,7 +77,7 @@ It was a joy to work with *PartsGiant* and I look forward to any opportunity I m
 
 A big decision early on was to decide whether or not to build upon an existing 'framework' like [Bootstrap](http://getbootstrap.com/). As of v3.3.6 Bootstrap’s base CSS is 146KB alone — my final stylesheet was only 1KB larger. Had I built upon Bootstrap it would have been upwards of 250KB. It would also have been near impossible to achieve the 54KB slimline framework I developed for mobile.
 
-Bootstrap is a good tool for prototyping but in my opinion, unnecessary and overly complicated for production. On the surface these starter frameworks look tempting, but honestly, from experience they really don't provide much of a head-start. Even before visual design is applied too many decisions have been made in the HTML & CSS that require resetting. This bloats the code and is much harder to understand and maintain.
+Bootstrap is a good tool for prototyping but in my opinion, unnecessary and overly complicated for production. On the surface these starter frameworks look tempting, but honestly, from experience they really don't provide much of a head start. Even before visual design is applied too many decisions have been made in the HTML & CSS that require resetting. This bloats the code and is much harder to understand and maintain.
 
 Documentation is very important for a project like this. But it can be overdone. As I developed components for *PartsGiant* I place them on a single web page to test. I added notes and code examples only for the less intuitive ones. Eventually I categorised them on multiple pages using the website navigation and layout patterns for better formatting.
 
