@@ -6,9 +6,9 @@ template: single.html
 title: 'CSS Framework for PartsGiant'
 ---
 
-** *PartsGiant* is a soon to launch e-commerce store based in Michigan, USA. **
+** [PartsGiant](http://www.partsgiant.com/) is a soon to launch e-commerce store based in Michigan, USA. **
 
-I was hired to build the *PartsGiant* front-end CSS framework and HTML templates. The work would be done in stages throughout the year. This required flexibility on my part and scalability in the codebase I developed.
+I was hired to build the [PartsGiant](http://www.partsgiant.com/) front-end CSS framework and HTML templates. The work would be done in stages throughout the year. This required flexibility on my part and scalability in the codebase I developed.
 
 I’ve always championed the idea of maintainable, future-proof coding practices. With this project I’d put my own ideas to the test by building upon work I’d done months before.
 
@@ -16,7 +16,7 @@ I’ve always championed the idea of maintainable, future-proof coding practices
 
 ## Stage 1: Responsive Website
 
-To kick off the project *PartsGiant* provided 15 template designs and an interactive wireframe mock-up of the website.
+To kick off the project [PartsGiant](http://www.partsgiant.com/) provided 15 template designs and an interactive wireframe mock-up of the website.
 
 I began by doing a ‘content’ or ‘component’ inventory. Basically, this means going through the design and itemising common elements and patterns. These can be coded once and reused across multiple templates (or used as a base for more advanced components).
 
@@ -33,7 +33,7 @@ The primitive components like the *Button* allowed for rapid development of simi
 
 <p class="post__image"><img src="/images/portfolio/partsgiant-sorting.png" alt="Sorting component - PartsGiant CSS Framework"></p>
 
-Products are listed across the *PartsGiant* website with varying amounts of content. I created one *Product* component whose children can be added or removed depending on use. The *Stars* and *Rating* sub-components were abstracted for use elsewhere.
+Products are listed across the [PartsGiant](http://www.partsgiant.com/) website with varying amounts of content. I created one *Product* component whose children can be added or removed depending on use. The *Stars* and *Rating* sub-components were abstracted for use elsewhere.
 
 <p class="post__image"><img src="/images/portfolio/partsgiant-products.png" alt="Product component - PartsGiant CSS Framework"></p>
 
@@ -47,7 +47,7 @@ The result is a modular CSS framework with minimal repetition.
 
 ## Stage 2: Admin Interface
 
-Later in the year I was asked by *PartsGiant* to build their admin interface that would be used to manage products, customers, orders, and other content. Another 15 template wireframes were provided. The design shared the style of the main website so it made sense to built upon the CSS framework I’d already developed.
+Later in the year I was asked by [PartsGiant](http://www.partsgiant.com/) to build their admin interface that would be used to manage products, customers, orders, and other content. Another 15 template wireframes were provided. The design shared the style of the main website so it made sense to built upon the CSS framework I’d already developed.
 
 <p class="post__image"><img src="/images/portfolio/partsgiant-admin.png" alt="PartsGiant Admin Design"></p>
 
@@ -63,7 +63,7 @@ Usually I prefer one responsive website but for e-commerce I can understand the 
 
 <p class="post__image"><img src="/images/portfolio/partsgiant-mobile.png" alt="PartsGiant Mobile Design"></p>
 
-Like the first two stages *PartsGiant* sent me wireframes to build (around 20 this time). I branched of the main CSS framework and created a reduced version for mobile. Many of the smaller components are shared. Those not used on mobile were removed.
+Like the first two stages [PartsGiant](http://www.partsgiant.com/) sent me wireframes to build (around 20 this time). I branched of the main CSS framework and created a reduced version for mobile. Many of the smaller components are shared. Those not used on mobile were removed.
 
 I coded each component as a [Sass](http://sass-lang.com/) include (in separate files) so nothing was duplicated. An update to the *Button* for example would update both the responsive and mobile frameworks.
 
@@ -73,13 +73,13 @@ On the main website I'd used jQuery for interactive components. On mobile I remo
 
 ## Final Thoughts
 
-It was a joy to work with *PartsGiant* and I look forward to any opportunity I may receive to work with them again. Most of the work I do is maintained by the website owner once the project is over. With this project it was a nice experience to jump back into my ‘old’ code and see for myself how usable my methods are. Thankfully, they work!
+It was a joy to work with [PartsGiant](http://www.partsgiant.com/) and I look forward to any opportunity I may receive to work with them again. Most of the work I do is maintained by the website owner once the project is over. With this project it was a nice experience to jump back into my ‘old’ code and see for myself how usable my methods are. Thankfully, they work!
 
 A big decision early on was to decide whether or not to build upon an existing 'framework' like [Bootstrap](http://getbootstrap.com/). As of v3.3.6 Bootstrap’s base CSS is 146KB alone — my final stylesheet was only 1KB larger. Had I built upon Bootstrap it would have been upwards of 250KB. It would also have been near impossible to achieve the 54KB slimline framework I developed for mobile.
 
 Bootstrap is a good tool for prototyping but in my opinion, unnecessary and overly complicated for production. On the surface these starter frameworks look tempting, but honestly, from experience they really don't provide much of a head start. Even before visual design is applied too many decisions have been made in the HTML & CSS that require resetting. This bloats the code and is much harder to understand and maintain.
 
-Documentation is very important for a project like this. But it can be overdone. As I developed components for *PartsGiant* I place them on a single web page to test. I added notes and code examples only for the less intuitive ones. Eventually I categorised them on multiple pages using the website navigation and layout patterns for better formatting.
+Documentation is very important for a project like this. But it can be overdone. As I developed components for [PartsGiant](http://www.partsgiant.com/) I place them on a single web page to test. I added notes and code examples only for the less intuitive ones. Eventually I categorised them on multiple pages using the website navigation and layout patterns for better formatting.
 
 Documentation wasn’t actually requested by the client (they were only expecting a few comments in the stylesheet). With my approach I was able to deliver something much more readable with very little overhead. What I delivered was simply a product of my process building the CSS framework.
 
