@@ -145,7 +145,7 @@
 
     //     }, 3000);
 
-    win.loadScript('//use.typekit.net/pzo7bmq.js', function() {
+    win.loadScript('//use.typekit.net/vjw4wno.js', function() {
         if (!Typekit) return;
         try {
             Typekit.load(/*config*/);

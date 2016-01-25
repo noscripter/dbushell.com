@@ -83,7 +83,8 @@ module.exports = function(grunt)
                 options: {
                     watch: false,
                     metadata: {
-                        site_ver  : '7.2.1',
+                        dev       : true,
+                        site_ver  : '8.0.0',
                         site_url  : 'http://dbushell.com',
                         site_name : 'David Bushell &#8211; Web Design &amp; Front-end Development (based in Manchester, UK)',
                         site_desc : 'David Bushell make websites. I help small businesses, start-ups, individuals, and fellow web agencies make the most of their web presence.'
@@ -121,10 +122,10 @@ module.exports = function(grunt)
         },
 
         uglify: {
-            options: {
-                preserveComments: 'some'
-            },
             all: {
+                options: {
+                    preserveComments: /(?:^!|@(?:license|preserve|cc_on))/
+                },
                 files: [{
                     expand: true,
                     cwd: 'src-assets/',

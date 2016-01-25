@@ -26,10 +26,14 @@ Copyright © David Bushell | @dbushell | http://dbushell.com
 <!--[if lt IE 9]>
 <script src="{{ site_url 'assets/js/vendor/html5shiv.min.js' }}"></script>
 <![endif]-->
+{{# if dev }}
+<link rel="stylesheet" href="{{ site_url 'assets/css/combined.css' }}?ver={{ site_ver }}">
+{{ else }}
 <noscript><link rel="stylesheet" href="{{ site_url 'assets/css/combined.css' }}?ver={{ site_ver }}"></noscript>
 <style>
 {{ inline 'assets/css/critical.css' }}
 </style>
+{{/ if }}
 <script>
 {{ inline 'assets/js/loadrunner.min.js' }}
 loadCSS('{{ site_url 'assets/css/style.css' }}?ver={{ site_ver }}');
