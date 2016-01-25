@@ -88,16 +88,6 @@ svg:not(:root) {
         padding-top: em($unit--baseline * 3);
         margin-right: em($footer--width);
     }
-
-    @include respond-min($breakpoint--pinned)
-    {
-        margin-left: em($nav--pinned);
-    }
-}
-
-.main--unpinned {
-    transition: margin-left 300ms ease;
-    margin-left: 0 !important;
 }
 
 .main__title {

@@ -184,36 +184,6 @@ if (/dbushell\.com/.test(window.location.hostname))
                 return;
             }
 
-            var esi = document.getElementsByTagName('esi:include'),
-
-                esi_include = function(el)
-                {
-                    var req = new window.XMLHttpRequest();
-                    req.onreadystatechange = function()
-                    {
-                        if (req.readyState === 4) {
-                            var div = document.createElement('div');
-                            div.innerHTML = req.responseText;
-                            el.parentNode.insertBefore(div, el);
-                            if (_scrollers.length) {
-                                setTimeout(function () {
-                                    for (var i = 0; i < _scrollers.length; i++) {
-                                        _scrollers[i].refresh();
-                                    }
-                                }, 50);
-                            }
-                        }
-                    };
-                    req.open('GET', el.getAttribute('src'), true);
-                    req.send();
-                };
-
-            if (esi.length && window.XMLHttpRequest) {
-                for (var i = 0; i < esi.length; i++) {
-                    esi_include(esi[i]);
-                }
-            }
-
             var mouse = { },
 
                 nav_open = false,
@@ -233,7 +203,6 @@ if (/dbushell\.com/.test(window.location.hostname))
 
             app.onResize = function(e)
             {
-                // header_width = $header.offsetWidth;
                 app.onScroll(e);
             };
 
@@ -329,8 +298,7 @@ if (/dbushell\.com/.test(window.location.hostname))
 
             var $nav     = document.getElementById('nav'),
                 $overlay = document.getElementById('overlay'),
-                $main    = document.getElementsByTagName('main')[0],
-                unpinned = false;
+                $main    = document.getElementsByTagName('main')[0];
 
             app.openNav = function()
             {
@@ -349,10 +317,6 @@ if (/dbushell\.com/.test(window.location.hostname))
                 removeClass($nav, 'nav--active');
                 removeClass($overlay, 'overlay--active');
                 removeEvent($nav, 'mouseleave', nav_onMouseLeave, false);
-                if (!unpinned) {
-                    addClass($main, 'main--unpinned');
-                    unpinned = true;
-                }
                 setTimeout(function() {
                     addClass($nav, 'nav--hidden');
                 }, 300);
@@ -384,28 +348,6 @@ if (/dbushell\.com/.test(window.location.hostname))
             }, false);
 
             app.iscroll();
-
-            if (document.getElementsByClassName) {
-                var form = document.getElementsByClassName('ninja-forms-form')[0];
-                if (form) {
-                    addEvent(form, 'focus', function(e)
-                    {
-                        if (!e.target) return;
-                        var parent = e.target.parentNode;
-                        if (! (hasClass(parent, 'text-wrap') || hasClass(parent, 'textarea-wrap')) ) return;
-                        addClass(parent, 'js--focus');
-                    },
-                    true);
-                    addEvent(form, 'blur', function(e)
-                    {
-                        if (!e.target) return;
-                        var parent = e.target.parentNode;
-                        if (! (hasClass(parent, 'text-wrap') || hasClass(parent, 'textarea-wrap')) ) return;
-                        removeClass(parent, 'js--focus');
-                    },
-                    true);
-                }
-            }
 
             return app;
         };

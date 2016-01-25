@@ -55,7 +55,7 @@ $breakpoint--mini    : 420;
 $breakpoint--mobile  : 580;
 $breakpoint--desktop : 960;
 $breakpoint--aside   : 1000;
-$breakpoint--pinned  : $nav--pinned + $block--max-width + $footer--width + $scrollbar--width;
+// $breakpoint--pinned  : $nav--pinned + $block--max-width + $footer--width + $scrollbar--width;
 
 $breakpoint--hero--1 : $breakpoint--mini;
 $breakpoint--hero--2 : $breakpoint--mobile;
@@ -100,8 +100,8 @@ $colour__bg--dark           : $colour__slate;
 
 // Font usage for normal, display, script, and monospace stacks
 
-$fonts--sans       : "Helvetica Neue", Helvetica, Arial, sans-serif;
-$fonts--serif      : "ff-tisa-web-pro", /*"droid-serif", "Droid Serif",*/ Georgia, serif;
+$fonts--sans       : "futura-pt", ".SFNSDisplay-Regular", "Helvetica Neue", Arial, sans-serif;
+$fonts--serif      : $fonts--sans; // "ff-tisa-web-pro", Georgia, serif;
 $fonts--monospace  : Monaco, Courier, monospace;
 
 // now using universal IE stylesheet concept

@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<!--[if IE 7]> <html lang="en" class="lt-ie9 lt-ie8 no-js"> <![endif]-->
-<!--[if IE 8]> <html lang="en" class="lt-ie9 no-js"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="theme-color" content="#a1e5cf">
 <!--
 
 Copyright © David Bushell | @dbushell | http://dbushell.com
@@ -36,7 +35,9 @@ Copyright © David Bushell | @dbushell | http://dbushell.com
 {{/ if }}
 <script>
 {{ inline 'assets/js/loadrunner.min.js' }}
+{{# if dev }}{{ else }}
 loadCSS('{{ site_url 'assets/css/style.css' }}?ver={{ site_ver }}');
+{{/ if }}
 </script>
 </head>
 <body>

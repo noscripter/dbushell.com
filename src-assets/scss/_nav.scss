@@ -215,28 +215,6 @@
         @media only print { @include hidden; }
     }
 
-    @include respond-min($breakpoint--pinned)
-    {
-        .css3d {
-
-            .nav:not(.nav--closed) {
-                transform: translate3d(0, 0, 0);
-
-                .nav-close {
-                    opacity: 1;
-                }
-            }
-
-            .nav:not(.nav--active):not(.nav--hidden) {
-                width: em($nav--pinned);
-
-                .nav-close {
-                    opacity: 0.5;
-                }
-            }
-        }
-    }
-
     .nav__list {
         margin: 0;
         @include clearfix;
