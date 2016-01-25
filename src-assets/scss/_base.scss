@@ -1,13 +1,9 @@
 
 html {
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    background: $colour__bg;
+    background: $beige;
     min-width: em(300);
     padding: 0;
     margin: 0;
-    color: $colour__text;
-    font-family: $fonts--serif;
     overflow-y: scroll;
 }
 
@@ -46,7 +42,7 @@ svg:not(:root) {
 }
 
 ::-webkit-scrollbar-track {
-    background: $colour__canvas;
+    background: $canvas;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -91,7 +87,7 @@ svg:not(:root) {
 }
 
 .main__title {
-    margin-bottom: em($unit * 5, $unit--h1);
+    margin-bottom: em($unit * 5, $h1);
 }
 
 .main--home {
@@ -100,7 +96,7 @@ svg:not(:root) {
 
 .main--blog {
     .main__title {
-        margin-bottom: em($unit * 4, $unit--h1);
+        margin-bottom: em($unit * 4, $h1);
     }
 }
 

@@ -19,17 +19,17 @@
         height: em($unit--field);
         outline: none;
         border: none;
-        color: $colour__text--link;
+        color: $blue;
         font-weight: bold;
         vertical-align: middle;
         border-radius: em(5);
-        border: em(2) solid $colour__text--link;
+        border: em(2) solid $blue;
         background-color: transparent;
 
         &:focus,
         &:hover {
-            color: $colour__text--link--hover;
-            border-color: $colour__text--link--hover;
+            color: $blue;
+            border-color: $blue;
             border-width: em(2);
         }
     }
@@ -60,13 +60,13 @@
     }
 
     .button--primary {
-        color: $colour__white !important;
+        color: $white !important;
         border-radius: em($unit--field, 14);
-        background: $colour__text--link;
+        background: $blue;
 
         &:focus, &:hover {
-            border-color: $colour__text--link--hover;
-            background-color: $colour__text--link--hover;
+            border-color: $blue;
+            background-color: $blue;
         }
     }
 
@@ -97,7 +97,7 @@
         font-size: em(14) !important;
         line-height: em($unit--baseline, 14) !important;
         font-weight: normal !important;
-        color: $colour__text--light;
+        color: $grey;
 
         input[type="radio"],
         input[type="checkbox"] {
@@ -108,11 +108,11 @@
 
         input[type="radio"]:checked + span,
         input[type="checkbox"]:checked + span {
-            color: $colour__text;
+            color: $black;
         }
 
         input[checked="checked"] + span {
-            color: $colour__text;
+            color: $black;
         }
     }
 
@@ -127,15 +127,15 @@
         height: em($unit--field);
         padding: em($unit) em($unit * 2);
         outline: none;
-        color: $colour__text--light;
+        color: $grey;
         border: em(2) solid $colour__hairline;
-        background: $colour__bg--light;
+        background: $white;
         font-family: $fonts--sans;
 
         &:focus {
-            color: $colour__text;
-            border-color: $colour__text--link;
-            background-color: $colour__highlight;
+            color: $black;
+            border-color: $blue;
+            background-color: $yellow;
         }
 
         .lt-ie8 & {
@@ -170,7 +170,7 @@
             margin-bottom: em($unit*2);
             width: 100%;
             padding: 0;
-            color: $colour__text--light;
+            color: $grey;
             font-weight: normal;
             border-bottom: 1px solid $colour__hairline;
         }
@@ -294,18 +294,18 @@
 
     .ninja-forms-error-msg {
         & > div {
-            color: $colour__error;
-            @include font-size($unit--p);
-            margin-bottom: em($unit--baseline/2, $unit--p);
+            color: $red;
+            @include font-size($p);
+            margin-bottom: em($unit--baseline/2, $p);
             font-weight: bold;
         }
     }
 
     .ninja-forms-field-error {
         p {
-            color: $colour__error;
+            color: $red;
             font-family: $fonts--sans;
-            @include font-size($unit--p--small, $unit--baseline);
+            @include font-size($p--small, $unit--baseline);
             margin-bottom: 0;
         }
     }

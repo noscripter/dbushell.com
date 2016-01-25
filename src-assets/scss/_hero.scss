@@ -28,7 +28,7 @@
     }
 
     .hero__footer {
-        margin-top: em($unit--baseline, $unit--p);
+        margin-top: em($unit--baseline, $p);
 
         @include respond-max($breakpoint--hero--3 - 1)
         {
@@ -37,7 +37,7 @@
 
         @include respond-min(1280)
         {
-            margin-top: em($unit--baseline * 2, $unit--p);
+            margin-top: em($unit--baseline * 2, $p);
         }
     }
 
@@ -91,8 +91,8 @@
         @include respond-min($breakpoint--hero--2)
         {
             li {
-                @include font-size($unit--p--large, $unit--baseline);
-                margin-bottom: em($unit * 2, $unit--p--large);
+                @include font-size($p--large, $unit--baseline);
+                margin-bottom: em($unit * 2, $p--large);
             }
         }
     }

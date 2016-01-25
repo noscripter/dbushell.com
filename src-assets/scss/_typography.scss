@@ -1,466 +1,173 @@
 
-@include critical {
-
-    hr,
-    .hr {
-        box-sizing: content-box;
-        display: block;
-        clear: both;
-        height: em(2);
-        margin: em($unit--baseline - 1) 0;
-        background: $colour__hairline;
-        outline: none;
-        border: 0;
-    }
-
-    a {
-        color: $colour__text--link;
-        text-decoration: none;
-        transition: color 100ms ease;
-
-        &:focus {
-            outline: thin dotted $colour__slate;
-        }
-
-        &:focus,
-        &:hover {
-            color: $colour__text--link--hover;
-        }
-
-        a:active,
-        a:hover {
-            outline: 0;
-        }
-
-        &:active {
-            text-shadow: none !important;
-        }
-    }
-
-    h1, h2, h3, h4,/* h5, h6,*/
-    .h0, .h1, .h2, .h3, .h4/* ,.h5, .h6*/ {
-        font-weight: bold;
-        margin-top: 0;
-    }
-
-    h1, .h1, .h0 {
-        @include font-size($unit--h1, $unit * 7);
-        margin-bottom: em($unit * 3, $unit--h1);
-        letter-spacing: -1px;
-        font-weight: normal;
-
-        a {
-            color: $colour__text--light;
-
-            &:focus, &:hover {
-                color: $colour__text--brand;
-            }
-        }
-    }
-
-    h2, .h2 {
-        @include font-size($unit--h2, $unit * 5);
-        margin-bottom: em($unit * 2, $unit--h2);
-    }
-
-    h3, .h3 {
-        @include font-size($unit--h3, $unit * 5);
-        margin-bottom: em($unit * 2, $unit--h3);
-    }
-
-    h4, .h4 {
-        @include font-size($unit--h4, $unit * 4);
-        margin-bottom: em($unit * 2, $unit--h4);
-    }
-
-    // h5, h6, .h5, .h6 {
-    //     @include font-size($unit--h5);
-    //     margin-bottom: em($unit * 2, $unit--h5);
-    // }
-
-    @include respond-min($breakpoint--mini)
-    {
-        .h0 {
-            @include font-size($unit--h0, $unit * 9);
-            margin-bottom: em($unit * 4, $unit--h0);
-            letter-spacing: -2px;
-            font-weight: normal;
-        }
-    }
-
-    p, .p {
-        @include font-size($unit--p);
-        margin-top: 0;
-        margin-bottom: em($unit--baseline/2, $unit--p);
-        color: $colour__text;
-
-        & + h1 { margin-top: em($unit--baseline * 1.5, $unit--h1); }
-        & + h2 { margin-top: em($unit--baseline * 1.5, $unit--h2); }
-        & + h3 { margin-top: em($unit--baseline * 1.5, $unit--h3); }
-
-        &:last-child { margin-bottom: 0; }
-    }
-
-
-    .p--large {
-        @include font-size($unit--p--large, $unit--p--large + ($unit * 2));
-        margin-bottom: em($unit--baseline, $unit--p--large);
-
-        &:last-child { margin-bottom: 0; }
-    }
-
-    .p--small {
-        @include font-size($unit--p--small, $unit * 3);
-        margin-bottom: em($unit--baseline/2, $unit--p--small);
-
-        &:last-child { margin-bottom: 0; }
-
-        a {
-            border-bottom: none !important;
-            text-decoration: underline;
-        }
-    }
-
-    ul, ol {
-        padding: 0;
-        margin-top: 0;
-        margin-left: em($unit--gutter);
-        margin-bottom: em($unit--baseline);
-        list-style: disc outside;
-
-        p + & {
-            margin-top: em($unit--baseline);
-        }
-
-        li {
-            @include font-size($unit--p);
-            margin-bottom: em($unit, $unit--p);
-            color: $colour__text;
-
-            li {
-                font-size: inherit;
-                line-height: inherit;
-            }
-        }
-
-        &:not([class]) p {
-            font-size: inherit;
-            line-height: inherit;
-        }
-
-        ul, ol {
-            font-size: inherit;
-            line-height: inherit;
-            margin-left: em($unit--gutter, $unit--p);
-            margin-top: em($unit, $unit--p);
-            margin-bottom: em($unit, $unit--p) !important;
-        }
-
-        &:last-child { margin-bottom: 0; }
-    }
-
-    ol {
-        list-style: decimal outside;
-    }
-
-    time {
-        display: inline-block;
-        color: $colour__text--light;
-        text-transform: uppercase;
-        font-family: $fonts--sans;
-
-        abbr[title] {
-            border: none;
-            background-image: none;
-        }
-    }
-
-} // critical
-
-@include non-critical {
-
-    ::selection {
-        color: #fff;
-        background: $colour__text--link;
-        text-shadow: none !important;
-    }
-
-    .p--error {
-        color: $colour__error;
-    }
-
-    .p--no-margin {
-        margin-bottom: 0 !important;
-    }
-
-    .p--quote {
-
-        &:before {
-            display: inline-block;
-            line-height: 1;
-            content: "\201C";
-            width: 0.6em;
-            margin-left: -0.6em;
-            opacity: 0.7;
-        }
-
-        &:after {
-            content: "\201D";
-            opacity: 0.7;
-        }
-    }
-
-    cite {
-        border: none;
-    }
-
-    .quote,
-    blockquote:not([class*="quote--"]) {
-        margin: em($unit--baseline) 0;
-        padding: 0 em($unit--gutter);
-        border-left: em(2) solid $colour__hairline;
-
-        p {
-            color: $colour__text--light;
-        }
-
-        .p--large {
-            & + .p--small:last-child { margin-top: em(-$unit * 2, $unit--p--small); }
-        }
-
-        @include respond-max($breakpoint--mini - 1)
-        {
-            padding: 0;
-            border-left: 0;
-
-            .p--large {
-                @include font-size($unit--p);
-                margin-bottom: em($unit--baseline/2, $unit--p);
-                & + .p--small:last-child { margin-top: 0; }
-                &:last-child { margin-bottom: 0; }
-            }
-        }
-
-        cite {
-            font-style: normal;
-
-            a:not(:hover) {
-                color: $colour__text--light;
-            }
-
-            a {
-                text-decoration: underline;
-                text-shadow: none !important;
-                background: none !important;
-            }
-        }
-    }
-
-    abbr,
-    .abbr,
-    acronym {
-        &[title] {
-            border: none;
-            background-image: linear-gradient(to left, rgba($colour__text, 0) 50%, rgba($colour__text, 0.5) 50%);
-            background-position: 0 bottom;
-            background-repeat: repeat-x;
-            background-size: 2px 1px;
-        }
-    }
-
-    pre,
-    kbd,
-    code {
-        @include font-size($unit--p--small, $unit * 3);
-        font-family: $fonts--monospace;
-        background: $colour__bg--dark;
-        color: $colour__white;
-    }
-
-    code {
-        color: $colour__text;
-        background: $colour__canvas;
-    }
-
-    pre {
-        clear: both;
-        overflow: auto;
-        margin: em($unit--baseline * 1.5, $unit--p--small) 0;
-        padding: em($unit--baseline, $unit--p--small) em($unit--gutter, $unit--p--small);
-        box-shadow: inset 0 1px 7px darken($colour__bg--dark, 10);
-
-        direction: ltr;
-        text-align: left;
-        white-space: pre;
-        word-spacing: normal;
-        word-break: normal;
-        -moz-tab-size: 4;
-        -o-tab-size: 4;
-        tab-size: 4;
-        -webkit-hyphens: none;
-        -moz-hyphens: none;
-        -ms-hyphens: none;
-        hyphens: none;
-
-        code {
-            display: block;
-            color: $colour__white;
-            font-size: inherit;
-            line-height: inherit;
-            background: none;
-            padding: 0;
-        }
-
-        &::-webkit-scrollbar {
-            width: 14px;
-            height: 14px;
-        }
-
-        &::-webkit-scrollbar-track {
-            background: $colour__bg--dark;
-        }
-
-        &::-webkit-scrollbar-thumb {
-            background: $colour__text--light;
-            border: 4px solid $colour__bg--dark;
-            border-radius: 10px;
-        }
-    }
-
-    kbd,
-    code {
-        display: inline-block;
-        line-height: 1.5;
-        padding: 0 em(3, $unit--p--small);
-
-        p & {
-            font-size: em($unit--p--small, $unit--p);
-        }
-    }
-
-    mark,
-    .mark {
-        color: inherit;
-        background: $colour__highlight;
-        text-shadow: none !important;
-    }
-
-    q {
-        font-style: italic;
-        // quotes: "\201C" "\201D" "\2018" "\2019";
-        &:before { content: "\201C"; }
-        &:after { content: "\201D"; }
-    }
-
-    small {
-        color: $colour__text--light;
-        font-size: inherit;
-        line-height: inherit;
-
-        a {
-            color: $colour__text--light;
-            text-decoration: underline;
-            border: none !important;
-        }
-    }
-
-    del,
-    strike {
-        color: $colour__text--light;
-        text-decoration: none; // line-through;
-        background-image: linear-gradient(to bottom, rgba($colour__text--light, 0.5) 0%, rgba($colour__text--light, 0.5) 100%);
-        background-position: 0 center;
-        background-repeat: repeat-x;
-        background-size: 2px 2px;
-    }
-
-    .prose {
-
-        .no-js & {
-            a:not([class]) {
-
-                &:focus, &:hover {
-                    text-decoration: underline;
-                }
-            }
-        }
-
-        .wf-active & {
-
-            a:not([class]) {
-                text-shadow: 2px 0 0 $colour__bg, -2px 0 0 $colour__bg;
-                background-image: linear-gradient(to left, rgba($colour__text--link, 0.5) 50%, rgba($colour__text--link, 0.5) 50%);
-                // background-position: 0 em($unit--p + 1.1, $unit--p);
-                background-position: 0 1.4em;
-                background-repeat: repeat-x;
-                background-size: 1px 1px;
-
-                &:focus, &:hover {
-                    background-color: $colour__highlight;
-                    text-shadow: 2px 0 0 $colour__highlight, -2px 0 0 $colour__highlight;
-                    box-shadow: -1px 0 0 2px $colour__highlight, 1px 0 0 2px $colour__highlight;
-                    background-image: linear-gradient(to left, rgba($colour__text--link--hover, 0.5) 50%, rgba($colour__text--link--hover, 0.5) 50%);
-                }
-            }
-
-            h1, .h1, .h0 {
-
-                a:not([class]) {
-                    text-shadow: 2px 0 0 $colour__bg, -2px 0 0 $colour__bg;
-                    background-image: linear-gradient(to right, rgba($colour__text--light, 0.5) 0%, rgba($colour__text--light, 0.5) 100%);
-                    // background-position: 0 em($unit--h1, $unit--h1);
-                    background-position: 0 1.34em;
-                    background-repeat: repeat-x;
-                    background-size: 100% 1px;
-
-                    &:focus, &:hover {
-                        box-shadow: none;
-                        background-color: transparent;
-                        background-image: linear-gradient(to right, rgba($colour__brand, 0.7) 0%, rgba($colour__brand, 0.7) 100%);
-                    }
-                }
-            }
-        }
-
-        .p--light {
-            color: $colour__text--light;
-
-            a:not(:hover) {
-                color: $colour__text--light;
-
-                .wf-active & {
-                    background-image: linear-gradient(to right, rgba($colour__text--light, 0.5) 0%, rgba($colour__text--light, 0.5) 100%);
-                }
-            }
-        }
-    }
-
-    @include respond-min($breakpoint--mobile)
-    {
-        .prose {
-
-            p:not([class]) {
-                max-width: em(720, $unit--p);
-                // max-width: gc-spanning(5, 6);
-            }
-
-            .p--small {
-                max-width: em(720, $unit--p--small);
-            }
-        }
-    }
-
-    @include respond-min($breakpoint--mini)
-    {
-        .prose {
-            .wf-active & {
-                .h0 {
-                     a:not([class]) {
-                        // background-position: 0 em($unit--h0, $unit--h0);
-                     }
-                }
-            }
-        }
-    }
-
-} // non-critical
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  color: $black;
+  font-family: $fonts--serif;
+  font-weight: 300;
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+  cursor: pointer;
+
+  background-image: linear-gradient(to right, rgba($blue, 0.5) 0%, rgba($blue, 0.5) 100%);
+  background-repeat: repeat-x;
+  background-size: 100% 1px;
+  background-position: 0 90%;
+
+  &:not([class]):focus,
+  &:not([class]):hover {
+    outline: 0;
+    text-shadow: none;
+    background-image: linear-gradient(to right, rgba($yellow, 1) 0%, rgba($yellow, 1) 100%);
+    background-size: 100% 7px;
+    background-position: 0 90%;
+  }
+
+  p > & {
+    text-shadow: 2px 0 0 $beige, -2px 0 0 $beige;
+  }
+
+  .footer & {
+    text-shadow: 2px 0 0 $white, -2px 0 0 $white;
+  }
+}
+
+hr, .hr {
+  display: block;
+  clear: both;
+  height: 0;
+  margin: em($unit--baseline - 2) 0 em($unit--baseline - 1) 0;
+  border: 0;
+  outline: none;
+  border-top: 2px solid $green;
+  border-bottom: 1px solid $yellow;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin: 0;
+  font-weight: 500;
+  color: $blue;
+  text-shadow: -1px 0 0 rgba($beige, 1),
+               1px 1px 0 rgba($beige, 1),
+               2px 3px 0 rgba($green, 0.8);
+
+  .footer & {
+    text-shadow: -1px 0 0 rgba($white, 1),
+                 1px 1px 0 rgba($white, 1),
+                 2px 3px 0 rgba($green, 0.8);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+h1, .h1 {
+  @include font-size($h1);
+  margin-bottom: em($unit * 2, $h1);
+
+  p + & {
+    margin-top: em($unit * 5, $h1);
+  }
+}
+
+h2, .h2 {
+  @include font-size($h2);
+  margin-bottom: em($unit * 2, $h2);
+
+  p + & {
+    margin-top: em($unit * 5, $h2);
+  }
+}
+
+h3, .h3 {
+  @include font-size($h3);
+  margin-bottom: em($unit * 2, $h3);
+
+  p + & {
+    margin-top: em($unit * 5, $h3);
+  }
+}
+
+h4, .h4 {
+  @include font-size($h4);
+  margin-bottom: em($unit * 2, $h4);
+
+  p + & {
+    margin-top: em($unit * 5, $h4);
+  }
+}
+
+p, .p {
+  @include font-size($p, $unit * 4);
+  margin-top: 0;
+  margin-bottom: em($unit * 2, $p);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+small,
+.p--small {
+  @include font-size($p--small, $unit * 4);
+  color: $grey;
+}
+
+.p--small {
+  margin-bottom: em($unit * 2, $p--small);
+
+  small {
+    display: inline-block;
+    font-size: inherit;
+    line-height: 1;
+  }
+}
+
+ul, ol {
+  padding: 0;
+  margin: 0 0 em($unit--baseline) em($unit--gutter);
+  list-style: disc outside;
+
+  p + & {
+    margin-top: em($unit--baseline);
+  }
+}
+
+li {
+  @include font-size($p, $unit * 4);
+  margin-bottom: em($unit, $p);
+
+  p, ul, ol, li {
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+ol {
+  list-style: decimal outside;
+}
+
+time {
+  display: block;
+  text-transform: uppercase;
+  color: $grey;
+
+  abbr[title] {
+    border: none;
+    background-image: none;
+  }
+
+  p &,
+  li & {
+    font-size: em($p--small, $p);
+  }
+}

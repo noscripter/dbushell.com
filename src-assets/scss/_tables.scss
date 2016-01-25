@@ -35,7 +35,7 @@ table {
 .table--striped {
     tbody {
         tr:nth-child(odd) {
-            background: $colour__canvas;
+            background: $canvas;
         }
     }
 }
@@ -66,8 +66,8 @@ table {
     }
 
     li {
-        @include font-size($unit--p--small, $unit * 3);
-        padding-left: em($unit--gutter/2, $unit--p--small);
+        @include font-size($p--small, $unit * 3);
+        padding-left: em($unit--gutter/2, $p--small);
         margin-bottom: 0;
         flex-basis: 50%;
         box-sizing: border-box;

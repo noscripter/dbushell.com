@@ -15,14 +15,14 @@
     }
 
     .post__title {
-        margin-bottom: em($unit * 5, $unit--h1);
+        margin-bottom: em($unit * 5, $h1);
 
         & + .post__date {
-            margin-top: em(-$unit * 2, $unit--p);
+            margin-top: em(-$unit * 2, $p);
         }
 
         & + .p--large {
-            margin-top: em(-$unit, $unit--p--large);
+            margin-top: em(-$unit, $p--large);
         }
 
         @include respond-max($breakpoint--mobile - 1)
@@ -39,10 +39,10 @@
     .post--excerpt {
 
         .post__title {
-            margin-bottom: em($unit * 2, $unit--h3);
+            margin-bottom: em($unit * 2, $h3);
 
             & + .post__date {
-                margin-top: em(-$unit, $unit--p);
+                margin-top: em(-$unit, $p);
             }
         }
 
@@ -61,7 +61,7 @@
         margin-left: -#{inner-percent(7)};
         margin-right: -#{inner-percent(7)};
         padding: em($unit--baseline) inner-percent(7);
-        background: $colour__canvas;
+        background: $canvas;
 
         img {
             width: auto;

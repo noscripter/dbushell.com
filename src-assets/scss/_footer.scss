@@ -4,7 +4,7 @@
     .footer {
         position: relative;
         box-sizing: border-box;
-        background: $colour__bg--light;
+        background: $white;
         text-align: center;
 
         .block {
@@ -24,7 +24,7 @@
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
             width: em($footer--width);
-            background: $colour__bg--light;
+            background: $white;
 
             .block {
                 padding: em($unit--baseline) em($unit--gutter);
@@ -50,9 +50,9 @@
             margin-left: 0;
         }
 
-        time {
-            display: block;
-        }
+        // time {
+        //     display: block;
+        // }
     }
 
 } // critical
@@ -63,14 +63,14 @@
         padding-top: em($unit);
         box-shadow: 0 0 em($unit * 2) rgba(0,0,0, 0.1);
 
-        .prose {
-            a:not([class]) {
-                text-shadow: 2px 0 0 $colour__bg--light, -2px 0 0 $colour__bg--light !important;
-            }
-        }
+        // .prose {
+        //     a:not([class]) {
+        //         text-shadow: 2px 0 0 $white, -2px 0 0 $white !important;
+        //     }
+        // }
 
         h3 {
-            margin-top: em(-$unit, $unit--h3);
+            margin-top: em(-$unit, $h3);
         }
 
         hr {
@@ -82,11 +82,11 @@
             right: 0 !important;
             bottom: 0 !important;
             width: 14px !important;
-            background: $colour__bg--light !important;
+            background: $white !important;
 
             .iScrollIndicator {
                 background: rgba($colour__hairline, 0.7) !important;
-                border: 3px solid $colour__bg--light !important;
+                border: 3px solid $white !important;
                 border-radius: 10px !important;
 
                 &:hover {
@@ -112,7 +112,7 @@
         }
 
         &::-webkit-scrollbar-track {
-            background: $colour__bg--light;
+            background: $white;
         }
 
         &::-webkit-scrollbar-track-piece {
@@ -124,7 +124,7 @@
 
         &::-webkit-scrollbar-thumb {
             background: rgba($colour__hairline, 0.3);
-            border: 3px solid $colour__bg--light;
+            border: 3px solid $white;
             border-radius: 10px;
 
             &:hover {
@@ -177,58 +177,15 @@
     .footer__blog {
 
         li {
-            line-height: em($unit * 3, $unit--p);
-            margin-bottom: em($unit * 2, $unit--p);
+            // line-height: em($unit * 3, $p);
+            margin-bottom: em($unit * 2, $p);
         }
 
-        time {
-            font-size: em($unit--p--small, $unit--p);
-            line-height: em($unit * 3, $unit--p--small);
-            height: em($unit * 3, $unit--p--small);
-        }
-    }
-
-    .sponsor {
-        margin: 0 auto em($unit--baseline * 1.5) auto;
-        max-width: em(420);
-        text-align: left;
-        background: $colour__bg--light;
-
-        &:hover, &:focus {
-            background: $colour__silver;
-            outline: em($unit) solid $colour__silver;
-
-            // .sponsor__title {
-            //     color: $colour__text--link--hover;
-            // }
-        }
-    }
-
-    .sponsor__title {
-        color: $colour__text--link;
-        @include font-size(12, $unit * 4);
-        margin: 0;
-        font-family: $fonts--sans;
-        text-transform: uppercase;
-    }
-
-    .sponsor__link {
-        display: table;
-        margin: 0;
-        height: em($unit * 14);
-        padding-left: em($unit * 16);
-        padding-right: em($unit); // em($unit * 2);
-        background: url("../img/sponsor-logo.svg") 0 center no-repeat;
-        background-size: auto em($unit * 14);
-
-        .no-svg & {
-            background-image: url("../img/sponsor-logo.png");
-        }
-
-        p {
-            color: $colour__text--light;
-            font-family: $fonts--sans;
-        }
+        // time {
+        //     font-size: em($p--small, $p);
+        //     line-height: em($unit * 3, $p--small);
+        //     height: em($unit * 3, $p--small);
+        // }
     }
 
     @include respond-min($breakpoint--aside)
@@ -264,7 +221,7 @@
             text-align: left;
 
             .block > p {
-                max-width: em(500, $unit--p);
+                max-width: em(500, $p);
             }
         }
 
@@ -287,10 +244,6 @@
 
             width: em($unit * 17);
             height: em($unit * 17);
-        }
-
-        .sponsor {
-            margin-left: 0;
         }
     }
 
