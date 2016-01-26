@@ -10,7 +10,7 @@ table {
 .table {
     width: 100%;
 
-    tr { border-bottom: 1px solid $colour__hairline; }
+    tr { border-bottom: 1px solid $grey; }
 
     tbody {
         tr:last-child { border-bottom: 0; }
@@ -42,7 +42,7 @@ table {
 
 .table--bordered {
     tr { border: none; }
-    th, td { border: 1px solid $colour__hairline; }
+    th, td { border: 1px solid $grey; }
 }
 
 .table--condensed {

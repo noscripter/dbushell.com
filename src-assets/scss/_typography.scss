@@ -22,6 +22,24 @@ a {
   color: $blue;
   text-decoration: none;
   cursor: pointer;
+  background-image: linear-gradient(to right, rgba($blue, 0.5) 0%, rgba($blue, 0.5) 100%);
+  background-repeat: repeat-x;
+  background-size: 100% 1px;
+  background-position: 0 90%;
+  text-shadow: 2px 0 0 $beige, -2px 0 0 $beige;
+
+  &:not([class]):focus,
+  &:not([class]):hover {
+    outline: 0;
+    text-shadow: none;
+    background-image: linear-gradient(to right, rgba($yellow, 1) 0%, rgba($yellow, 1) 100%);
+    background-size: 100% 7px;
+    background-position: 0 90%;
+  }
+
+  .footer & {
+    text-shadow: 2px 0 0 $white, -2px 0 0 $white;
+  }
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -93,7 +111,6 @@ p, .p {
 small,
 .p--small {
   @include font-size($p--small, $unit * 4);
-  color: $grey;
 }
 
 .p--small {
@@ -129,7 +146,7 @@ li {
   @include font-size($p, $unit * 4);
   margin-bottom: em($unit, $p);
 
-  p, ul, ol, li {
+  li, &:not([class]) p {
     font-size: inherit;
     line-height: inherit;
   }
@@ -169,6 +186,17 @@ time {
   color: $red;
 }
 
+.p--light {
+  color: $grey;
+}
+
+cite,
+.p--light {
+  a {
+    color: inherit;
+  }
+}
+
 .p--quote {
 
   &:before {
@@ -190,6 +218,10 @@ time {
 cite {
   border: none;
   font-style: normal;
+
+  a {
+    color: inherit;
+  }
 }
 
 .quote,
@@ -333,29 +365,6 @@ code {
   }
 }
 
-p a,
-.prose a {
-
-  background-image: linear-gradient(to right, rgba($blue, 0.5) 0%, rgba($blue, 0.5) 100%);
-  background-repeat: repeat-x;
-  background-size: 100% 1px;
-  background-position: 0 90%;
-  text-shadow: 2px 0 0 $beige, -2px 0 0 $beige;
-
-  &:not([class]):focus,
-  &:not([class]):hover {
-    outline: 0;
-    text-shadow: none;
-    background-image: linear-gradient(to right, rgba($yellow, 1) 0%, rgba($yellow, 1) 100%);
-    background-size: 100% 7px;
-    background-position: 0 90%;
-  }
-}
-
-.footer p a,
-.footer .prose a {
-  text-shadow: 2px 0 0 $white, -2px 0 0 $white;
-}
 
 @include respond-min($breakpoint--mobile)
 {
