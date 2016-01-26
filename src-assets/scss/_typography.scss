@@ -7,34 +7,6 @@ html {
   font-weight: 300;
 }
 
-a {
-  color: $blue;
-  text-decoration: none;
-  cursor: pointer;
-
-  background-image: linear-gradient(to right, rgba($blue, 0.5) 0%, rgba($blue, 0.5) 100%);
-  background-repeat: repeat-x;
-  background-size: 100% 1px;
-  background-position: 0 90%;
-
-  &:not([class]):focus,
-  &:not([class]):hover {
-    outline: 0;
-    text-shadow: none;
-    background-image: linear-gradient(to right, rgba($yellow, 1) 0%, rgba($yellow, 1) 100%);
-    background-size: 100% 7px;
-    background-position: 0 90%;
-  }
-
-  p > & {
-    text-shadow: 2px 0 0 $beige, -2px 0 0 $beige;
-  }
-
-  .footer & {
-    text-shadow: 2px 0 0 $white, -2px 0 0 $white;
-  }
-}
-
 hr, .hr {
   display: block;
   clear: both;
@@ -44,6 +16,12 @@ hr, .hr {
   outline: none;
   border-top: 2px solid $green;
   border-bottom: 1px solid $yellow;
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -128,6 +106,11 @@ small,
   }
 }
 
+.p--large {
+  @include font-size($p--large, $unit * 4);
+  margin-bottom: em($unit * 4, $p--large);
+}
+
 ul, ol {
   padding: 0;
   margin: 0 0 em($unit--baseline) em($unit--gutter);
@@ -135,6 +118,10 @@ ul, ol {
 
   p + & {
     margin-top: em($unit--baseline);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
   }
 }
 
@@ -169,5 +156,217 @@ time {
   p &,
   li & {
     font-size: em($p--small, $p);
+  }
+}
+
+::selection {
+  color: $pink;
+  background: $yellow;
+  text-shadow: none;
+}
+
+.p--error {
+  color: $red;
+}
+
+.p--quote {
+
+  &:before {
+    display: inline-block;
+    line-height: 1;
+    content: "\201C";
+    width: 0.6em;
+    margin-left: -0.6em;
+    opacity: 0.7;
+  }
+
+  &:after {
+    content: "\201D";
+    opacity: 0.7;
+    margin-left: 0.3em;
+  }
+}
+
+cite {
+  border: none;
+  font-style: normal;
+}
+
+.quote,
+blockquote {
+  margin: em($unit--baseline) 0;
+  padding: 0 em($unit--gutter);
+  border-left: em(2) solid $green;
+
+  p {
+    color: $grey;
+  }
+
+  .p--large {
+    & + .p--small:last-child {
+      margin-top: em(-$unit * 2, $p--small);
+    }
+  }
+
+  @include respond-max($breakpoint--mini - 1)
+  {
+    padding: 0;
+    border-left: 0;
+
+    .p--large {
+      @include font-size($p, $unit * 4);
+
+      &:not(:last-child) {
+        margin-bottom: em($unit * 2, $p);
+      }
+
+      & + .p--small:last-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+mark,
+.mark {
+  color: inherit;
+  background: $yellow;
+  text-shadow: none;
+}
+
+del,
+strike {
+  color: $grey;
+  text-decoration: none; // line-through;
+  background-image: linear-gradient(to left, rgba($red, 1) 0%, rgba($red, 1) 100%);
+  background-position: 0 60%;
+  background-repeat: repeat-x;
+  background-size: 100% 2px;
+}
+
+q {
+  font-style: italic;
+  // quotes: "\201C" "\201D" "\2018" "\2019";
+  &:before { content: "\201C"; }
+  &:after { content: "\201D"; }
+}
+
+abbr,
+.abbr,
+acronym {
+  &[title] {
+    border: none;
+    background-image: linear-gradient(to left, rgba($black, 0) 50%, rgba($black, 0.5) 50%);
+    background-position: 0 bottom;
+    background-repeat: repeat-x;
+    background-size: 2px 1px;
+  }
+}
+
+pre,
+kbd,
+code {
+  @include font-size(14, $unit * 3);
+  font-family: $fonts--monospace;
+  background: $black;
+  color: $white;
+}
+
+code {
+  color: $black;
+  background: $green;
+}
+
+pre {
+  clear: both;
+  overflow: auto;
+  margin: em($unit * 6, 14) 0;
+  padding: em($unit--baseline, 14) em($unit--gutter, 14);
+  box-shadow: inset 0 1px 7px darken($black, 10);
+
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+
+  code {
+    display: block;
+    color: $white;
+    font-size: inherit;
+    line-height: inherit;
+    background: none;
+    padding: 0;
+  }
+
+  &::-webkit-scrollbar {
+    width: 14px;
+    height: 14px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $black;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $grey;
+    border: 4px solid $black;
+    border-radius: 10px;
+  }
+}
+
+kbd,
+code {
+  display: inline-block;
+  line-height: 1.5;
+  padding: 0 em(3, 14);
+
+  p & {
+    font-size: em(14, $p);
+  }
+}
+
+p a,
+.prose a {
+
+  background-image: linear-gradient(to right, rgba($blue, 0.5) 0%, rgba($blue, 0.5) 100%);
+  background-repeat: repeat-x;
+  background-size: 100% 1px;
+  background-position: 0 90%;
+  text-shadow: 2px 0 0 $beige, -2px 0 0 $beige;
+
+  &:not([class]):focus,
+  &:not([class]):hover {
+    outline: 0;
+    text-shadow: none;
+    background-image: linear-gradient(to right, rgba($yellow, 1) 0%, rgba($yellow, 1) 100%);
+    background-size: 100% 7px;
+    background-position: 0 90%;
+  }
+}
+
+.footer p a,
+.footer .prose a {
+  text-shadow: 2px 0 0 $white, -2px 0 0 $white;
+}
+
+@include respond-min($breakpoint--mobile)
+{
+  .prose {
+
+    p:not([class]) {
+      max-width: em(720, $p);
+    }
+
+    .p--small {
+      max-width: em(720, $p--small);
+    }
   }
 }
