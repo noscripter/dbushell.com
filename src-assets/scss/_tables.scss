@@ -59,15 +59,15 @@ table {
     justify-content: flex-start;
     max-width: em(320);
     list-style: circle;
-    margin-bottom: em($unit--baseline/2);
+    margin-bottom: em($baseline/2);
 
     p + & {
-        margin-top: em($unit--baseline/2);
+        margin-top: em($baseline/2);
     }
 
     li {
         @include font-size($p--small, $unit * 3);
-        padding-left: em($unit--gutter/2, $p--small);
+        padding-left: em($gutter/2, $p--small);
         margin-bottom: 0;
         flex-basis: 50%;
         box-sizing: border-box;

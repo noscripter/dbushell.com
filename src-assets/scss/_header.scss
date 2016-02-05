@@ -2,6 +2,7 @@
 @include critical {
 
     .header {
+        display: none;
         z-index: $z-index--header;
         position: absolute;
         top: 0;
@@ -9,11 +10,11 @@
         right: 0;
         opacity: 1;
         height: em($unit * 3);
-        padding: em($unit--baseline) 7%;
+        padding: em($baseline) 7%;
 
         @include respond-min($breakpoint--aside)
         {
-            padding: em($unit--baseline) em($unit * 4);
+            padding: em($baseline) em($unit * 4);
             margin-right: em($footer--width);
         }
     }

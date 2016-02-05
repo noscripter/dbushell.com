@@ -28,7 +28,7 @@ $critical-css: false !default;
     font-size: em($font-size);
     @if $line-height == true {
         line-height: em(ceil($font-size / $unit) * $unit, $font-size);
-        // line-height: ceil($font-size / $unit--baseline) * ($unit--baseline / $font-size) + em;
+        // line-height: ceil($font-size / $baseline) * ($baseline / $font-size) + em;
     }
     @else {
         line-height: em($line-height, $font-size);
@@ -38,8 +38,8 @@ $critical-css: false !default;
 // Units for consistent spacing, vertical rhythm, and a typographic baseline
 
 $unit            : 7;
-$unit--gutter    : $unit * 4;
-$unit--baseline  : $unit * 4;
+$gutter    : $unit * 4;
+$baseline  : $unit * 4;
 
 $unit--field     : $unit * 6;
 
@@ -47,8 +47,8 @@ $p         : 20;
 $p--large  : 25;
 $p--small  : 16;
 
-$h0: 60;
-$h1: 50;
+$h0: 55;
+$h1: 45;
 $h2: 35;
 $h3: 30;
 $h4: 25;
@@ -56,7 +56,7 @@ $h5: $p;
 $h6: $p;
 
 $nav--pinned      : 240;
-$footer--width    : 420;
+$footer--width    : 400;
 $block--max-width : 1140;
 $scrollbar--width : 14;
 
@@ -65,7 +65,7 @@ $scrollbar--width : 14;
 $breakpoint--mini    : 420;
 $breakpoint--mobile  : 580;
 $breakpoint--desktop : 960;
-$breakpoint--aside   : 1000;
+$breakpoint--aside   : 1200;//1000;
 // $breakpoint--pinned  : $nav--pinned + $block--max-width + $footer--width + $scrollbar--width;
 
 $breakpoint--hero--1 : $breakpoint--mini;
@@ -75,10 +75,11 @@ $breakpoint--hero--3 : 800;
 // zIndexes
 
 $z-index--main     : 1000;
+$z-index--hero     : 1500;
 $z-index--header   : 2000;
-$z-index--footer   : 3000;
 $z-index--overlay  : 4000;
 $z-index--nav      : 5000;
+$z-index--footer   : 6000;
 
 // Colours
 
@@ -93,6 +94,7 @@ $green  : #a1e5cf;
 $blue   : #1d97bf;
 $yellow : #fffbcc;
 $dark-blue: #39809e;
+$dark-red : #bf5a56;
 
 
 $colour__hairline           : lighten(#b3b0aa, 15);
@@ -142,14 +144,14 @@ $fonts--monospace  : Monaco, Courier, monospace;
 
 @function gc-gutter($gutter_count: 1, $ratio: 1, $width: $breakpoint--desktop)
 {
-    $gutter: $unit--gutter * $gutter_count;
+    $gutter: $gutter * $gutter_count;
     $width: $width * $ratio;
     @return percentage($gutter / $width);
 }
 
 @function gc-offset($col_count: 1, $col_total: 6, $ratio: 1, $width: $breakpoint--desktop, $inside: 0)
 {
-    $gutter: $unit--gutter;
+    $gutter: $gutter;
     $width: $width * $ratio;
 
     // calculate width of columns

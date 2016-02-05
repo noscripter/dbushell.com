@@ -1,294 +1,161 @@
 
-@include non-critical {
+.overlay {
+  display: none;
+}
 
-    .overlay {
-        z-index: $z-index--overlay;
-        position: absolute;
-        position: fixed;
-        display: block;
-        content: "";
-        top: 0;
-        left: 0%;
-        width: 100%;
-        height: 0;
-        opacity: 0;
-        background: rgba($black, 0.7);
-        transition: opacity 300ms ease, height 1ms 300ms ease;
-        transform: translate3d(0, 0, 0);
-        backface-visibility: hidden;
-    }
+.headroom {
+    transition: transform 200ms linear;
+}
 
-    .overlay--active {
-        height: 100%;
-        opacity: 1;
-        transition: opacity 300ms ease;
-    }
+.headroom--pinned {
+    transform: translateY(0%);
+}
 
-} // non-critical
+.headroom--unpinned {
+    transform: translateY(-100%);
+}
 
-@include critical {
+.nav {
+  z-index: $z-index--nav;
+  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: $pink;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overflow-scrolling: auto;
+  -webkit-overflow-scrolling: touch;
+  min-height: min-content;
+  transition: transform 200ms linear, box-shadow 100ms ease;
+  box-shadow: inset 0 0 0 rgba($dark-red, 1);
 
-    .nav-open,
-    .nav-close {
-        @include no-tap-highlight;
-        position: absolute;
-        top: em($unit * 2);
-        width: em($unit * 5);
-        height: em($unit * 5);
-        padding: em($unit);
-        left: 7%;
-        margin-left: em(-$unit * 2);
-        background-position: em($unit) em($unit);
-        background-repeat: no-repeat;
+  @include respond-min($breakpoint--aside)
+  {
+   padding-right: em($footer--width);
+  }
 
-        svg {
-            pointer-events: none;
-            position: absolute;
-            top: em($unit);
-            left: em($unit);
-            width: em($unit * 5);
-            height: em($unit * 5);
-            fill: $colour__hairline--dark;
-        }
+  &::-webkit-scrollbar {
+      width: 7px;
+  }
 
-        &:focus, &:hover {
-            opacity: 1 !important;
-            color: $green;
+  &::-webkit-scrollbar-track {
+      background: $dark-red;
+  }
 
-            svg {
-                fill: $green;
-            }
-        }
+  &::-webkit-scrollbar-thumb {
+      border-top: 3px solid $dark-red;
+      background: $pink;
 
-        @include respond-min($breakpoint--aside)
-        {
-            left: em($unit * 2);
-            margin-left: 0;
-        }
-    }
+      &:hover {
+          background: $pink;
+      }
+  }
+}
 
-    .nav-open {
-        color: $grey;
+.nav--left-overflow {
+  box-shadow: inset 15px 0 20px -10px rgba($black, 0.5);//$dark-red;
+}
 
-        span {
-            position: absolute;
-            @include font-size($p, $unit * 5);
-            top: em($unit, $p);
-            left: em($unit * 7, $p);
-            pointer-events: none;
-            opacity: 0;
-        }
+.nav--right-overflow {
+  box-shadow: inset -15px 0 20px -10px rgba($black, 0.5);
+}
 
-        @include respond-min($breakpoint--hero--3)
-        {
-            span {
-                pointer-events: all;
-                opacity: 1;
-            }
-        }
+.nav--left-overflow.nav--right-overflow {
+  box-shadow: inset 15px 0 20px -10px rgba($black, 0.5),
+              inset -15px 0 20px -10px rgba($black, 0.5);
+}
 
-        @include respond-max($breakpoint--hero--3 - 1)
-        {
-            @include image-replacement;
-        }
-    }
+.nav__title {
+  @include visually-hidden;
+}
 
-} // critical
+.nav__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  height: em(49);
+  display: flex;
+  flex-wrap: nowrap;
+  width: auto;
+  min-width: min-content;
+  max-width: em(960);
 
-@include non-critical {
+  @include respond-min($breakpoint--mobile)
+  {
 
-    .nav-open {
+  }
+}
 
-        .no-svg & {
-            background-image: url("../img/nav.png");
-            &:focus, &:hover { background-image: url("../img/nav--hover.png"); }
-        }
-    }
+.nav__item {
+  display: block;
+  font-size: inherit;
+  line-height: 1;
+  margin: 0;
+  flex-grow: 1;
 
-    .nav-close {
-        @include image-replacement;
-        left: em($unit * 3) !important;
-        margin-left: 0 !important;
+  &:first-child {
+    padding-left: em(14);
+  }
 
-        .no-svg & {
-            background-image: url("../img/close.png");
-            &:focus, &:hover { background-image: url("../img/close--hover.png"); }
-        }
-    }
+  &:last-child {
+    padding-right: em(14);
+  }
+  // border-right: 2px solid rgba($black, 0.1);
 
-} // non-critical
+  // &:last-child {
+  //   border-right: 0;
+  // }
+}
 
-@include critical {
+.nav__link {
+  position: relative;
+  display: block;
+  color: $white;
+  text-shadow: none;
+  background: none;
+  font-weight: bold;
+  font-size: em(15);
+  line-height: em(35 + ($unit * 2), 15);
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  padding: 0 /*em($unit, 15)*/ em($unit * 2, 15);
 
-    .nav {
-        z-index: $z-index--nav;
-        position: absolute;
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        width: em(240);
-        max-width: 75%;
-        overflow-y: auto;
-        box-sizing: border-box;
-        background: darken($black, 5);
-        padding: em($unit * 11) 0 em($unit * 4) 0;
-    }
+  &:focus, &:hover {
+    outline: none;
+    color: $yellow;
+  }
 
-    .nav__title {
-        @include visually-hidden;
-    }
+  svg {
+    display: inline-block;
+    vertical-align: em(-8, 15);
+    width: em(28, 15);
+    height: em(28, 15);
+    fill: currentColor;
+  }
 
-    .js {
-        .nav {
-            left: auto;
-            right: 100%;
-            transform: translate3d(-100%, 0, 0);
-        }
-    }
+  svg + span {
+    @include visually-hidden;
+  }
+}
 
-    .css3d {
-        .nav {
-            right: auto;
-            transition: transform 300ms ease;
-            backface-visibility: hidden;
+.nav__item--icon {
+  flex-grow: 0;
+  margin-left: em($gutter, 15);
 
-            .nav-close {
-                opacity: 0;
-                transition: opacity 150ms 150ms ease;
-            }
-        }
+  & + & {
+    margin-left: 0;
+  }
 
-        .nav--active,
-        .nav:target:not(.nav--hidden) {
-            transform: translate3d(0, 0, 0);
+  .nav__link {
+      padding: 0 em($unit, 15);
+  }
+}
 
-            .nav-close {
-                opacity: 1;
-            }
-        }
-    }
-
-    .no-js,
-    .android,
-    .no-css3d {
-
-        .nav {
-            left: auto;
-            right: 100%;
-            transform: none !important;
-            transition: none !important;
-        }
-
-        .nav--active {
-            left: 0;
-            right: auto;
-        }
-
-        // separate selector for browser support difference
-        .nav:target:not(.nav--hidden) {
-            left: 0;
-            right: auto;
-        }
-    }
-
-} // critical
-
-@include non-critical {
-
-    .nav {
-
-        &::-webkit-scrollbar {
-            width: 14px;
-        }
-
-        &::-webkit-scrollbar-track {
-            background: darken($black, 5);
-        }
-
-        &::-webkit-scrollbar-thumb {
-            background: $grey;
-            border: 3px solid $black;
-            border-radius: 10px;
-        }
-
-        @media only print { @include hidden; }
-    }
-
-    .nav__list {
-        margin: 0;
-        @include clearfix;
-        background: $black;
-    }
-
-    .nav__item {
-        display: block;
-        margin: 0;
-        @include font-size($p, ($unit * 5) - 2);
-        border-bottom: em(2, $p) solid darken($black, 5);
-
-        svg {
-            position: relative;
-            display: block;
-            float: left;
-            top: em(6, $p);
-            width: em(18, $p);
-            height: em(18, $p);
-            margin-right: em(4, $p);
-            fill: currentColor;
-
-            .no-svg & {
-                @include hidden;
-            }
-        }
-    }
-
-    // .nav__item--twitter {
-
-    //     svg {
-    //         width: em(22, $p);
-    //         fill: lighten(#55acee, 10);
-    //         margin-left: em(-4, $p);
-    //     }
-
-    //     .nav__link {
-    //         color: lighten(#55acee, 10) !important;
-    //     }
-    // }
-
-    // .nav__item--google {
-
-    //     svg {
-    //         fill: lighten(#dc4b39, 10);
-    //     }
-
-    //     .nav__link {
-    //         color: lighten(#dc4b39, 10) !important;
-    //     }
-    // }
-
-    .nav__link {
-        @include no-tap-highlight;
-        display: block;
-        box-sizing: border-box;
-        color: $white;
-        padding: em($unit, $p) em($unit--gutter, $p);
-
-        &:focus, &:hover {
-            color: $white;
-        }
-
-        .js:not(.iOS) & {
-
-            &:focus, &:hover {
-                color: $green !important;
-                svg { fill: $green !important; }
-            }
-
-            &:active {
-                background: darken($black, 5);
-            }
-        }
-    }
-
+.nav__item--twitter {
+  svg {
+    width: em(34, 15);
+  }
 }

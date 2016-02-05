@@ -81,11 +81,11 @@ svg:not(:root) {
 .main {
     z-index: $z-index--main;
     position: relative;
-    padding: em($unit * 11) 0;
+    padding: em($unit * 14) 0 em($unit * 10) 0;
 
     @include respond-min($breakpoint--aside)
     {
-        padding-top: em($unit--baseline * 3);
+        // padding-top: em($baseline * 3);
         margin-right: em($footer--width);
     }
 }
@@ -95,17 +95,20 @@ svg:not(:root) {
 }
 
 .main--home {
-    padding-bottom: em($unit--baseline * 2);
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
 }
 
 .main--blog {
+
     .main__title {
         margin-bottom: em($unit * 4, $h1);
     }
 }
 
 .main--portfolio {
-    padding-bottom: em($unit--baseline);
+
 }
 
 .block {
@@ -119,3 +122,4 @@ svg:not(:root) {
         max-width: em(900);
     }
 }
+

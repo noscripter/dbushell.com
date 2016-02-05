@@ -8,8 +8,8 @@
         text-align: center;
 
         .block {
-            padding-top: em($unit--baseline);
-            padding-bottom: em($unit--baseline);
+            padding-top: em($baseline * 1.5);
+            padding-bottom: em($baseline);
         }
 
         @include respond-min($breakpoint--aside)
@@ -27,7 +27,7 @@
             background: $white;
 
             .block {
-                padding: em($unit--baseline) em($unit--gutter);
+                padding: em($baseline) em($gutter);
             }
         }
     }
@@ -36,7 +36,7 @@
         display: block;
         overflow: hidden;
         border-radius: em(10);
-        margin: em($unit--baseline) 0;
+        margin: em($baseline) 0;
 
         img {
             width: 100%;
@@ -50,9 +50,9 @@
             margin-left: 0;
         }
 
-        // time {
-        //     display: block;
-        // }
+        li {
+            margin-bottom: em($unit * 2, $p);
+        }
     }
 
 } // critical
@@ -63,18 +63,8 @@
         padding-top: em($unit);
         box-shadow: 0 0 em($unit * 2) rgba(0,0,0, 0.1);
 
-        // .prose {
-        //     a:not([class]) {
-        //         text-shadow: 2px 0 0 $white, -2px 0 0 $white !important;
-        //     }
-        // }
-
         h3 {
             margin-top: em(-$unit, $h3);
-        }
-
-        hr {
-            opacity: 0.7;
         }
 
         small {
@@ -166,6 +156,8 @@
             border-radius: 100%;
             background: url("../img/me.jpg") 0 0 no-repeat;
             background-size: 100% 100%;
+            border: 3px solid $yellow;
+            box-shadow: 0 0 0 3px $green;
         }
 
         .lt-ie8 & {
@@ -176,20 +168,6 @@
         {
             margin-top: em(-$unit * 2);
         }
-    }
-
-    .footer__blog {
-
-        li {
-            // line-height: em($unit * 3, $p);
-            margin-bottom: em($unit * 2, $p);
-        }
-
-        // time {
-        //     font-size: em($p--small, $p);
-        //     line-height: em($unit * 3, $p--small);
-        //     height: em($unit * 3, $p--small);
-        // }
     }
 
     @include respond-min($breakpoint--aside)
@@ -233,7 +211,7 @@
 
             ul {
                 column-count: 2;
-                column-gap: em($unit--gutter);
+                column-gap: em($gutter);
             }
 
             li {
@@ -243,8 +221,8 @@
 
         .footer__avatar {
             float: left;
-            margin-right: em($unit--gutter / 2);
-            margin-bottom: em($unit--baseline - $unit);
+            margin-right: em($gutter / 2);
+            margin-bottom: em($baseline - $unit);
 
             width: em($unit * 17);
             height: em($unit * 17);

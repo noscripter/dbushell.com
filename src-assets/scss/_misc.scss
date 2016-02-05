@@ -5,7 +5,7 @@
 
 .media__image {
     float: left;
-    margin-right: em($unit--gutter);
+    margin-right: em($gutter);
 }
 
 .media__body {
@@ -15,41 +15,13 @@
 .media--rtl {
     .media__image {
         float: right;
-        margin-left: em($unit--gutter);
+        margin-left: em($gutter);
         margin-right: 0;
     }
 }
 
-// .justified {
-//     text-align: justify;
-
-//     &:after {
-//         display: inline-block;
-//         content: "";
-//         width: 100%;
-//     }
-// }
-
-// .justified__item {
-//     width: 20%;
-//     vertical-align: top;
-//     display: inline-block;
-//     margin-bottom: em($unit--baseline);
-//     padding: em($unit--baseline/2) em($unit--gutter/2);
-//     text-align: center;
-//     background: $white;
-//     box-sizing: border-box;
-// }
-
-// @include respond-max($breakpoint--mobile)
-// {
-//     .justified__item {
-//         width: 48%;
-//     }
-// }
-
 .newsletter {
-    margin: em($unit--baseline * 2) 0 em($unit--baseline) 0;
+    margin: em($baseline * 2) 0 em($baseline) 0;
 }
 
 .newsletter__form {

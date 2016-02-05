@@ -10,12 +10,13 @@
 @import "post";
 @import "hero";
 @import "folio";
+@import "home";
 @import "header";
 @import "footer";
 @import "nav";
 
 @include non-critical {
-    @import "tables";
+    // @import "tables";
     @import "misc";
     @import "prism";
 }

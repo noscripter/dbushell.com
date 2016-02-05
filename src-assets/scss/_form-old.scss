@@ -86,7 +86,7 @@
     .label {
         display: inline-block;
         vertical-align: middle;
-        @include font-size(14, $unit--baseline);
+        @include font-size(14, $baseline);
         font-family: $fonts--sans;
         font-weight: bold;
     }
@@ -95,7 +95,7 @@
         display: inline-block;
         vertical-align: middle;
         font-size: em(14) !important;
-        line-height: em($unit--baseline, 14) !important;
+        line-height: em($baseline, 14) !important;
         font-weight: normal !important;
         color: $grey;
 
@@ -140,7 +140,7 @@
 
         .lt-ie8 & {
             padding: 0;
-            line-height: em($unit--baseline + $unit);
+            line-height: em($baseline + $unit);
             text-indent: em($unit);
         }
 
@@ -156,7 +156,7 @@
     textarea.field {
         height: auto;
         max-width: none;
-        min-height: em(($unit--baseline*3) + $unit);
+        min-height: em(($baseline*3) + $unit);
     }
 
     fieldset {
@@ -190,7 +190,7 @@
     .field-wrap {
         font-size: inherit;
         line-height: 0;
-        margin-bottom: em($unit--baseline);
+        margin-bottom: em($baseline);
 
         &:last-child { margin-bottom: 0; }
     }
@@ -201,7 +201,7 @@
 
     .form,
     .ninja-forms-form {
-        margin-bottom: em($unit--baseline);
+        margin-bottom: em($baseline);
 
         &:last-child {
             margin-bottom: 0;
@@ -213,13 +213,13 @@
     }
 
     .form--inline {
-        margin-bottom: em($unit--baseline/2);
+        margin-bottom: em($baseline/2);
 
         .form__item {
             display: inline-block;
             vertical-align: bottom;
-            margin-right: em($unit--gutter/2);
-            margin-bottom: em($unit--baseline/2);
+            margin-right: em($gutter/2);
+            margin-bottom: em($baseline/2);
         }
     }
 
@@ -227,7 +227,7 @@
 
         .form__item {
             position: relative;
-            padding-left: em(140 + $unit--gutter);
+            padding-left: em(140 + $gutter);
 
             & > label:not([class*="label--"]) {
                 position: absolute;
@@ -268,7 +268,7 @@
 
         .button {
             float: right;
-            margin-left: em($unit--gutter/2);
+            margin-left: em($gutter/2);
         }
     }
 
@@ -296,7 +296,7 @@
         & > div {
             color: $red;
             @include font-size($p);
-            margin-bottom: em($unit--baseline/2, $p);
+            margin-bottom: em($baseline/2, $p);
             font-weight: bold;
         }
     }
@@ -305,7 +305,7 @@
         p {
             color: $red;
             font-family: $fonts--sans;
-            @include font-size($p--small, $unit--baseline);
+            @include font-size($p--small, $baseline);
             margin-bottom: 0;
         }
     }

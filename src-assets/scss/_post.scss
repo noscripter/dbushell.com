@@ -7,7 +7,7 @@
     }
 
     .post__body {
-        margin-top: em($unit--baseline);
+        margin-top: em($baseline);
     }
 
     .post__date {
@@ -57,10 +57,10 @@
 
     .post__image {
         overflow: hidden;
-        margin: em($unit--baseline) 0;
+        margin: em($baseline) 0;
         margin-left: -#{inner-percent(7)};
         margin-right: -#{inner-percent(7)};
-        padding: em($unit--baseline) inner-percent(7);
+        padding: em($baseline) inner-percent(7);
         background: $canvas;
 
         img {
@@ -93,7 +93,7 @@
     {
         .post__image {
             margin-right: 0;
-            padding-right: em($unit--gutter);
+            padding-right: em($gutter);
         }
     }
 

@@ -11,7 +11,7 @@ hr, .hr {
   display: block;
   clear: both;
   height: 0;
-  margin: em($unit--baseline - 2) 0 em($unit--baseline - 1) 0;
+  margin: em($baseline - 2) 0 em($baseline - 1) 0;
   border: 0;
   outline: none;
   border-top: 2px solid $green;
@@ -57,8 +57,33 @@ h1, h2, h3, h4, h5, h6,
                  2px 3px 0 rgba($green, 0.8);
   }
 
+  .reversed & {
+    color: $yellow;
+    text-shadow: -1px 0 0 rgba($pink, 1),
+                 1px 1px 0 rgba($pink, 1),
+                 2px 3px 0 rgba($yellow, 0.4);
+  }
+
   &:last-child {
     margin-bottom: 0;
+  }
+
+  a {
+    text-shadow: inherit;
+
+    &:focus, &:hover {
+      text-shadow: inherit;
+    }
+  }
+}
+
+@include respond-min($breakpoint--mini)
+{
+
+
+  .h0 {
+    @include font-size(60);
+    margin-bottom: em($unit * 2, $h0);
   }
 }
 
@@ -130,11 +155,11 @@ small,
 
 ul, ol {
   padding: 0;
-  margin: 0 0 em($unit--baseline) em($unit--gutter);
+  margin: 0 0 em($baseline) em($gutter);
   list-style: disc outside;
 
   p + & {
-    margin-top: em($unit--baseline);
+    margin-top: em($baseline);
   }
 
   &:last-child {
@@ -226,8 +251,8 @@ cite {
 
 .quote,
 blockquote {
-  margin: em($unit--baseline) 0;
-  padding: 0 em($unit--gutter);
+  margin: em($baseline) 0;
+  padding: 0 em($gutter);
   border-left: em(2) solid $green;
 
   p {
@@ -313,7 +338,7 @@ pre {
   clear: both;
   overflow: auto;
   margin: em($unit * 6, 14) 0;
-  padding: em($unit--baseline, 14) em($unit--gutter, 14);
+  padding: em($baseline, 14) em($gutter, 14);
   box-shadow: inset 0 1px 7px darken($black, 10);
 
   direction: ltr;
@@ -377,5 +402,32 @@ code {
     .p--small {
       max-width: em(720, $p--small);
     }
+  }
+}
+
+.speclist {
+  background: $yellow;
+  color: $pink;
+  padding: em($unit * 4) em($unit * 4);
+  margin: em($unit * 5) 0;
+  border-radius: 5px;
+  box-shadow: 0 0 0 2px $beige,
+              0 0 0 4px $yellow,
+              2px 2px 0 4px $pink;
+
+  margin-left: 4px;
+  margin-right: 6px;
+
+  // ul {
+    list-style-type: circle;
+    list-style-position: inside;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+  // }
+
+  li {
+    flex-basis: 25%;
   }
 }
