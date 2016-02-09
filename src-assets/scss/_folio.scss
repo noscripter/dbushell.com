@@ -27,7 +27,7 @@
     .folio__list {
         @include clearfix;
         list-style: none;
-        margin: 0;
+        margin: 0 em(-$unit);
         padding: 0;
     }
 
@@ -98,17 +98,18 @@
         left: 0;
         right: 0;
         margin: 0 auto;
-        padding: 0 em($unit * 2, $h3);
-        @include font-size($h3, $unit * 4);
+        padding: 0 em($unit * 2, $h4);
+        @include font-size($h4, $unit * 4);
         color: $white;
         text-align: center;
         opacity: 0;
         transform: translateY(-50%);
         transition: opacity 200ms ease;
+        text-shadow: 2px 2px 0 rgba($black, 0.2);
 
         .lt-ie9 & {
             visibility: hidden;
-            margin-top: em(-($h3 / 2), $h3);
+            margin-top: em(-($h4 / 2), $h4);
         }
     }
 
@@ -127,13 +128,13 @@
     }
 
 
-    @include respond-min-max($breakpoint--aside, $breakpoint--aside + 200)
-    {
-        .folio__item {
-            width: 45%;
-            width: calc(50% - #{em($unit * 2)});
-        }
-    }
+    // @include respond-min-max($breakpoint--aside, $breakpoint--aside + 200)
+    // {
+    //     .folio__item {
+    //         width: 45%;
+    //         width: calc(50% - #{em($unit * 2)});
+    //     }
+    // }
 
     @include respond-max(800 - 1)
     {
