@@ -5,7 +5,9 @@
 
     <div class="block prose post">
         <h1 class="post__title">{{ post__title title }}</h1>
+        {{# unless portfolio }}
         <p class="post__date"><time datetime="{{ moment date "ISO" }}">{{ moment date "dddd" }} <strong>{{ moment date "D" }} <abbr title="{{ moment date "MMMM" }}">{{ moment date "MMM" }}</abbr> {{ moment date "YYYY" }}</strong></time></p>
+        {{/ unless }}
         <div class="post__body">
         {{{ contents }}}
         </div>

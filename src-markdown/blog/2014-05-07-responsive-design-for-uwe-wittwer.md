@@ -3,6 +3,7 @@ date: 2014-05-07 14:28:17+00:00
 excerpt: None
 slug: responsive-design-for-uwe-wittwer
 template: single.html
+portfolio: true
 title: Responsive Design for Uwe Wittwer
 ---
 

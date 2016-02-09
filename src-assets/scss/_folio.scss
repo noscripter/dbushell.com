@@ -3,6 +3,8 @@
 
     .folio__link {
         display: block;
+        text-shadow: none;
+        background-image: none;
         background-color: rgba($beige, 0.85);
     }
 
@@ -50,6 +52,8 @@
         display: block;
         width: 100%;
         height: 0;
+        overflow: hidden;
+        border-radius: em(5);
         padding-bottom: percentage(228 / 328);
         background-color: rgba($beige, 0.85);
         transition: background-color 200ms ease;

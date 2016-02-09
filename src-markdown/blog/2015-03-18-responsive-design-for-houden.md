@@ -3,6 +3,7 @@ date: 2015-03-18 10:50:59+00:00
 excerpt: None
 slug: responsive-design-for-houden
 template: single.html
+portfolio: true
 title: Responsive Design for Houden
 ---
 

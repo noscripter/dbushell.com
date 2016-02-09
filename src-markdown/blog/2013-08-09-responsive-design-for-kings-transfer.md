@@ -3,6 +3,7 @@ date: 2013-08-09 08:08:35+00:00
 excerpt: None
 slug: responsive-design-for-kings-transfer
 template: single.html
+portfolio: true
 title: Responsive Design for King's Transfer
 ---
 

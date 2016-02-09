@@ -13,8 +13,10 @@ module.exports = function(grunt)
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
+    // svgmin removes icon symbol
+
     grunt.registerTask('css',        [ 'sass', 'autoprefixer' ]);
-    grunt.registerTask('assets',     [ 'copy', 'css', 'uglify', 'svgmin', 'svg2png', 'imageoptim' ]);
+    grunt.registerTask('assets',     [ 'copy', 'css', 'uglify', /*'svgmin',*/ 'svg2png', 'imageoptim' ]);
     grunt.registerTask('content',    [ 'dbushell_metalsmith' ]);
 
     grunt.registerTask('default',    [ 'jshint', 'dbushell_build', 'assets', 'content' ]);

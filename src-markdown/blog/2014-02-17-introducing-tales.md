@@ -3,6 +3,7 @@ date: 2014-02-17 08:57:49+00:00
 excerpt: None
 slug: introducing-tales
 template: single.html
+portfolio: true
 title: Introducing Tales
 ---
 

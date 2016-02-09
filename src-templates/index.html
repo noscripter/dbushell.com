@@ -25,19 +25,19 @@
     <div class="block">
         <div class="home-services">
             <article class="home-services__item">
-                <h2 class="h4"><a href="#">Responsive Design</a></h2>
+                <h2 class="h4"><a href="{{ site_url 'responsive-design' }}">Responsive Design</a></h2>
                 <p class="p--small">The number of web-accessible devices is truly a wonder of our information age. This can be a daunting canvas without a responsive approach.</p>
                 <a href="{{ site_url 'contact' }}" class="button">Available for Hire</a>
             </article>
             <hr>
             <article class="home-services__item">
-                <h2 class="h4"><a href="#">Front-end Development</a></h2>
+                <h2 class="h4"><a href="{{ site_url 'front-end-development' }}">Front-end Development</a></h2>
                 <p class="p--small">HTML, CSS, and JavaScript web standards evolve daily. I take every project as an opportunity to refresh my methods and hone my practice.</p>
             </article>
             <hr>
             <article class="home-services__item">
-                <h2 class="h4"><a href="#">And a lot more&hellip;</a></h2>
-                <p class="p--small">I have extensive knowledge of PHP and particularly WordPress theme development. I’m also very proficient in other HTML template languages.</p>
+                <h2 class="h4"><a href="{{ site_url 'services' }}">And a lot more&hellip;</a></h2>
+                <p class="p--small">Whether it's WordPress, Shopify, or other CMS/eCommerce platforms, I have a depth of experience.</p>
             </article>
 
         </div>
@@ -46,12 +46,14 @@
     <div class="block">
         <div class="home-sectors">
             <article class="home-sectors__item home-businesses">
+                <svg class="home-sectors__star" role="presentation"><use xlink:href="{{ site_url }}assets/img/stars.svg#right"></use></svg>
                 <h2>Businesses</h2>
                 <p class="p--large">Have an idea?</p>
                 <p>Great design that works can’t be achieved in isolation. How does it work for your business?</p>
                 <a href="#" class="button">How I can help</a>
             </article>
             <article class="home-sectors__item home-agencies">
+                <svg class="home-sectors__star" role="presentation"><use xlink:href="{{ site_url }}assets/img/stars.svg#left"></use></svg>
                 <h2>Web Agencies</h2>
                 <p class="p--large">Need a hand?</p>
                 <p>I’m reliable and flexible, priding myself in communication and initiative to ensure a smooth project.</p>
@@ -68,10 +70,10 @@
 
             <div class="folio">
                 <ul class="folio__list">
-                    <li class="folio__item" style="background-color: #f05b26;">
-                        <a class="folio__link" href="{{ site_url }}2016/01/04/css-framework-for-partsgiant/">
-                            <span class="folio__label">PartsGiant</span>
-                            <img class="folio__image" src="{{ site_url }}assets/img/portfolio/partsgiant.jpg" alt="PartsGiant">
+                    <li class="folio__item" style="background-color: #993300;">
+                        <a class="folio__link" href="{{ site_url }}2014/05/07/responsive-design-for-uwe-wittwer/">
+                            <span class="folio__label">Uwe Wittwer</span>
+                            <img class="folio__image" src="{{ site_url }}assets/img/portfolio/uwewittwer.jpg" alt="Uwe Wittwer">
                         </a>
                     </li>
                     <li class="folio__item" style="background-color: #d8ac59;">
@@ -80,10 +82,10 @@
                             <img class="folio__image" src="{{ site_url }}assets/img/portfolio/houden.jpg" alt="Houden">
                         </a>
                     </li>
-                    <li class="folio__item" style="background-color: #993300;">
-                        <a class="folio__link" href="{{ site_url }}2014/05/07/responsive-design-for-uwe-wittwer/">
-                            <span class="folio__label">Uwe Wittwer</span>
-                            <img class="folio__image" src="{{ site_url }}assets/img/portfolio/uwewittwer.jpg" alt="Uwe Wittwer">
+                    <li class="folio__item" style="background-color: #f05b26;">
+                        <a class="folio__link" href="{{ site_url }}2016/01/04/css-framework-for-partsgiant/">
+                            <span class="folio__label">PartsGiant</span>
+                            <img class="folio__image" src="{{ site_url }}assets/img/portfolio/partsgiant.jpg" alt="PartsGiant">
                         </a>
                     </li>
                 </ul>

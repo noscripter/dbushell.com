@@ -3,6 +3,7 @@ date: 2016-01-04 10:00:00+00:00
 draft: false
 slug: css-framework-for-partsgiant
 template: single.html
+portfolio: true
 title: 'CSS Framework for PartsGiant'
 ---
 

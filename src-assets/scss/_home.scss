@@ -24,10 +24,34 @@
   padding-top: em($unit * 7);
   padding-bottom: 0;
   background: $green;
+  background-image: url("../img/pattern-1.svg");
+  background-repeat: repeat;
+  overflow: hidden;
+
+  &:after {
+    position: absolute;
+    display: block;
+    content: "";
+    top: -10%;
+    left: 30%;
+    width: 80%;
+    height: 0;
+    padding-bottom: 80%;
+    opacity: 0.1;
+    background: url("../img/starburst.svg") center center no-repeat;
+    background-size: 100% auto;
+    animation: spin 50s linear infinite;
+  }
 
   .block {
     position: relative;
   }
+}
+
+@keyframes spin {
+  100% {
+    transform:rotate(360deg);
+    }
 }
 
 .home-hero__logo {
@@ -125,6 +149,7 @@
 {
   .home-hero {
     padding-top: em($unit * 9);
+    background-size: 60%;
   }
 
   .home-hero__logo {
@@ -170,14 +195,12 @@
     margin-top: -14%;
     margin-bottom: 0;
 
-    // .button {
-    //   position: absolute;
-    //   left: em($baseline/2, 18);
-    //   bottom: 0;//em($baseline, 18);
-    // }
-
     hr {
       display: none;
+    }
+
+    .button {
+      margin-top: em($baseline/2, 18);
     }
   }
 
@@ -219,6 +242,7 @@
 }
 
 .home-sectors__item {
+  position: relative;
   padding: em($unit * 5);
   color: $white;
   overflow: hidden;
@@ -241,8 +265,20 @@
   }
 }
 
+.home-sectors__star {
+  position: absolute;
+  right: em($unit);
+  bottom: em($unit * 2);
+  width: em(100);
+  height: em(100);
+}
+
 .home-businesses {
   background-color: $blue;
+
+  .home-sectors__star {
+    fill: $green;
+  }
 
   h2 {
     text-shadow: 3px 3px 0 rgba($dark-blue, 0.6);
@@ -287,6 +323,10 @@
 
 .home-agencies {
   background-color: $pink;
+
+  .home-sectors__star {
+    fill: $yellow;
+  }
 
   h2 {
     text-shadow: 3px 3px 0 rgba($dark-red, 0.4);
@@ -375,6 +415,13 @@
   .home-businesses {
     align-items: flex-end;
     text-align: right;
+
+    .home-sectors__star {
+      left: em($unit);
+      top: em($unit * 3);
+      right: auto;
+      bottom: auto;
+    }
   }
 
   .home-agencies {

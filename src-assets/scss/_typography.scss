@@ -22,9 +22,9 @@ a {
   color: $blue;
   text-decoration: none;
   cursor: pointer;
-  background-image: linear-gradient(to right, rgba($blue, 0.5) 0%, rgba($blue, 0.5) 100%);
+  background-image: linear-gradient(to right, rgba($green, 1) 0%, rgba($green, 1) 100%);
   background-repeat: repeat-x;
-  background-size: 100% 1px;
+  background-size: 100% 2px;
   background-position: 0 90%;
   text-shadow: 2px 0 0 $beige, -2px 0 0 $beige;
 
@@ -70,11 +70,17 @@ h1, h2, h3, h4, h5, h6,
 
   a {
     text-shadow: inherit;
+    background-position: 0 95%;
 
     &:focus, &:hover {
       text-shadow: inherit;
     }
   }
+}
+
+h4, h5, h6,
+.h4, .h5, .h6 {
+  text-shadow: none;
 }
 
 @include respond-min($breakpoint--mini)

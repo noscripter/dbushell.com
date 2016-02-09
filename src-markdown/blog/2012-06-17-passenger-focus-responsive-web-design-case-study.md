@@ -3,6 +3,7 @@ date: 2012-06-17 18:42:49+00:00
 excerpt: None
 slug: passenger-focus-responsive-web-design-case-study
 template: single.html
+portfolio: true
 title: A Responsive Design Case Study
 ---
 
