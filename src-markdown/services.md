@@ -16,7 +16,7 @@ HTML, CSS, and JavaScript web standards evolve daily. I take every project as an
 
 **Favourite tools and technologies:**
 
-<ul class="speclist">
+<ul class="boxed spec">
   <li>HTML5</li>
   <li>CSS</li>
   <li>Sass</li>

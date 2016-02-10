@@ -24,27 +24,27 @@
   padding-top: em($unit * 7);
   padding-bottom: 0;
   background: $green;
-  background-image: url("../img/pattern-1.svg");
+  background-image: url("../img/home-hero-pattern.svg");
   background-repeat: repeat;
-  overflow: hidden;
-
-  &:after {
-    position: absolute;
-    display: block;
-    content: "";
-    top: -10%;
-    left: 30%;
-    width: 80%;
-    height: 0;
-    padding-bottom: 80%;
-    opacity: 0.1;
-    background: url("../img/starburst.svg") center center no-repeat;
-    background-size: 100% auto;
-    animation: spin 50s linear infinite;
-  }
+  // overflow: hidden;
 
   .block {
     position: relative;
+
+    &:after {
+      position: absolute;
+      display: block;
+      content: "";
+      top: -25%;
+      left: 30%;
+      width: 90%;
+      height: 0;
+      padding-bottom: 90%;
+      opacity: 0.1;
+      background: url("../img/starburst.svg") center center no-repeat;
+      background-size: 100% auto;
+      animation: spin 50s linear infinite;
+    }
   }
 }
 
@@ -441,3 +441,23 @@
   }
 }
 
+.home-folio {
+  margin: em($baseline * 2) 0;
+  text-align: center;
+}
+
+.home-quote {
+  border-top: 5px solid $pink;
+  box-shadow: inset 0 3px 0 0 rgba($yellow, 1);
+  padding: em($unit + ($baseline * 1.5)) 0 em($baseline *2) 0;
+  text-align: center;
+
+  blockquote {
+    display: inline-block;
+    border: 0;
+  }
+
+  .p--large {
+    max-width: em(680, $p--large);
+  }
+}

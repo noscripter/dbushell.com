@@ -14,8 +14,8 @@ hr, .hr {
   margin: em($baseline - 2) 0 em($baseline - 1) 0;
   border: 0;
   outline: none;
-  border-top: 2px solid $green;
-  border-bottom: 1px solid $yellow;
+  border-top: 2px solid $canvas;
+  // border-bottom: 1px solid $yellow;
 }
 
 a {
@@ -47,22 +47,17 @@ h1, h2, h3, h4, h5, h6,
   margin: 0;
   font-weight: 500;
   color: $blue;
-  text-shadow: -1px 0 0 rgba($beige, 1),
-               1px 1px 0 rgba($beige, 1),
-               2px 3px 0 rgba($green, 0.8);
+  text-shadow: //-1px 0 0 rgba($beige, 1),
+               //,
+               2px 2px 0 rgba($green, 0.5);
+               // -2px 2px 0 rgba($beige, 1),
+               // 4px 2px 0 rgba($beige, 1);
 
-  .footer & {
-    text-shadow: -1px 0 0 rgba($white, 1),
-                 1px 1px 0 rgba($white, 1),
-                 2px 3px 0 rgba($green, 0.8);
-  }
-
-  .reversed & {
-    color: $yellow;
-    text-shadow: -1px 0 0 rgba($pink, 1),
-                 1px 1px 0 rgba($pink, 1),
-                 2px 3px 0 rgba($yellow, 0.4);
-  }
+  // .footer & {
+  //   text-shadow: -1px 0 0 rgba($white, 1),
+  //                1px 1px 0 rgba($white, 1),
+  //                2px 3px 0 rgba($green, 0.8);
+  // }
 
   &:last-child {
     margin-bottom: 0;
@@ -75,12 +70,16 @@ h1, h2, h3, h4, h5, h6,
     &:focus, &:hover {
       text-shadow: inherit;
     }
+
+    .footer & {
+      text-shadow: inherit;
+    }
   }
 }
 
 h4, h5, h6,
 .h4, .h5, .h6 {
-  text-shadow: none;
+  // text-shadow: none;
 }
 
 @include respond-min($breakpoint--mini)
@@ -142,6 +141,10 @@ p, .p {
 small,
 .p--small {
   @include font-size($p--small, $unit * 4);
+
+  a {
+    background-size: 100% 1px;
+  }
 }
 
 .p--small {
@@ -171,6 +174,10 @@ ul, ol {
   &:last-child {
     margin-bottom: 0;
   }
+}
+
+ul {
+  list-style-image: url("../img/bullet.svg");
 }
 
 li {
@@ -287,6 +294,10 @@ blockquote {
         margin-top: 0;
       }
     }
+  }
+
+  &:last-child {
+    margin-bottom: 0;
   }
 }
 
@@ -411,7 +422,7 @@ code {
   }
 }
 
-.speclist {
+.boxed {
   background: $yellow;
   color: $pink;
   padding: em($unit * 4) em($unit * 4);
@@ -421,19 +432,90 @@ code {
               0 0 0 4px $yellow,
               2px 2px 0 4px $pink;
 
-  margin-left: 4px;
-  margin-right: 6px;
+  .prose & {
+    max-width: em(710);
+    margin-left: 4px;
+    margin-right: 6px;
+  }
 
-  // ul {
-    list-style-type: circle;
-    list-style-position: inside;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-  // }
+  &.reversed {
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 7px;
+    box-shadow: inset 0 0 0 2px $pink,
+                inset 0 0 0 4px $yellow;
+  }
+}
+
+.spec {
+
+  padding: em($unit * 3) em($unit * 4) em($unit * 2) em($unit * 4);
+  list-style-type: circle;
+  list-style-position: inside;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+
 
   li {
-    flex-basis: 25%;
+    flex-basis: 50%;
+  }
+}
+
+@include respond-min($breakpoint--mobile)
+{
+
+  .spec {
+
+    li {
+      flex-basis: 25%;
+    }
+  }
+}
+
+.reversed {
+  color: $white;
+  background: $pink;
+
+  a:not([class]) {
+    color: inherit;
+    text-shadow: none;
+    background-image: linear-gradient(to right, rgba($yellow, 0.5) 0%, rgba($yellow, 0.5) 100%);
+
+    &:focus, &:hover {
+      background-image: linear-gradient(to right, rgba($dark-red, 0.5) 0%, rgba($dark-red, 0.5) 100%);
+    }
+  }
+
+  h1, h2, h3,
+  .h1, .h2, .h3 {
+    color: $yellow;
+    text-shadow: -1px 0 0 rgba($pink, 1),
+                 2px 2px 0 rgba($pink, 1),
+                 3px 3px 0 rgba($yellow, 0.5);
+  }
+
+  blockquote {
+    border-color: $yellow;
+
+    p {
+      color: inherit;
+    }
+  }
+
+  .button {
+    color: $pink;
+    text-shadow: none;
+    background-color: $white;
+    border: 0;
+    box-shadow: 0 0 0 2px $pink,
+                2px 2px 0 2px $yellow;
+
+    &:focus, &:hover {
+      color: $pink;
+      box-shadow: 0 0 0 2px $pink,
+                  0 0 0 4px $yellow;
+    }
   }
 }
