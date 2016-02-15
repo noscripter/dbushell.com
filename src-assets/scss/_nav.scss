@@ -20,11 +20,8 @@
     left: 0;
     width: 100%;
     background: $pink;
-    overflow-x: auto;
-    overflow-y: hidden;
-    overflow-scrolling: auto;
-    -webkit-overflow-scrolling: touch;
-    min-height: min-content;
+
+    // overflow: hidden;
     transition: transform 200ms linear, box-shadow 100ms ease;
     box-shadow: inset 0 0 0 rgba($dark-red, 1);
 
@@ -51,59 +48,71 @@
     }
   }
 
-  .nav--left-overflow {
-    box-shadow: inset 15px 0 20px -10px rgba($black, 0.5);//$dark-red;
-  }
-
-  .nav--right-overflow {
-    box-shadow: inset -15px 0 20px -10px rgba($black, 0.5);
-  }
-
-  .nav--left-overflow.nav--right-overflow {
-    box-shadow: inset 15px 0 20px -10px rgba($black, 0.5),
-                inset -15px 0 20px -10px rgba($black, 0.5);
-  }
-
   .nav__title {
     @include visually-hidden;
   }
 
   .nav__list {
     list-style: none;
-    padding: 0;
+    padding: 0 em($unit * 2);
     margin: 0 auto;
+    width: auto;
+    background: $pink;
+  }
+
+  .nav > .nav__list {
+    @include clearfix;
+
+    max-width: em(960);
     height: em(49);
+  }
+
+  .nav--flex > .nav__list {
     display: flex;
     flex-wrap: nowrap;
-    width: auto;
-    min-width: min-content;
-    max-width: em(960);
+    justify-content: flex-start;
+    // justify-content: space-between;
 
-    @include respond-min($breakpoint--mobile)
-    {
-
+    &:after, &:before {
+      display: none;
     }
+  }
+
+  .nav__item .nav__list {
+    position: absolute;
+    display: none;
+    top: 100%;
+    left: 0;
+    right: 0;
+    overflow: hidden;
   }
 
   .nav__item {
     display: block;
+    float: left;
     font-size: inherit;
     line-height: 1;
     margin: 0;
-    flex-grow: 1;
+    white-space: nowrap;
 
-    &:first-child {
-      padding-left: em(14);
+    .nav__item {
+      float: none;
+      padding-left: 0;
+      margin: 0 em(-$unit * 2);
+      border-top: 1px solid $dark-red;
     }
 
-    &:last-child {
-      padding-right: em(14);
-    }
-    // border-right: 2px solid rgba($black, 0.1);
+    .nav__item:not(.nav__item--icons) {
 
-    // &:last-child {
-    //   border-right: 0;
-    // }
+      .nav__link {
+        padding: 0 em($unit * 4, 14);
+      }
+    }
+
+    .nav__item--icons {
+      padding-left: em($unit * 3);
+      padding-right: em($unit * 3);
+    }
   }
 
   .nav__link {
@@ -116,9 +125,7 @@
     font-size: em(15);
     line-height: em(35 + ($unit * 2), 15);
     text-transform: uppercase;
-    text-align: center;
-    white-space: nowrap;
-    padding: 0 /*em($unit, 15)*/ em($unit * 2, 15);
+    padding: 0 em($unit * 2, 15);
 
     &:focus, &:hover {
       outline: none;
@@ -136,14 +143,29 @@
     svg + span {
       @include visually-hidden;
     }
+
+    .nav__item--icons & {
+      display: inline-block;
+      vertical-align: top;
+    }
   }
 
-  .nav__item--icon {
-    flex-grow: 0;
-    margin-left: em($gutter, 15);
+  .nav__item .nav__list .nav__link {
 
-    & + & {
-      margin-left: 0;
+  }
+
+  .nav > .nav__list > .nav__item {
+
+    & > .nav__link {
+      text-align: center;
+    }
+  }
+
+  .nav__item--icons {
+    padding-left: em($gutter, 15);
+
+    .nav--flex & {
+      flex-grow: 0 !important;
     }
 
     .nav__link {
@@ -151,9 +173,54 @@
     }
   }
 
-  .nav__item--twitter {
+  .nav__link--twitter {
     svg {
       width: em(34, 15);
+    }
+  }
+
+  .nav__item--more {
+    display: none;
+    width: em($unit * 4);
+
+    & > .nav__link {
+      position: absolute;
+      top: 0;
+      right: em($unit);//em($unit * 2);
+    }
+
+    .nav--flex & {
+      flex-grow: 0;
+    }
+
+    & > .nav__link {
+      padding: 0 em($unit, 15);
+    }
+  }
+
+  .no-js {
+
+    .nav {
+      overflow-x: auto;
+      overflow-y: hidden;
+      overflow-scrolling: auto;
+      -webkit-overflow-scrolling: touch;
+      min-height: min-content;
+    }
+
+    .nav__list {
+      min-width: min-content;
+    }
+  }
+
+  @include respond-min($breakpoint--desktop)
+  {
+
+    .nav__item {
+
+      .nav--flex & {
+        flex-grow: 1;
+      }
     }
   }
 

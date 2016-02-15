@@ -111,7 +111,6 @@ svg:not(:root) {
     margin: 0 auto;
     padding: 0 7%;
     max-width: em($block--max-width);
-    box-sizing: border-box;
 
     .lt-ie9 & {
         min-width: em(600);

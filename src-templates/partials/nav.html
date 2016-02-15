@@ -1,42 +1,44 @@
 
-<nav class="nav" id="nav" role="navigation">
+<nav class="nav nav--flex" id="nav" role="navigation">
     <h2 class="nav__title">Website Navigation</h2>
-    <ul class="nav__list">
-        <li class="nav__item">
+    <ul class="nav__list" data-root="true">
+        <li class="nav__item" data-priority="1">
             <a href="{{ site_url }}" class="nav__link">Home</a>
         </li>
-        <li class="nav__item">
+        <li class="nav__item" data-priority="4">
             <a href="{{ site_url 'about' }}" class="nav__link">About</a>
         </li>
-        <li class="nav__item">
+        <li class="nav__item" data-priority="2">
             <a href="{{ site_url 'services' }}" class="nav__link">Services</a>
         </li>
-        <li class="nav__item">
+        <li class="nav__item" data-priority="5">
             <a href="{{ site_url 'showcase' }}" class="nav__link">Portfolio</a>
         </li>
-        <li class="nav__item">
+        <li class="nav__item" data-priority="6">
             <a href="{{ site_url 'blog' }}" class="nav__link">Blog</a>
         </li>
-        <li class="nav__item">
+        <li class="nav__item" data-priority="3">
             <a href="{{ site_url 'contact' }}" class="nav__link">Contact</a>
         </li>
-        <li class="nav__item nav__item--icon nav__item--twitter">
-            <a rel="me" target="_blank" title="David Bushell on Twitter" href="http://twitter.com/dbushell" class="nav__link">
+        <li class="nav__item nav__item--icons" data-priority="7">
+            <a class="nav__link nav__link--twitter" rel="me" target="_blank" title="David Bushell on Twitter" href="http://twitter.com/dbushell">
                 <svg role="presentation"><use xlink:href="{{ site_url }}assets/img/icons.svg#twitter"></use></svg>
                 <span>@dbushell</span>
             </a>
-        </li>
-        <li class="nav__item nav__item--icon nav__item--github">
-            <a rel="me" target="_blank" title="David Bushell on GitHub" href="https://github.com/dbushell/" class="nav__link">
+            <a class="nav__link nav__link--github" rel="me" target="_blank" title="David Bushell on GitHub" href="https://github.com/dbushell/">
                 <svg role="presentation"><use xlink:href="{{ site_url }}assets/img/icons.svg#github"></use></svg>
                 <span>GitHub</span>
             </a>
-        </li>
-        <li class="nav__item nav__item--icon nav__item--codepen">
-            <a rel="me" target="_blank" title="David Bushell on CodePen" href="http://codepen.io/dbushell/" class="nav__link">
+            <a class="nav__link nav__link--codepen" rel="me" target="_blank" title="David Bushell on CodePen" href="http://codepen.io/dbushell/">
                 <svg role="presentation"><use xlink:href="{{ site_url }}assets/img/icons.svg#codepen"></use></svg>
                 <span>CodePen</span>
             </a>
+        </li>
+        <li class="nav__item nav__item--more nav__item--hidden" data-overflow="true">
+            <a class="nav__link">
+                <svg role="presentation"><use xlink:href="{{ site_url }}assets/img/icons.svg#nav"></use></svg>
+            </a>
+            <ul class="nav__list"></ul>
         </li>
     </ul>
 </nav>
