@@ -1,161 +1,160 @@
+ @include critical {
 
-.overlay {
-  display: none;
-}
-
-.headroom {
-    transition: transform 200ms linear;
-}
-
-.headroom--pinned {
-    transform: translateY(0%);
-}
-
-.headroom--unpinned {
-    transform: translateY(-100%);
-}
-
-.nav {
-  z-index: $z-index--nav;
-  position: absolute;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: $pink;
-  overflow-x: auto;
-  overflow-y: hidden;
-  overflow-scrolling: auto;
-  -webkit-overflow-scrolling: touch;
-  min-height: min-content;
-  transition: transform 200ms linear, box-shadow 100ms ease;
-  box-shadow: inset 0 0 0 rgba($dark-red, 1);
-
-  @include respond-min($breakpoint--aside)
-  {
-   padding-right: em($footer--width);
+  .headroom {
+      transition: transform 200ms linear;
   }
 
-  &::-webkit-scrollbar {
-      width: 7px;
+  .headroom--pinned {
+      transform: translateY(0%);
   }
 
-  &::-webkit-scrollbar-track {
-      background: $dark-red;
+  .headroom--unpinned {
+      transform: translateY(-100%);
   }
 
-  &::-webkit-scrollbar-thumb {
-      border-top: 3px solid $dark-red;
-      background: $pink;
+  .nav {
+    z-index: $z-index--nav;
+    position: absolute;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: $pink;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overflow-scrolling: auto;
+    -webkit-overflow-scrolling: touch;
+    min-height: min-content;
+    transition: transform 200ms linear, box-shadow 100ms ease;
+    box-shadow: inset 0 0 0 rgba($dark-red, 1);
 
-      &:hover {
-          background: $pink;
-      }
-  }
-}
+    @include respond-min($breakpoint--aside)
+    {
+     padding-right: em($footer--width);
+    }
 
-.nav--left-overflow {
-  box-shadow: inset 15px 0 20px -10px rgba($black, 0.5);//$dark-red;
-}
+    &::-webkit-scrollbar {
+        width: 7px;
+    }
 
-.nav--right-overflow {
-  box-shadow: inset -15px 0 20px -10px rgba($black, 0.5);
-}
+    &::-webkit-scrollbar-track {
+        background: $dark-red;
+    }
 
-.nav--left-overflow.nav--right-overflow {
-  box-shadow: inset 15px 0 20px -10px rgba($black, 0.5),
-              inset -15px 0 20px -10px rgba($black, 0.5);
-}
+    &::-webkit-scrollbar-thumb {
+        border-top: 3px solid $dark-red;
+        background: $pink;
 
-.nav__title {
-  @include visually-hidden;
-}
-
-.nav__list {
-  list-style: none;
-  padding: 0;
-  margin: 0 auto;
-  height: em(49);
-  display: flex;
-  flex-wrap: nowrap;
-  width: auto;
-  min-width: min-content;
-  max-width: em(960);
-
-  @include respond-min($breakpoint--mobile)
-  {
-
-  }
-}
-
-.nav__item {
-  display: block;
-  font-size: inherit;
-  line-height: 1;
-  margin: 0;
-  flex-grow: 1;
-
-  &:first-child {
-    padding-left: em(14);
+        &:hover {
+            background: $pink;
+        }
+    }
   }
 
-  &:last-child {
-    padding-right: em(14);
-  }
-  // border-right: 2px solid rgba($black, 0.1);
-
-  // &:last-child {
-  //   border-right: 0;
-  // }
-}
-
-.nav__link {
-  position: relative;
-  display: block;
-  color: $white;
-  text-shadow: none;
-  background: none;
-  font-weight: bold;
-  font-size: em(15);
-  line-height: em(35 + ($unit * 2), 15);
-  text-transform: uppercase;
-  text-align: center;
-  white-space: nowrap;
-  padding: 0 /*em($unit, 15)*/ em($unit * 2, 15);
-
-  &:focus, &:hover {
-    outline: none;
-    color: $yellow;
+  .nav--left-overflow {
+    box-shadow: inset 15px 0 20px -10px rgba($black, 0.5);//$dark-red;
   }
 
-  svg {
-    display: inline-block;
-    vertical-align: em(-8, 15);
-    width: em(28, 15);
-    height: em(28, 15);
-    fill: currentColor;
+  .nav--right-overflow {
+    box-shadow: inset -15px 0 20px -10px rgba($black, 0.5);
   }
 
-  svg + span {
+  .nav--left-overflow.nav--right-overflow {
+    box-shadow: inset 15px 0 20px -10px rgba($black, 0.5),
+                inset -15px 0 20px -10px rgba($black, 0.5);
+  }
+
+  .nav__title {
     @include visually-hidden;
   }
-}
 
-.nav__item--icon {
-  flex-grow: 0;
-  margin-left: em($gutter, 15);
+  .nav__list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    height: em(49);
+    display: flex;
+    flex-wrap: nowrap;
+    width: auto;
+    min-width: min-content;
+    max-width: em(960);
 
-  & + & {
-    margin-left: 0;
+    @include respond-min($breakpoint--mobile)
+    {
+
+    }
+  }
+
+  .nav__item {
+    display: block;
+    font-size: inherit;
+    line-height: 1;
+    margin: 0;
+    flex-grow: 1;
+
+    &:first-child {
+      padding-left: em(14);
+    }
+
+    &:last-child {
+      padding-right: em(14);
+    }
+    // border-right: 2px solid rgba($black, 0.1);
+
+    // &:last-child {
+    //   border-right: 0;
+    // }
   }
 
   .nav__link {
-      padding: 0 em($unit, 15);
-  }
-}
+    position: relative;
+    display: block;
+    color: $white;
+    text-shadow: none;
+    background: none;
+    font-weight: bold;
+    font-size: em(15);
+    line-height: em(35 + ($unit * 2), 15);
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
+    padding: 0 /*em($unit, 15)*/ em($unit * 2, 15);
 
-.nav__item--twitter {
-  svg {
-    width: em(34, 15);
+    &:focus, &:hover {
+      outline: none;
+      color: $yellow;
+    }
+
+    svg {
+      display: inline-block;
+      vertical-align: em(-8, 15);
+      width: em(28, 15);
+      height: em(28, 15);
+      fill: currentColor;
+    }
+
+    svg + span {
+      @include visually-hidden;
+    }
   }
-}
+
+  .nav__item--icon {
+    flex-grow: 0;
+    margin-left: em($gutter, 15);
+
+    & + & {
+      margin-left: 0;
+    }
+
+    .nav__link {
+        padding: 0 em($unit, 15);
+    }
+  }
+
+  .nav__item--twitter {
+    svg {
+      width: em(34, 15);
+    }
+  }
+
+} // critical

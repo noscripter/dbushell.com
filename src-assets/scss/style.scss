@@ -3,15 +3,17 @@
  */
 
 @import "origin";
-@import "normalize";
-@import "base";
+
+@include critical {
+  @import "normalize";
+  @import "base";
+}
+
 @import "typography";
 @import "form";
 @import "post";
-// @import "hero";
 @import "folio";
-@import "home";
-@import "header";
+// @import "header";
 @import "footer";
 @import "nav";
 

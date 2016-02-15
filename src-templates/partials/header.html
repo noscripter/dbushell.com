@@ -21,7 +21,7 @@ Copyright © David Bushell | @dbushell | http://dbushell.com
 {{# is "single" }}
 <link rel="amphtml" href="{{ site_url path }}amp/">
 <link rel="alternate amphtml" type="text/html" href="{{ site_url path }}amp/">
-{{/ is}}
+{{/ is }}
 <!--[if lt IE 9]>
 <script src="{{ site_url 'assets/js/vendor/html5shiv.min.js' }}"></script>
 <![endif]-->
@@ -31,6 +31,9 @@ Copyright © David Bushell | @dbushell | http://dbushell.com
 <noscript><link rel="stylesheet" href="{{ site_url 'assets/css/combined.css' }}?ver={{ site_ver }}"></noscript>
 <style>
 {{ inline 'assets/css/critical.css' }}
+{{# is "home" }}
+{{ inline 'assets/css/home.css' }}
+{{/ is }}
 </style>
 {{/ if }}
 <script>

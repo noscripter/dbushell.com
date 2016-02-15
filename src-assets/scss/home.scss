@@ -1,6 +1,7 @@
 /*
 // Home
 */
+@import "origin";
 
 .home {
 
@@ -24,14 +25,17 @@
   padding-top: em($unit * 7);
   padding-bottom: 0;
   background: $green;
-  background-image: url("../img/home-hero-pattern.svg");
+  background-image: url("/assets/img/home-hero-pattern.svg");
   background-repeat: repeat;
-  // overflow: hidden;
+  overflow: hidden;
 
   .block {
+    // z-index: $z-index--hero + 1;
     position: relative;
 
-    &:after {
+    &:before {
+
+      z-index: $z-index--hero - 1;
       position: absolute;
       display: block;
       content: "";
@@ -41,7 +45,7 @@
       height: 0;
       padding-bottom: 90%;
       opacity: 0.1;
-      background: url("../img/starburst.svg") center center no-repeat;
+      background: url("/assets/img/starburst.svg") center center no-repeat;
       background-size: 100% auto;
       animation: spin 50s linear infinite;
     }
@@ -72,7 +76,7 @@
 }
 
 .home-hero__bg {
-  z-index: $z-index--hero + 1;
+  z-index: $z-index--hero + 2;
   position: relative;
   max-height: em(300);
 
@@ -106,6 +110,7 @@
 }
 
 .home-hero__crane {
+  z-index: $z-index--hero + 20;
   position: absolute;
   right: 3.5%;
   top: 0;
@@ -128,19 +133,19 @@
   }
 
   &:before {
-    z-index: $z-index--hero - 1;
-    background-image: url("../img/origami-crane-bg.svg");
+    z-index: $z-index--hero + 18;
+    background-image: url("/assets/img/origami-crane-bg.svg");
     margin-top: -3.2%;
     margin-left: -0.8%;
   }
 
   &:after {
-      z-index: $z-index--hero + 2;
-      background-image: url("../img/origami-crane--small.png");
+      z-index: $z-index--hero + 19;
+      background-image: url("/assets/img/origami-crane--small.png");
 
       @include respond-min($breakpoint--mobile)
       {
-          background-image: url("../img/origami-crane.png");
+          background-image: url("/assets/img/origami-crane.png");
       }
   }
 }
