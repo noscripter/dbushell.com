@@ -36,7 +36,7 @@ A few of my current favourite website designs:
 
 [Lancaster University](http://lancs.ac.uk/) recently launched their new site by [The Roundhouse](http://www.theroundhouse.co.uk/) (Newcastle) and freelancer [Tom Knowles](http://www.lwyd.co.uk/). It's obviously a product of strong understanding and strategy:
 
-[![Lancaster University Website](http://dbushell.com/wp-content/uploads/2011/10/lancs.png)](http://lancs.ac.uk/)
+[![Lancaster University Website](/wp-content/uploads/2011/10/lancs.png)](http://lancs.ac.uk/)
 
 Aside from successfully completing the notoriously difficult task of designing for an education institution (with their design-by-committee committee and rebellious students looking for a cause), this website is awesome for the following reasons:
 
@@ -53,7 +53,7 @@ Lancaster University's website is not quite perfect by [xkcd](http://xkcd.com/77
 
 The website of [Andersson-Wise](http://www.anderssonwise.com/) architecture says "Flash is dead" (if you didn't know that already). It's a photography rich portfolio with clever touches of UX thinking.
 
-[![Andersson-Wise](http://dbushell.com/wp-content/uploads/2011/10/andersson-wise.png)](http://www.anderssonwise.com/)
+[![Andersson-Wise](/wp-content/uploads/2011/10/andersson-wise.png)](http://www.anderssonwise.com/)
 
 * **Observation:** this design mixes a print inspired grid with the fluidity of web design. **Lesson:** take full advantage of the space when you have it.
 * **Observation:** Only **one** piece of content is removed on the entire website at a smaller size (and needlessly, in my opinion). **Lesson:** small screen does not mean less content. Read my ramblings on the matter in this post: [What is mobile?](http://dbushell.com/2011/09/14/what-is-mobile/)
@@ -68,7 +68,7 @@ The website of [Andersson-Wise](http://www.anderssonwise.com/) architecture says
 
 I have to admit [Food Sense](http://foodsense.is/) is beautiful (aesthetics still matter) but its a lot more than skin deep. Some would call this website "adaptive" rather than "responsive" because it's not 100% fluid, but since it wouldn't be too hard to take such a design down that path I think Food Sense is an inspiring example:
 
-[![Food Sense](http://dbushell.com/wp-content/uploads/2011/10/foodsense.png)](http://foodsense.is/)
+[![Food Sense](/wp-content/uploads/2011/10/foodsense.png)](http://foodsense.is/)
 
 * **Observation:** the main navigation moves from a icon-based vertical menu to a text-based horizontal menu. **Lesson:** elements do not necessarily have to remain in strict places if their usage is clear.
 * **Observation:** from 4 to 2 to 1; columns of content adapt to the screen size. **Lesson:** base your breakpoints around content to make best use of available space.

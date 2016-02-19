@@ -12,7 +12,7 @@ A small problem came when I set a high breakpoint. The navigation is always off-
 
 Not any more! I've added an intermediate state:
 
-{%p class="post__image"%}![responsive navigation](http://dbushell.com/wp-content/uploads/2013/02/responsive-navigation.png){%/p%}
+{%p class="post__image"%}![responsive navigation](/wp-content/uploads/2013/02/responsive-navigation.png){%/p%}
 
 
 

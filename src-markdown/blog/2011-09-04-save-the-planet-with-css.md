@@ -36,6 +36,6 @@ What do you think? <del>Maybe I should start a campaign?</del>
 
 I did it: [see printstylesheet.com](http://printstylesheet.com) and join the revolution!
 
-[![](http://dbushell.com/wp-content/uploads/2011/09/printcss.png)](http://printstylesheet.com/)
+[![](/wp-content/uploads/2011/09/printcss.png)](http://printstylesheet.com/)
 
 Follow the discussion over at [Forrst](http://forr.st/~wah)

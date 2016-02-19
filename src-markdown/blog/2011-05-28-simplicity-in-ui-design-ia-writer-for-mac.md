@@ -16,7 +16,7 @@ The iPhone is not a success because designers are Apple fan-boys, it's a success
 
 **IA Writer for Mac** takes this idea to the extreme. It's certainly not mass-market software, it's an experimentation into focus and simplicity. The results are remarkable.
 
-[![IA Writer for Mac](http://dbushell.com/wp-content/uploads/2011/05/iawriter.jpg)](http://dbushell.com/wp-content/uploads/2011/05/iawriter.jpg)
+[![IA Writer for Mac](/wp-content/uploads/2011/05/iawriter.jpg)](/wp-content/uploads/2011/05/iawriter.jpg)
 
 
 <blockquote><p>A better tool doesn’t make a better craftsman, but a good tool makes working a pleasure. iA Writer for Mac is a digital writing tool that makes sure that all your thoughts go into the text instead of the program. iA Writer has no preferences. It is how it is. It works like it works.</p></blockquote>

@@ -12,6 +12,6 @@ I've never really been a quote type of person though, because my memory isn't ge
 
 Nevertheless, whether I choose to store quotes in my brain or a database, there's nothing quite like a limited edition print to get my designer senses tingling!
 
-[![Time You Enjoy Wasting Is Not Wasted Time](http://dbushell.com/wp-content/uploads/2011/03/auohv.jpg)](http://dbushell.com/wp-content/uploads/2011/03/auohv.jpg)
+[![Time You Enjoy Wasting Is Not Wasted Time](/wp-content/uploads/2011/03/auohv.jpg)](/wp-content/uploads/2011/03/auohv.jpg)
 
 Thanks to [Ross Moody](http://www.55his.com/time-you-enjoy) ([@55his](http://twitter.com/55his)) for his poster **Time You Enjoy Wasting**.

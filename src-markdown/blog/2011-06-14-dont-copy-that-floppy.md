@@ -8,7 +8,7 @@ title: Don't copy that floppy!
 
 I've written a new article for **Smashing Magazine** entitled [Understanding Copyright & Licenses](http://www.smashingmagazine.com/2011/06/14/understanding-copyright-and-licenses/). It's a primer for web designers and developers. Give it a read, let me know what you think.
 
-[![Understanding Copyright & Licenses](http://dbushell.com/wp-content/uploads/2011/06/copyright.jpg)](http://www.smashingmagazine.com/2011/06/14/understanding-copyright-and-licenses/)
+[![Understanding Copyright & Licenses](/wp-content/uploads/2011/06/copyright.jpg)](http://www.smashingmagazine.com/2011/06/14/understanding-copyright-and-licenses/)
 
 I do like to tackle the difficult topics. They often require a lot of research and I tend to arrive at the other end knowing a lot more than I thought I did! This one was surprisingly more fun than it sounds...
 

@@ -8,7 +8,7 @@ title: Responsive Tables (2)
 
 My [last article on responsive tables](http://dbushell.com/2012/01/04/responsive-calendar-demo/) was very popular so I've only gone and implemented the idea that I was alluding to with horizontal scrolling!
 
-[![Responsive Tables (2)](http://dbushell.com/wp-content/uploads/2012/01/rt_05_01_12.png)](http://dbushell.com/demos/tables/rt_05-01-12.html)
+[![Responsive Tables (2)](/wp-content/uploads/2012/01/rt_05_01_12.png)](http://dbushell.com/demos/tables/rt_05-01-12.html)
 
 See [Responsive Tables Demo (2)](http://dbushell.com/demos/tables/rt_05-01-12.html) — **in a modern browser!** Webkit browsers handle both tables perfectly. Firefox & Opera handle the first version. The second version plays with/abuses the [flexible box layout](http://www.w3.org/TR/css3-flexbox/) and only works with a `-webkit-` prefix.
 

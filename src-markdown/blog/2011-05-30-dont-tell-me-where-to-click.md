@@ -6,7 +6,7 @@ template: single.html
 title: Don't tell me where to click
 ---
 
-![Click Here - Apple's Magic Mouse](http://dbushell.com/wp-content/uploads/2011/05/clickhere.jpg)
+![Click Here - Apple's Magic Mouse](/wp-content/uploads/2011/05/clickhere.jpg)
 
 **_"click here", "read more", "next" _**– a bad habit that just won't go away, and I'm to blame as much as the next designer (at least the "more" end of the spectrum, if that will save integrity).
 

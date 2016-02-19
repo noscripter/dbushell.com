@@ -8,7 +8,7 @@ title: Circle me (Google+)
 
 Have you seen [Google+](http://plus.google.com)?
 
-{%p class="small"%}![Google+](http://dbushell.com/wp-content/uploads/2011/07/googleplus.png)Copyright © Google{%/p%}
+{%p class="small"%}![Google+](/wp-content/uploads/2011/07/googleplus.png)Copyright © Google{%/p%}
 
 Aside from making the name of their _"like button"_ (Google+1) suddenly make _a lot_ more sense, **Google+** seems to be a very intuitive mix between **Twitter **& **Facebook**. And I _really _like it (or +1 it, I guess).
 

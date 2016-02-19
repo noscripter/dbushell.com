@@ -10,7 +10,7 @@ Nobody said microcopy was easy...
 
 While catching up with my Twitter feed I follow a link to Google+ — appears to show signs of life within the tech community — and I'm greeted with this wonderful message:
 
-{%p class="post__image"%}[![Google plus nonsense](http://dbushell.com/wp-content/uploads/2013/11/google-warning.png)](http://dbushell.com/wp-content/uploads/2013/11/google-warning.png){%/p%}
+{%p class="post__image"%}[![Google plus nonsense](/wp-content/uploads/2013/11/google-warning.png)](/wp-content/uploads/2013/11/google-warning.png){%/p%}
 
 **_"Your profile has been suspended because it impersonates someone."_**
 

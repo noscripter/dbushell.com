@@ -10,7 +10,7 @@ Yesterday I braved the "adverse weather conditions" to attend [Ampersand](http:/
 
 I knew I didn't want to see a show & tell, nor basic print typography knowledge presented as a new web-revelation (neither is it new, nor new to the web). Thankfully I was rewarded with an historical, technical and above all expertly analytical, _mature_ look at digital typography.
 
-![Brighton Pier](http://dbushell.com/wp-content/uploads/2011/06/ampersand1.jpg)
+![Brighton Pier](/wp-content/uploads/2011/06/ampersand1.jpg)
 {%em class="medium"%}Brighton, 17th June 2011. This photo may have been manipulated using Adobe® Photoshop® software.{%/em%}
 
 

@@ -22,13 +22,13 @@ My [previous update](/2010/06/26/dbushell-v4/) back in June '10 made blogging t
 #### Old and busted:
 
 
-![dbushell.com version 4](http://dbushell.com/wp-content/uploads/2011/05/dbushellcomv4.jpg)
+![dbushell.com version 4](/wp-content/uploads/2011/05/dbushellcomv4.jpg)
 
 
 #### New hotness:
 
 
-![dbushell.com version 5](http://dbushell.com/wp-content/uploads/2011/05/dbushellcomv5.jpg)
+![dbushell.com version 5](/wp-content/uploads/2011/05/dbushellcomv5.jpg)
 
 
 ## What's new this time?
@@ -60,11 +60,8 @@ Almost everything I've implemented here has come from months of experimentation 
 
 Oh, and for comparison here's version 3. Notice the similarities?
 
-[![dbushell.com version 3](http://dbushell.com/wp-content/uploads/2011/05/dbushellv3-300x224.jpg)](http://dbushell.com/wp-content/uploads/2011/05/dbushellv3.jpg)
+[![dbushell.com version 3](/wp-content/uploads/2011/05/dbushellv3-300x224.jpg)](/wp-content/uploads/2011/05/dbushellv3.jpg)
 
 {%p class="medium"%}Thanks to [Minimal Sites](http://www.minimalsites.com/david-bushell) for saving that screenshot!{%/p%}
-
-[
-![Flattr this](http://api.flattr.com/button/flattr-badge-large.png)](http://flattr.com/thing/288009/Designing-a-new-me)
 
 [Love](http://lovedsgn.com/post/6554)

@@ -16,7 +16,7 @@ Although aesthetics are perhaps the least important aspect of website design the
 
 Let's consider four submit buttons:
 
-[![Four Submit Buttons (text, minimal, simple, complex)](http://dbushell.com/wp-content/uploads/2011/04/buttons.png)](http://dbushell.com/wp-content/uploads/2011/04/buttons.png)
+[![Four Submit Buttons (text, minimal, simple, complex)](/wp-content/uploads/2011/04/buttons.png)](/wp-content/uploads/2011/04/buttons.png)
 
 **The first** is too basic. It fails to achieve its purpose; it's unrecognisable from a normal hyperlink and therefore does not differentiate between _navigation_, and _action_.
 

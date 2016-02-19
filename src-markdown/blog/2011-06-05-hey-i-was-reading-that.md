@@ -16,19 +16,19 @@ Twitter surged last week with the news of [Futura's arrival at Typekit](http://
 
 Indeed, and browser rendering makes it entirely _unrecognisable_. We've known this for a while; Futura has been available on less popular/more pricy services for months. See the example from Typekit's blog:
 
-![Futura - rendering at text sizes - Typekit](http://dbushell.com/wp-content/uploads/2011/06/Rendering-at-text-sizes.png)
+![Futura - rendering at text sizes - Typekit](/wp-content/uploads/2011/06/Rendering-at-text-sizes.png)
 {%em class="medium"%}Image © 2011 Typekit, Inc. {%/em%}
 
 
 The rendering is passible on a Mac, dreadful on Windows—and that's just regular Futura Book. Light and _Light Italic_ are going to be atomic-thin. Typekit says this is "strikingly legible". I'm not sure that's a compliment. Play around with the [Futura Type Specimen](http://typekit.com/fonts/futura-pt) and you'll see for yourself:
 
-![Futura PT - Typekit Specimen](http://dbushell.com/wp-content/uploads/2011/06/typekit.png)
+![Futura PT - Typekit Specimen](/wp-content/uploads/2011/06/typekit.png)
 
 Those sub-pixels are being tortured. I daren't check how it's displayed on a Windows machine.
 
 **Update: I did check Windows, and it's horrific:**
 
-![Futura Typekit Specimen on Windows](http://dbushell.com/wp-content/uploads/2011/06/typekit-windows.png)
+![Futura Typekit Specimen on Windows](/wp-content/uploads/2011/06/typekit-windows.png)
 
 There's nothing wrong with Futura's design or Typekit's serving it's simply a technical limitation. But it's an issue that is evidentially being ignored by many web designers.
 

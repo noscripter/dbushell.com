@@ -24,6 +24,6 @@ To solve this little conundrum I've been experimenting with a basic responsive g
 
 Here's what it looks like in IE6:
 
-{%p class="post__image"%}[![Shiro in IE6](http://dbushell.com/wp-content/uploads/2012/03/shiro-ie6.png)](http://dbushell.com/wp-content/uploads/2012/03/shiro-ie6.png){%/p%}
+{%p class="post__image"%}[![Shiro in IE6](/wp-content/uploads/2012/03/shiro-ie6.png)](/wp-content/uploads/2012/03/shiro-ie6.png){%/p%}
 
 PS, I will be dogfooding this in the coming weeks so expect updates!

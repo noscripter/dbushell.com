@@ -10,7 +10,7 @@ Today I'm excited to see [MyLifeListed](http://www.mylifelisted.com) launch!
 
 We've been _very_ busy at Base Creative designing & developing the site. We're glad to be part of such an exciting project. See for yourself:
 
-[![MyLifeListed.com](http://dbushell.com/wp-content/uploads/2011/03/mylifelisted-1024x671.png)](http://dbushell.com/wp-content/uploads/2011/03/mylifelisted.png)
+[![MyLifeListed.com](/wp-content/uploads/2011/03/mylifelisted-1024x671.png)](/wp-content/uploads/2011/03/mylifelisted.png)
 
 I'm going to write a more in-depth article on the design process of [MyLifeListed](http://www.mylifelisted.com) but since this is probably my favourite design project to date, here's a few notes:
 

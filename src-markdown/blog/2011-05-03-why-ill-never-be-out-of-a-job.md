@@ -10,7 +10,7 @@ The 15th Annual [Webby Awards](http://www.webbyawards.com/) winners were announc
 
 Now, I'm not one to be cynical (and I've pledged to [avoid negativity](/2011/04/24/design-and-enjoy-it/)) but I'm completely perplexed at some of the design related choices. Many of the awards are purely content based which I'm not interested in, but this won **Best Navigation/Structure**:
 
-[![Webby Awards - Best Navigation/Structure - Screenshot 1](http://dbushell.com/wp-content/uploads/2011/05/webbyawards.png)](http://www.hidden-heroes.net/)
+[![Webby Awards - Best Navigation/Structure - Screenshot 1](/wp-content/uploads/2011/05/webbyawards.png)](http://www.hidden-heroes.net/)
 
 {%p class="medium"%}The Webby Awards winner for Best Navigation/Structure.{%/p%}
 
@@ -29,7 +29,7 @@ Here is what's wrong:
 
 No matter which bars you've previously clicked, you are then presented with this:
 
-![Webby Awards - Best Navigation/Structure - Screenshot 2](http://dbushell.com/wp-content/uploads/2011/05/webby2.png)
+![Webby Awards - Best Navigation/Structure - Screenshot 2](/wp-content/uploads/2011/05/webby2.png)
 
 {%p class="medium"%}I can't actually link to this page because the website is developed in Flash (poorly).{%/p%}
 

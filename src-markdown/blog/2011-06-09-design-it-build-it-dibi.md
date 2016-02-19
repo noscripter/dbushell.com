@@ -9,7 +9,7 @@ title: 'Design it. Build it. #DIBI'
 **Location:** The Sage, Gateshead.
 **Event:** [Design It. Build It.](http://www.dibiconference.com/) The two-track web conference.
 
-![The DIBI Conference](http://dbushell.com/wp-content/uploads/2011/06/dibi.jpg)
+![The DIBI Conference](/wp-content/uploads/2011/06/dibi.jpg)
 
 This is my third conference of the year and I'm getting exceedingly good at it!
 

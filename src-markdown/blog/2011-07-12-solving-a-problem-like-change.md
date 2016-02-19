@@ -10,7 +10,7 @@ A while back the [**Gawker** ](http://gawker.com)network redesigned their line-u
 
 Yesterday [**TechCrunch** ](http://techcrunch.com)launched a redesign and, well, it's not quite 'a Gawker'.
 
-![New TechCrunch Logo & Website Design](http://dbushell.com/wp-content/uploads/2011/07/techcrunch.png)
+![New TechCrunch Logo & Website Design](/wp-content/uploads/2011/07/techcrunch.png)
 
 
 <blockquote><p>We used AOL Paint, which comes free on the AOL CD and has this sweet UltraLogoMatic2000 feature.</p></blockquote>

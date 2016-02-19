@@ -18,7 +18,7 @@ title: Groundhog Day
 
 About seven months then? I'm actually _really_ happy with my current iteration. It concluded an idea and style I'd be honing for several years. At some point along the journey I even stumbling upon the value of adding screenshots to each launch article (makes for a less confusing read in retrospective).
 
-{%p class="post__image"%}[![dbushell.com design iterations](http://dbushell.com/wp-content/uploads/2012/09/dbushell-iterations.png)](http://dbushell.com/wp-content/uploads/2012/09/dbushell-iterations.png){%/p%}
+{%p class="post__image"%}[![dbushell.com design iterations](/wp-content/uploads/2012/09/dbushell-iterations.png)](/wp-content/uploads/2012/09/dbushell-iterations.png){%/p%}
 
 So why the change of heart?
 
