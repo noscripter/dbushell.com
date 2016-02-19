@@ -5,6 +5,7 @@
 <title>{{ page_title }}</title>
 <link rel="canonical" href="{{ site_url canonical }}">
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<!--
 <script type="application/ld+json">
     {
         "@context": "http://schema.org",
@@ -17,10 +18,11 @@
         }
     }
 </script>
+-->
 <style>body {opacity: 0}</style><noscript><style>body {opacity: 1}</style></noscript>
 <script async src="https://cdn.ampproject.org/v0.js"></script>
 <style amp-custom>
-{{ inline 'assets/css/amp.css' }}
+{{ inline 'assets/css/amp.css' }}{{{ ampimgcss }}}
 </style>
 </head>
 <body>

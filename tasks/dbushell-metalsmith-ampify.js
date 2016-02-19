@@ -21,7 +21,11 @@ function plugin(options) {
             } else {
                 dim = imgsize('build' + src);
                 // must wrap in a span with max-width because native behaviour is lost
-                data = data.replace(img, '<span style="display: block; max-width:' + dim.width + 'px"><amp-img width="' + dim.width + '" height="' + dim.height + '" layout="responsive" src="' + src + '" alt="' + alt + '"></amp-img></span>');
+                // data = data.replace(img, '<span style="display: block; max-width:' + dim.width + 'px"><amp-img width="' + dim.width + '" height="' + dim.height + '" layout="responsive" src="' + src + '" alt="' + alt + '"></amp-img></span>');
+                var id = 'ampimg-' + imgId++;
+                data = data.replace(img, '<span id="' + id + '"><amp-img width="' + dim.width + '" height="' + dim.height + '" layout="responsive" src="' + src + '" alt="' + alt + '"></amp-img></span>');
+
+                imgCSS += '#' + id + '{max-width:' + dim.width + 'px}';
             }
         }
 
@@ -33,6 +37,9 @@ function plugin(options) {
 
         for (var file in files) {
 
+            var imgId = 0,
+                imgCSS = 'span[id^="ampimg"]{display:block;}';
+
             file = files[file];
             var data = file.contents.toString(),
                 images = data.match(/<img(.*?)>/g),
@@ -41,6 +48,7 @@ function plugin(options) {
             if (images) {
                 var src, alt, dim, imgr = new RegExp('src="' + meta.site_url + '(.*?)"', 'g');
                 images.forEach(ampImage);
+                file.ampimgcss = imgCSS;
             }
 
             if (iframes) {

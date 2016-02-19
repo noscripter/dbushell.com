@@ -8,27 +8,27 @@ $critical-css: true;
 $combined-css: false;
 @import "header";
 
-.main,
-.header {
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-}
+// .main,
+// .header {
+//     padding-left: 0;
+//     padding-right: 0;
+//     margin-left: 0 !important;
+//     margin-right: 0 !important;
+// }
 
-.prose {
-    a:not([class]) {
-        text-decoration: underline;
-    }
-}
+// .prose {
+//     a:not([class]) {
+//         text-decoration: underline;
+//     }
+// }
 
-.post__title a {
-    color: $black;
-    text-decoration: none !important;
-    // border-bottom: 1px solid rgba($blue, 0.5);
+// .post__title a {
+//     color: $black;
+//     text-decoration: none !important;
+//     border-bottom: 1px solid rgba($blue, 0.5);
 
-    // &:focus, &:hover {
-    //     color: $blue;
-    //     // border-bottom: 1px solid rgba($blue, 0.5);
-    // }
-}
+//     &:focus, &:hover {
+//         color: $blue;
+//         // border-bottom: 1px solid rgba($blue, 0.5);
+//     }
+// }

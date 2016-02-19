@@ -197,7 +197,7 @@ $fonts--monospace  : Monaco, Courier, monospace;
 
 // Hide from both screenreaders and browsers: h5bp.com/u
 @mixin hidden {
-    display: none !important;
+    display: none;
     visibility: hidden;
 }
 
