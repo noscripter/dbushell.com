@@ -21,10 +21,6 @@
     width: 100%;
     background: $pink;
 
-    // overflow: hidden;
-    transition: transform 200ms linear, box-shadow 100ms ease;
-    box-shadow: inset 0 0 0 rgba($dark-red, 1);
-
     @include respond-min($breakpoint--aside)
     {
      padding-right: em($footer--width);
@@ -54,37 +50,27 @@
 
   .nav__list {
     list-style: none;
-    padding: 0 em($unit * 2);
+    padding: 0 em($unit);
     margin: 0 auto;
     width: auto;
     background: $pink;
-  }
 
-  .nav > .nav__list {
-    @include clearfix;
-
-    max-width: em(960);
-    height: em(49);
-  }
-
-  .nav--flex > .nav__list {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    // justify-content: space-between;
-
-    &:after, &:before {
-      display: none;
+    .nav > & {
+      @include clearfix;
+      // max-width: em(960);
+      height: em(49);
     }
-  }
 
-  .nav__item .nav__list {
-    position: absolute;
-    display: none;
-    top: 100%;
-    left: 0;
-    right: 0;
-    overflow: hidden;
+    .nav--flex > & {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+
+
+      &:after, &:before {
+        display: none;
+      }
+    }
   }
 
   .nav__item {
@@ -94,28 +80,11 @@
     line-height: 1;
     margin: 0;
     white-space: nowrap;
-
-    .nav__item {
-      float: none;
-      padding-left: 0;
-      margin: 0 em(-$unit * 2);
-      border-top: 1px solid $dark-red;
-    }
-
-    .nav__item:not(.nav__item--icons) {
-
-      .nav__link {
-        padding: 0 em($unit * 4, 14);
-      }
-    }
-
-    .nav__item--icons {
-      padding-left: em($unit * 3);
-      padding-right: em($unit * 3);
-    }
+    flex-grow: 1;
   }
 
   .nav__link {
+    @include no-tap-highlight;
     position: relative;
     display: block;
     color: $white;
@@ -124,8 +93,9 @@
     font-weight: bold;
     font-size: em(15);
     line-height: em(35 + ($unit * 2), 15);
-    text-transform: uppercase;
     padding: 0 em($unit * 2, 15);
+    text-transform: uppercase;
+    text-align: center;
 
     &:focus, &:hover {
       outline: none;
@@ -134,10 +104,11 @@
 
     svg {
       display: inline-block;
-      vertical-align: em(-8, 15);
+      vertical-align: em(-9, 15);
       width: em(28, 15);
       height: em(28, 15);
       fill: currentColor;
+      overflow: visible;
     }
 
     svg + span {
@@ -150,23 +121,99 @@
     }
   }
 
-  .nav__item .nav__list .nav__link {
-
+  @include respond-max($breakpoint--mobile - 1)
+  {
+    .nav__link {
+      padding-left: em($unit, 15);
+      padding-right: em($unit, 15);
+    }
   }
 
-  .nav > .nav__list > .nav__item {
+  .nav__dropdown {
+    position: absolute;
+    display: none;
+    top: 100%;
+    right: 0;
+    margin: em($unit);
+    background: $white;
+    border-radius: 5px;
+    border: 2px solid $pink;
+    box-shadow: 0 0 0 3px rgba($black, 0.2);
 
-    & > .nav__link {
-      text-align: center;
+    .css3d & {
+      display: block;
+      opacity: 0;
+      transform: scale(0.6);
+      transform-origin: 100% 0;
+      transition: transform 300ms cubic-bezier(.65,.25,.35,1.6), opacity 300ms cubic-bezier(.65,.25,.35,1.6);
+      pointer-events: none;
     }
+
+    &:after,
+    &:before {
+      position: absolute;
+      display: block;
+      content: "";
+      width: 0;
+      height: 0;
+      bottom: 100%;
+      right: 10px;
+      border: 10px solid transparent;
+      border-bottom-color: $pink;
+    }
+
+    &:after {
+      border-width: 7px;
+      border-bottom-color: $white;
+      margin-right: 3px;
+    }
+
+    .nav__item {
+      float: none;
+      padding-left: 0;
+      margin: 0 em(-$unit);
+      border-bottom: 2px solid $canvas;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    .nav__link {
+      text-align: left;
+      color: $pink;
+
+      &:focus, &:hover {
+        color: $blue;
+      }
+    }
+
+    .nav__item:not(.nav__item--icons) {
+
+      .nav__link {
+        padding: 0 em($unit * 3, 14);
+      }
+    }
+
+    .nav__item--icons {
+      padding-left: em($unit * 2);
+      padding-right: em($unit * 2);
+    }
+  }
+
+  .nav__dropdown--hover,
+  .nav__dropdown--active,
+  .css3d .nav__dropdown--hover,
+  .css3d .nav__dropdown--active {
+    opacity: 1;
+    display: block;
+    transform: none;
+    pointer-events: all;
   }
 
   .nav__item--icons {
     padding-left: em($gutter, 15);
-
-    .nav--flex & {
-      flex-grow: 0 !important;
-    }
+    text-align: right;
 
     .nav__link {
         padding: 0 em($unit, 15);
@@ -180,21 +227,45 @@
   }
 
   .nav__item--more {
+    position: relative;
     display: none;
-    width: em($unit * 4);
+    left: em($unit);
+
+    &:hover:before {
+      position: absolute;
+      content: "";
+      top: 0;
+      right: 0;
+      width: 150%;
+      height: 150%;
+    }
 
     & > .nav__link {
-      position: absolute;
-      top: 0;
-      right: em($unit);//em($unit * 2);
+      padding: 0 em($unit * 2, 15);
     }
 
     .nav--flex & {
       flex-grow: 0;
     }
+  }
 
-    & > .nav__link {
-      padding: 0 em($unit, 15);
+  @include respond-min($breakpoint--mobile)
+  {
+    .nav > .nav__list {
+      padding-left: 0;
+    }
+
+    .nav__item {
+      border-right: 2px solid rgba($dark-red, 0.5);
+    }
+
+    .nav__item--more {
+      border-right: 0;
+    }
+
+    .nav__item--icons {
+      border-right: 0;
+      flex-grow: 5;
     }
   }
 
@@ -210,17 +281,6 @@
 
     .nav__list {
       min-width: min-content;
-    }
-  }
-
-  @include respond-min($breakpoint--desktop)
-  {
-
-    .nav__item {
-
-      .nav--flex & {
-        flex-grow: 1;
-      }
     }
   }
 

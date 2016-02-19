@@ -56,7 +56,7 @@
 }
 
 .pagination {
-    overflow: hidden;
+    @include clearfix;
 }
 
 .pagination__older {

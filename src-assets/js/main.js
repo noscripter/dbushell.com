@@ -18,78 +18,78 @@ if (/dbushell\.com/.test(window.location.hostname))
 (function(window, document, undefined)
 {
 
-  var hasEventListeners = !!window.addEventListener,
+  // var hasEventListeners = !!window.addEventListener,
 
-    addEvent = function(el, e, callback, capture)
-    {
-      if (hasEventListeners) {
-        el.addEventListener(e, callback, !!capture);
-      } else {
-        el.attachEvent('on' + e, callback);
-      }
-    },
+    // addEvent = function(el, e, callback, capture)
+    // {
+    //   if (hasEventListeners) {
+    //     el.addEventListener(e, callback, !!capture);
+    //   } else {
+    //     el.attachEvent('on' + e, callback);
+    //   }
+    // },
 
-    removeEvent = function(el, e, callback, capture)
-    {
-      if (hasEventListeners) {
-        el.removeEventListener(e, callback, !!capture);
-      } else {
-        el.detachEvent('on' + e, callback);
-      }
-    },
+    // removeEvent = function(el, e, callback, capture)
+    // {
+    //   if (hasEventListeners) {
+    //     el.removeEventListener(e, callback, !!capture);
+    //   } else {
+    //     el.detachEvent('on' + e, callback);
+    //   }
+    // },
 
-    fireEvent = function(el, eventName, data)
-    {
-      var ev;
+    // fireEvent = function(el, eventName, data)
+    // {
+    //   var ev;
 
-      if (document.createEvent) {
-        ev = document.createEvent('HTMLEvents');
-        ev.initEvent(eventName, true, false);
-        ev = extend(ev, data);
-        el.dispatchEvent(ev);
-      } else if (document.createEventObject) {
-        ev = document.createEventObject();
-        ev = extend(ev, data);
-        el.fireEvent('on' + eventName, ev);
-      }
-    },
+    //   if (document.createEvent) {
+    //     ev = document.createEvent('HTMLEvents');
+    //     ev.initEvent(eventName, true, false);
+    //     ev = extend(ev, data);
+    //     el.dispatchEvent(ev);
+    //   } else if (document.createEventObject) {
+    //     ev = document.createEventObject();
+    //     ev = extend(ev, data);
+    //     el.fireEvent('on' + eventName, ev);
+    //   }
+    // },
 
-    trim = function(str)
-    {
-      return str.trim ? str.trim() : str.replace(/^\s+|\s+$/g,'');
-    },
+    // trim = function(str)
+    // {
+    //   return str.trim ? str.trim() : str.replace(/^\s+|\s+$/g,'');
+    // },
 
-    hasClass = function(el, cn)
-    {
-      return (' ' + el.className + ' ').indexOf(' ' + cn + ' ') !== -1;
-    },
+    // hasClass = function(el, cn)
+    // {
+    //   return (' ' + el.className + ' ').indexOf(' ' + cn + ' ') !== -1;
+    // },
 
-    addClass = function(el, cn)
-    {
-      if (!hasClass(el, cn)) {
-        el.className = (el.className === '') ? cn : el.className + ' ' + cn;
-      }
-    },
+    // addClass = function(el, cn)
+    // {
+    //   if (!hasClass(el, cn)) {
+    //     el.className = (el.className === '') ? cn : el.className + ' ' + cn;
+    //   }
+    // },
 
-    removeClass = function(el, cn)
-    {
-      el.className = trim((' ' + el.className + ' ').replace(' ' + cn + ' ', ' '));
-    };
+    // removeClass = function(el, cn)
+    // {
+    //   el.className = trim((' ' + el.className + ' ').replace(' ' + cn + ' ', ' '));
+    // };
 
 
-  var console = window.console;
-  if (typeof console !== 'object' || !console.log)
-  {
-    (function() {
-      var noop    = function() {},
-        methods = ['assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error', 'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log', 'markTimeline', 'profile', 'profileEnd', 'markTimeline', 'table', 'time', 'timeEnd', 'timeStamp', 'trace', 'warn'],
-        length  = methods.length;
-      console = {};
-      while (length--) {
-        console[methods[length]] = noop;
-      }
-    }());
-  }
+  // var console = window.console;
+  // if (typeof console !== 'object' || !console.log)
+  // {
+  //   (function() {
+  //     var noop    = function() {},
+  //       methods = ['assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error', 'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log', 'markTimeline', 'profile', 'profileEnd', 'markTimeline', 'table', 'time', 'timeEnd', 'timeStamp', 'trace', 'warn'],
+  //       length  = methods.length;
+  //     console = {};
+  //     while (length--) {
+  //       console[methods[length]] = noop;
+  //     }
+  //   }());
+  // }
 
   // https://github.com/jashkenas/underscore/blob/master/underscore.js
 
@@ -134,7 +134,7 @@ if (/dbushell\.com/.test(window.location.hostname))
     var _init = 0, app = window.dbushell || { };
 
     var $win   = window,
-      $docEl = document.documentElement;
+        $docEl = document.documentElement;
 
     var _scrollers = [ ];
 
@@ -175,95 +175,132 @@ if (/dbushell\.com/.test(window.location.hostname))
       };
       setTimeout(resize, 0);
 
-      addEvent(window, 'resize', _throttle(resize, 300), false);
+      // addEvent(window, 'resize', _throttle(resize, 300), false);
+      window.addEventListener('resize', _throttle(resize, 300), false);
     };
 
     app.nav = function()
     {
       if (!$docEl.querySelector || !$docEl.dataset) return;
 
-
       var $nav = $docEl.querySelector('.nav'),
           $navList = $nav.querySelector('.nav__list[data-root]'),
           $navItems,
-          $navMoreItem = $navList.querySelector('.nav__item[data-overflow]'),
+          $navMoreItem = $navList.querySelector('.nav__item--more'),
           $navMoreList = $navMoreItem.querySelector('.nav__list');
+
+      var headroom  = new Headroom($nav, { offset: 35 });
+      headroom.init();
 
       var navListStyle = window.getComputedStyle($navList, null),
           navListPadding = parseInt(navListStyle.paddingLeft, 10) + parseInt(navListStyle.paddingRight, 10);
 
-      addEvent($navMoreItem.children[0], 'click', function(e) {
+      $navMoreItem.children[0].addEventListener('click', function(e) {
         e.preventDefault();
-        console.log($navMoreList.style.display);
-        $navMoreList.style.display = ($navMoreList.style.display === 'none') ? 'block' : 'none';
+        if ($navMoreList.classList.contains('nav__dropdown--active')) {
+          $navMoreList.classList.remove('nav__dropdown--active');
+          $navMoreList.classList.remove('nav__dropdown--hover');
+        } else {
+          $navMoreList.classList.add('nav__dropdown--active');
+        }
       }, false);
 
+      $navMoreItem.addEventListener('mouseenter', function(e) {
+        $navMoreList.classList.add('nav__dropdown--hover');
+      }, false);
+
+      $navMoreItem.addEventListener('mouseleave', function(e) {
+        $navMoreList.classList.remove('nav__dropdown--hover');
+      }, false);
+
+      function sortBy(arr, attr)
+      {
+        return arr.sort(function(a, b) {
+          var ap = parseInt(a && a.dataset ? a.dataset[attr] || 100 : 100),
+              bp = parseInt(b && b.dataset ? b.dataset[attr] || 100 : 100);
+          return ap - bp;
+        });
+      }
+
+      var updateLoop = 0;
       function update()
       {
-        // reset
-        $navMoreList.style.display = 'none';
-        $nav.classList.remove('nav--flex');
-        $nav.offsetWidth;
+        if (updateLoop++ < 50) {
+          // reset
+          $navMoreList.classList.remove('nav__dropdown--active');
+          $navMoreList.classList.remove('nav__dropdown--hover');
+          $nav.classList.remove('nav--flex');
+          // $nav.offsetWidth;
 
-        // update selector of visible nav items
-        $navItems = $nav.querySelectorAll('.nav__list[data-root] > .nav__item:not([data-overflow])');
+          // update selector of visible nav items
+          $navItems = [].slice.call($nav.querySelectorAll('.nav__list[data-root] > .nav__item:not(.nav__item--more)'));
+          sortBy($navItems, 'priority');
 
-        // calc current widths
-        $navMoreItem.style.display = 'block';
-        var more_width = $navMoreItem.offsetWidth,
-            free_width = 0,
-            nav_width = 0;
+          // calc current widths
+          $navMoreItem.style.display = 'block';
+          var more_width = $navMoreItem.offsetWidth,
+              free_width = 0,
+              nav_width = 0;
 
-        for (var i = 0; i < $navItems.length; i++) {
-          nav_width += $navItems[i].offsetWidth;
-        }
-        free_width = ($navList.offsetWidth - navListPadding) - more_width;
+          $navItems.forEach(function($item) {
+            nav_width += $item.offsetWidth;
+          });
 
-        // reduce until all items are on one line
-        if (nav_width > free_width) {
-          var $last = $navItems[$navItems.length - 1];
-          $last.dataset.width = $last.offsetWidth;
-          // move last item to the overflow list
-          if ($navMoreList.children.length) {
-            $navMoreList.insertBefore($last, $navMoreList.children[0]);
+          free_width = ($navList.offsetWidth - navListPadding) - more_width;
+
+          // reduce until all items are on one line
+          if (nav_width > free_width) {
+            var $last = $navItems[$navItems.length - 1];
+            $last.dataset.width = $last.offsetWidth;
+
+            // prepend last item to the overflow list
+            if ($navMoreList.children.length) {
+              $navMoreList.insertBefore($last, $navMoreList.children[0]);
+            } else {
+              $navMoreList.appendChild($last);
+            }
+            return update();
+
           } else {
-            $navMoreList.appendChild($last);
+            // add overflow items back into menu
+            if ($navMoreList.children.length) {
+              var $first = $navMoreList.children[0];
+              if ($navMoreList.children.length === 1) {
+              }
+              // move the first item back into the main list if space is free
+              if (nav_width + parseInt($first.dataset.width, 10) < free_width) {
+                $navItems.push($first);
+                sortBy($navItems, 'order');
+                $navItems.forEach(function($item) {
+                  $navList.appendChild($item);
+                });
+                $navList.appendChild($navMoreItem);
+                // $navList.insertBefore($first, $navMoreItem);
+                return update();
+              }
+            }
           }
-          return update();
+          $nav.classList.add('nav--flex');
         } else {
-          if ($navMoreList.children.length) {
-            var $first = $navMoreList.children[0];
-            if ($navMoreList.children.length === 1) {
-              // free_width += more_width;
-            }
-            // console.log(nav_width, parseInt($first.dataset.width, 10), free_width);
-            // move the first item back into the main list if space is free
-            if (nav_width + parseInt($first.dataset.width, 10) < free_width) {
-              $navList.insertBefore($first, $navMoreItem);
-              return update();
-            }
-          }
+          // should never reach here...
         }
-
-        $nav.classList.add('nav--flex');
-
+        updateLoop = 0;
         // update more list visiblity
         $navMoreItem.style.display = $navMoreList.children.length ? 'block' : 'none';
       }
 
-      var resizeTimeout = null;
-      function onResize()
-      {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(function() {
-        update();
-        }, 50);
-      }
+      // var resizeTimeout = null;
+      // function onResize()
+      // {
+      //   clearTimeout(resizeTimeout);
+      //   resizeTimeout = setTimeout(function() {
+      //   update();
+      //   }, 50);
+      // }
 
-      addEvent(window, 'load', onResize, false);
-      addEvent(window, 'resize', onResize, false);
-      addEvent(window, 'orientationchange', onResize, false);
-
+      window.addEventListener('load', _throttle(update, 50), false);
+      window.addEventListener('resize', _throttle(update, 50), false);
+      window.addEventListener('orientationchange', _throttle(update, 50), false);
     },
 
     app.init = function()
@@ -272,201 +309,7 @@ if (/dbushell\.com/.test(window.location.hostname))
         return;
       }
 
-      var $nav = document.getElementById('nav');
-
-      // function updateNav()
-      // {
-
-      //     if ($nav.scrollLeft > 10) {
-      //         $nav.classList.add('nav--left-overflow');
-      //     } else {
-      //         $nav.classList.remove('nav--left-overflow');
-      //     }
-      //     if ($nav.scrollWidth - $nav.clientWidth - $nav.scrollLeft > 10) {
-      //         $nav.classList.add('nav--right-overflow');
-      //     } else {
-      //         $nav.classList.remove('nav--right-overflow');
-      //     }
-      // }
-
-      // addEvent(window, 'load', updateNav, false);
-      // addEvent(window, 'resize', updateNav, false);
-      // addEvent($nav, 'scroll', updateNav, false);
-
-      var headroom  = new Headroom($nav, { offset: 35 });
-      headroom.init();
-
-
       app.nav();
-
-      // document.querySelector('div').onscroll = function() {
-      //     this.classList[this.scrollTop < 20 ? 'add' : 'remove']('shadow-top');
-      //     this.classList[this.scrollHeight - this.clientHeight - this.scrollTop < 20 ? 'add' : 'remove']('shadow-bottom');
-      // };
-
-      // var mouse = { },
-
-      //     nav_open = false,
-      //     nav_mouse = false,
-
-      //     scroll_out,
-      //     scroll_delta,
-      //     scroll_dist = 0,
-      //     scroll_down = false,
-      //     scroll_top  = [0, 0],
-      //     win_width   = 0,
-      //     win_height  = 0;
-
-      // var $header       = document.getElementById('top'),
-      //     header_height = 0,
-      //     header_width  = 0;
-
-      // app.onResize = function(e)
-      // {
-      //     app.onScroll(e);
-      // };
-
-      // app.onScroll = function(e)
-      // {
-      //     mouse = { };
-
-      //     scroll_top[0] = scroll_top[1];
-      //     scroll_top[1] = window.pageYOffset || document.documentElement.scrollTop;
-
-      //     scroll_down  = scroll_top[1] > scroll_top[0];
-      //     scroll_delta = scroll_top[1] - scroll_top[0];
-
-      //     if (scroll_top[1] > header_height) {
-      //         if (scroll_down) {
-      //             scroll_dist = 0;
-      //             addClass($header, 'header--fixed');
-      //             addClass($header, 'header--inactive');
-      //         } else {
-      //             scroll_dist += scroll_delta;
-      //             if (scroll_dist < -10) {
-      //                 removeClass($header, 'header--inactive');
-      //             }
-      //         }
-      //     } else {
-      //         removeClass($header, 'header--fixed');
-      //         removeClass($header, 'header--inactive');
-      //     }
-
-      //     clearTimeout(scroll_out);
-      //     if (e) {
-      //         scroll_out = setTimeout(function() {
-      //             if ((window.pageYOffset || document.documentElement.scrollTop) <= 0) {
-      //                 removeClass($header, 'header--fixed');
-      //                 removeClass($header, 'header--inactive');
-      //             }
-      //         }, 300);
-      //     }
-      // };
-
-
-      // addEvent(window, 'scroll', _throttle(app.onScroll, 100), false);
-      // addEvent(window, 'resize', _throttle(app.onResize, 100), false);
-      // addEvent(window, 'orientationchange', _throttle(app.onResize, 100), false);
-
-      // app.onResize();
-      // app.onScroll();
-
-      // addEvent(window, 'mousemove', _throttle(function(e)
-      // {
-      //     if (nav_open) { return; }
-      //     var pos;
-      //     if (e.hasOwnProperty('pageX')) {
-      //         pos = [e.pageX, e.pageY];
-      //     } else {
-      //         pos = [e.clientX + document.documentElement.scrollLeft, e.clientY + document.documentElement.scrollTop];
-      //     }
-      //     if (!mouse.pos) {
-      //         mouse.pos = pos;
-      //         return;
-      //     }
-      //     mouse.angle = Math.atan2(pos[1] - mouse.pos[1], pos[0] - mouse.pos[0]) * 180 / Math.PI;
-      //     mouse.pos = pos;
-
-      // }, 100), false);
-
-      // var nav_onMouseLeave = function(e)
-      // {
-      //     app.closeNav();
-      // };
-
-      // addEvent($header, 'mouseenter', function(e)
-      // {
-      //     if (nav_open || typeof mouse.angle !== 'number') {
-      //         return;
-      //     }
-      //     if (e.hasOwnProperty('pageX')) {
-      //         pos = [e.pageX, e.pageY];
-      //     } else {
-      //         pos = [e.clientX + document.documentElement.scrollLeft, e.clientY + document.documentElement.scrollTop];
-      //     }
-      //     if (mouse.angle > -180 && mouse.angle < -90) {
-      //         if (pos[0] < 160) {
-      //             nav_open = true;
-      //             nav_mouse = false;
-      //             setTimeout(function() {
-      //                 addEvent($nav, 'mouseleave', nav_onMouseLeave, false);
-      //             }, 150);
-      //             app.openNav();
-      //         }
-      //     }
-      // },
-      // false);
-
-      // var $nav     = document.getElementById('nav'),
-      //     $overlay = document.getElementById('overlay'),
-      //     $main    = document.getElementsByTagName('main')[0];
-
-      // app.openNav = function()
-      // {
-      //     nav_open = true;
-      //     addClass($nav, 'nav--active');
-      //     removeClass($nav, 'nav--closed');
-      //     removeClass($nav, 'nav--hidden');
-      //     addClass($overlay, 'overlay--active');
-      // };
-
-      // app.closeNav = function()
-      // {
-      //     mouse = { };
-      //     nav_open = false;
-      //     addClass($nav, 'nav--closed');
-      //     removeClass($nav, 'nav--active');
-      //     removeClass($overlay, 'overlay--active');
-      //     removeEvent($nav, 'mouseleave', nav_onMouseLeave, false);
-      //     setTimeout(function() {
-      //         addClass($nav, 'nav--hidden');
-      //     }, 300);
-      // };
-
-      // addEvent(document.getElementById('nav-open'), 'click', function(e)
-      // {
-      //     if (e.preventDefault) e.preventDefault(); else e.returnValue = false;
-      //     app.openNav();
-      // },
-      // false);
-
-      // addEvent(document.getElementById('nav-close'), 'click', function(e)
-      // {
-      //     if (e.preventDefault) e.preventDefault(); else e.returnValue = false;
-      //     app.closeNav();
-      // },
-      // false);
-
-      // addEvent(document.getElementById('overlay'), 'click', app.closeNav, false);
-
-      // addEvent(window, 'keydown', function(e)
-      // {
-      //     if (e.which === 27) {
-      //         setTimeout(function() {
-      //             if (nav_open) app.closeNav();
-      //         }, 50);
-      //     }
-      // }, false);
 
       app.iscroll();
 
