@@ -83,10 +83,19 @@ svg:not(:root) {
     position: relative;
     padding: em($unit * 14) 0 em($unit * 10) 0;
 
+    @include respond-min($breakpoint--mobile)
+    {
+        padding-top: em($unit * 16);
+    }
+
     @include respond-min($breakpoint--aside)
     {
-        // padding-top: em($baseline * 3);
-        margin-right: em($footer--width);
+        margin-right: percentage($footer--width/100);
+    }
+
+    @include respond-min(($footer--max-width / ($footer--width/100)))
+    {
+        margin-right: em($footer--max-width);
     }
 }
 

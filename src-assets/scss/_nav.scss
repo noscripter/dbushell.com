@@ -23,7 +23,12 @@
 
     @include respond-min($breakpoint--aside)
     {
-     padding-right: em($footer--width);
+        padding-right: percentage($footer--width/100);
+    }
+
+    @include respond-min(($footer--max-width / ($footer--width/100)))
+    {
+        padding-right: em($footer--max-width);
     }
 
     &::-webkit-scrollbar {

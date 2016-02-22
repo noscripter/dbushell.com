@@ -23,7 +23,8 @@
             overflow-x: hidden;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
-            width: em($footer--width);
+            width: percentage($footer--width/100);
+            max-width: em($footer--max-width);
             background: $white;
 
             .block {
