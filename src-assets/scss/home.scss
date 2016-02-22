@@ -48,6 +48,7 @@
                 transform 600ms cubic-bezier(.01,1.4,.6,1.2);
   }
 
+  .no-css3d &,
   .js--anim-in & {
     opacity: 1;
     transform: translateZ(0);

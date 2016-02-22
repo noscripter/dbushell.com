@@ -63,7 +63,7 @@
 
     db.isFF      = !!ua.match(/firefox/i);
     db.isOldIE   = !!(document.all && !document.addEventListener);
-    db.isIE      = !!((document.all && document.addEventListener) || window.navigator.msPointerEnabled);
+    db.isIE      = !!window.ActiveXObject || window.navigator.msPointerEnabled;
     db.isAndroid = !!(ua.match(/Android/) && ua.match(/AppleWebKit/) && !ua.match(/Chrome/));
     db.isIOS     = /(iPhone|iPad|iPod)/gi.test(ua);
 

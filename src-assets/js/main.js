@@ -139,7 +139,7 @@ if (/dbushell\.com/.test(window.location.hostname))
     var _scrollers = [ ];
 
     // use iScroll5 for scrollbar design in Firefox and IE9+
-    if (app.isFF || app.isIE) {
+    if (app.isFF || (app.isIE && !app.isOldIE)) {
       window.loadScript('/assets/js/vendor/iscroll.min.js', function() {
         window.dbushell.iscroll();
       });
@@ -312,6 +312,10 @@ if (/dbushell\.com/.test(window.location.hostname))
       app.nav();
 
       app.iscroll();
+
+      if (app.isIE) {
+        loadScript('/assets/js/vendor/svgxuse.min.js');
+      }
 
       return app;
     };
