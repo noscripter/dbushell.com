@@ -6,7 +6,7 @@
 .home {
 
   .block {
-    max-width: em(1200);
+    max-width: em($block--home);
   }
 
   & > .block {
@@ -25,49 +25,32 @@
   padding-top: em($unit * 7);
   padding-bottom: 0;
   background: $green;
-  background-image: url("/assets/img/home-hero-pattern.svg");
-  background-repeat: repeat;
   overflow: hidden;
 
   .block {
-    // z-index: $z-index--hero + 1;
     position: relative;
-
-    &:before {
-
-      z-index: $z-index--hero - 1;
-      position: absolute;
-      display: block;
-      content: "";
-      top: -25%;
-      left: 30%;
-      width: 90%;
-      height: 0;
-      padding-bottom: 90%;
-      opacity: 0.1;
-      background: url("/assets/img/starburst.svg") center center no-repeat;
-      background-size: 100% auto;
-      animation: spin 50s linear infinite;
-    }
   }
 }
 
-@keyframes spin {
-  100% {
-    transform:rotate(360deg);
-    }
-}
-
 .home-hero__logo {
+  position: relative;
   z-index: $z-index--hero + 10;
   display: block;
-  margin-top: 4%;
+  margin-top: 5%;
   margin-bottom: -2%;
+  width: 55%;
+  left: -5%;
 
-  img {
-    position: relative;
-    width: 55%;
-    left: -5%;
+  .js & {
+    opacity: 0;
+    transform: translateY(20%) scale(0.1) rotateZ(-15deg);
+    transition: opacity 300ms ease-in,
+                transform 600ms cubic-bezier(.01,1.4,.6,1.2);
+  }
+
+  .js--anim-in & {
+    opacity: 1;
+    transform: translateZ(0);
   }
 
   h1 {
@@ -78,11 +61,12 @@
 .home-hero__bg {
   z-index: $z-index--hero + 2;
   position: relative;
-  max-height: em(300);
 
   div {
     width: 100%;
-    padding-bottom: percentage(220/1000);
+    padding-top: em(15);
+    padding-bottom: percentage(600/3000);
+    // padding-bottom: calc(#{percentage(600/3000)} + #{em(15)});
   }
 
   svg {
@@ -110,7 +94,6 @@
 }
 
 .home-hero__crane {
-  z-index: $z-index--hero + 20;
   position: absolute;
   right: 3.5%;
   top: 0;
@@ -133,14 +116,14 @@
   }
 
   &:before {
-    z-index: $z-index--hero + 18;
+    z-index: $z-index--hero + 1;
     background-image: url("/assets/img/origami-crane-bg.svg");
     margin-top: -3.2%;
     margin-left: -0.8%;
   }
 
   &:after {
-      z-index: $z-index--hero + 19;
+      z-index: $z-index--hero + 20;
       background-image: url("/assets/img/origami-crane--small.png");
 
       @include respond-min($breakpoint--mobile)
@@ -150,17 +133,106 @@
   }
 }
 
+.home-hero__burst {
+  z-index: $z-index--hero - 1;
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  height: 0;
+  width: 100%;
+
+  &:after {
+    position: absolute;
+    display: block;
+    content: "";
+    top: 0%;
+    left: -25%;
+    height: 0;
+    width: 100%;
+    padding-bottom: 100%;
+    animation: animateSpin 50s linear infinite;
+    background: url("/assets/img/starburst.svg") center center no-repeat;
+    background-size: 100% auto;
+    opacity: 0.1;
+  }
+}
+
+@keyframes animateSpin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.home-star {
+  z-index: $z-index--hero + 30;
+  display: none;
+  position: absolute;
+  fill: $yellow;
+  opacity: 0.5;
+  transform: scale(0.5);
+}
+
+@keyframes animateStar {
+    0% {   opacity: 0.5; transform: scale(0.5); }
+    50% {  opacity: 1.0; transform: scale(1.0); }
+    100% { opacity: 0.5; transform: scale(0.5); }
+}
+
+.home-star {
+  width: percentage(100/$block--home);
+  height: 100px;
+  margin-top: -50px;
+  margin-left: -50px;
+  animation: animateStar 3s cubic-bezier(0,0.6,0.4,1) infinite;
+}
+
+.home-star:nth-of-type(1),
+.home-star:nth-of-type(3) {
+  width: percentage(75/$block--home);
+  height: 110px;
+  margin-left: -37.5px;
+  margin-top: -55px;
+}
+
+.home-star:nth-of-type(1) {
+  left: 52%;
+  top: 118%;
+}
+
+.home-star:nth-of-type(2) {
+  top: 36%;
+  left: 78%;
+  animation-delay: 1s;
+}
+
+.home-star:nth-of-type(3) {
+  top: 160%;
+  left: 92%;
+  animation-delay: 2s;
+}
+
+@include respond-min($breakpoint--home)
+{
+  .home-star {
+
+    .css3d & {
+      display: block;
+    }
+  }
+}
+
+@include respond-max($breakpoint--home - 1)
+{
+  .home-hero__logo {
+    margin-top: 5%;
+  }
+}
+
 @include respond-max($breakpoint--mobile - 1)
 {
-  .home-hero {
-    padding-top: em($unit * 9);
-    background-size: 60%;
-  }
-
   .home-hero__logo {
-    img {
-      width: 65%;
-    }
+    margin-top: 6%;
+    width: 65%;
   }
 
   .home-hero__crane {
@@ -189,15 +261,18 @@
   margin-bottom: em($baseline);
 }
 
-@include respond-min(768)
+@include respond-min($breakpoint--home)
 {
+  .home-hero + .block {
+    margin-top: -12%;
+  }
+
   .home-services {
     display: flex;
     flex-wrap: nowrap;
     margin-left: em(-$baseline/2);
     margin-right: em(-$baseline/2);
     height: em(300);
-    margin-top: -14%;
     margin-bottom: 0;
 
     hr {
@@ -334,7 +409,7 @@
   }
 
   h2 {
-    text-shadow: 3px 3px 0 rgba($dark-red, 0.4);
+    text-shadow: 3px 3px 0 rgba($dark-red, 0.5);
   }
 
   .p--large {
@@ -389,7 +464,7 @@
   }
 }
 
-@include respond-min(768)
+@include respond-min($breakpoint--home)
 {
 
   .home-sectors {
@@ -449,17 +524,59 @@
 .home-folio {
   margin: em($baseline * 2) 0;
   text-align: center;
+
+  // .folio__link {
+  //   background-image:  url("../img/portfolio.svg");
+  //   background-position: center center;
+  //   background-repeat: no-repeat;
+  //   background-size: 100% auto;
+
+  //   &:hover {
+  //     background-color: rgba($canvas, 0);
+  //     background-size: 150% auto;
+  //   }
+  // }
+
+  .folio__list {
+    margin-top: em($baseline);
+  }
+
+  @include respond-max($breakpoint--home - 1)
+  {
+    .folio__item:nth-child(1n + 3) {
+      display: none;
+    }
+  }
 }
 
-.home-quote {
+.home-clients {
   border-top: 5px solid $pink;
   box-shadow: inset 0 3px 0 0 rgba($yellow, 1);
   padding: em($unit + ($baseline * 1.5)) 0 em($baseline *2) 0;
-  text-align: center;
 
-  blockquote {
+  @include respond-min($breakpoint--mini)
+  {
+    text-align: center;
+  }
+}
+
+.home-clients__quote {
+  display: inline-block;
+  border: 0;
+
+  & + &:before {
     display: inline-block;
-    border: 0;
+    vertical-align: top;
+    content: "";
+    height: 2px;
+    width: 10%;
+    margin-top: em(-$baseline/2);
+    background: $yellow;
+    box-shadow: 0 4px 0 -2px rgba($dark-red, 0.5);
+  }
+
+  &:last-of-type {
+    margin-bottom: em($baseline * 2);
   }
 
   .p--large {

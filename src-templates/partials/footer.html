@@ -42,7 +42,12 @@
 
 var loaded = 0,
     onLoad = function(e) {
-        if (e) win.dbushell.onLoad();
+        if (e) {
+            win.requestAnimationFrame && win.requestAnimationFrame(function() {
+                document.documentElement.className += ' js--anim-in';
+            });
+            win.dbushell.onLoad();
+        }
         if (++loaded >= 2) {
             win.dbushell.init();
 {{# is "single" }}

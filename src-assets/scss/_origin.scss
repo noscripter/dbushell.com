@@ -58,15 +58,19 @@ $h6: $p;
 $nav--pinned      : 240;
 $footer--width    : 400;
 $block--max-width : 1140;
+$block--home      : 1200;
 $scrollbar--width : 14;
 
 // Breakpoints used throughout the website
 
 $breakpoint--mini    : 420;
 $breakpoint--mobile  : 580;
+$breakpoint--home    : 768;
 $breakpoint--desktop : 960;
 $breakpoint--aside   : 1200;//1000;
 // $breakpoint--pinned  : $nav--pinned + $block--max-width + $footer--width + $scrollbar--width;
+
+
 
 $breakpoint--hero--1 : $breakpoint--mini;
 $breakpoint--hero--2 : $breakpoint--mobile;

@@ -18,7 +18,8 @@
 @include non-critical {
 
     .folio {
-
+        z-index: $z-index--main + 1;
+        position: relative;
     }
 
     .folio__list {
@@ -43,7 +44,7 @@
     }
 
     .folio__link {
-        z-index: $z-index--main + 1;
+        z-index: $z-index--main + 2;
         @include no-tap-highlight;
         display: block;
         width: 100%;
@@ -55,12 +56,12 @@
         box-shadow: 0 0 0 1px $green,
                     inset 0 0 0 1px $green,
                     inset 0 0 0 3px rgba($yellow, 0.8);
-        background: $green url("../img/portfolio.svg") center center no-repeat;
-        background-size: 100% auto;
+        background: $green;// url("../img/portfolio.svg") center center no-repeat;
+        // background-size: 100% auto;
 
         &:hover {
             background-color: rgba($canvas, 0);
-            background-size: 150% auto;
+            // background-size: 150% auto;
 
 
             .folio__image {
@@ -144,11 +145,16 @@
     //     }
     // }
 
-    @include respond-max(800 - 1)
+    @include respond-max($breakpoint--home - 1)
     {
         .folio__item {
-            width: 45%;
-            width: calc(50% - #{em($unit * 4)});
+            margin: em($unit);
+            width: 48%;
+            width: calc(50% - #{em($unit * 2)});
+        }
+
+        .folio__list {
+            margin: 0 em(-$unit);
         }
     }
 }
