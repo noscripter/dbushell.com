@@ -12,7 +12,6 @@
         margin: em($baseline/2) 0;
         &:last-child { margin-bottom: 0; }
     }
-
 }
 
 @include non-critical {
@@ -53,16 +52,13 @@
         border-radius: em(6);
         padding-bottom: percentage(220 / 330);
         transition: background 200ms ease;
+        background: $green;
         box-shadow: 0 0 0 1px $green,
                     inset 0 0 0 1px $green,
                     inset 0 0 0 3px rgba($yellow, 0.8);
-        background: $green;// url("../img/portfolio.svg") center center no-repeat;
-        // background-size: 100% auto;
 
         &:hover {
             background-color: rgba($canvas, 0);
-            // background-size: 150% auto;
-
 
             .folio__image {
                 opacity: 0.1;
@@ -75,22 +71,6 @@
                 opacity: 1;
             }
         }
-
-
-        // .lt-ie9 & {
-        //     padding-bottom: percentage(200 / 300);
-
-        //     &:focus, &:hover {
-
-        //         .folio__image {
-        //             visibility: hidden;
-        //         }
-
-        //         .folio__label {
-        //             visibility: visible;
-        //         }
-        //     }
-        // }
     }
 
     .folio__label {
@@ -109,11 +89,6 @@
         transform: translateY(-50%);
         transition: opacity 200ms ease;
         text-shadow: 2px 2px 0 rgba($black, 0.2);
-
-        // .lt-ie9 & {
-        //     visibility: hidden;
-        //     margin-top: em(-($h4 / 2), $h4);
-        // }
     }
 
     .folio__image {
@@ -128,22 +103,10 @@
         border-radius: em(7);
         width: calc(100% - #{em($unit * 3)});
         transform-style: preserve-3d;
-        // transform-origin: 50% 0%;
         transform: rotateY(-30deg) rotateX(2deg) translateX(-7%);
         transition: opacity 200ms ease, filter 200ms ease, transform 200ms ease;
         backface-visibility: hidden;
-        // box-shadow: 0 0 0 4px $green,
-                    // 0 0 0 6px $yellow;
     }
-
-
-    // @include respond-min-max($breakpoint--aside, $breakpoint--aside + 200)
-    // {
-    //     .folio__item {
-    //         width: 45%;
-    //         width: calc(50% - #{em($unit * 2)});
-    //     }
-    // }
 
     @include respond-max($breakpoint--home - 1)
     {

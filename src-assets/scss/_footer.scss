@@ -133,11 +133,6 @@
 
     .footer__profile {
         max-width: em(560);
-
-        .lt-ie9 & {
-            max-width: none;
-            margin: 0 auto;
-        }
     }
 
     .footer__avatar {
@@ -160,10 +155,6 @@
             background-size: 100% 100%;
             border: 3px solid $yellow;
             box-shadow: 0 0 0 3px $pink;
-        }
-
-        .lt-ie8 & {
-            background: url("../img/me.jpg") center 0 no-repeat;
         }
 
         @include respond-min($breakpoint--aside)

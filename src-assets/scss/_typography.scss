@@ -406,6 +406,11 @@
         max-width: em(720, $p);
       }
 
+      ul:not([class]),
+      ol:not([class]) {
+        max-width: em(720 - $gutter);
+      }
+
       .p--small {
         max-width: em(720, $p--small);
       }

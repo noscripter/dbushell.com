@@ -24,11 +24,6 @@ img {
     border: 0;
 }
 
-// http://msdn.microsoft.com/en-gb/library/ie/jj583807(v=vs.85).aspx
-canvas {
-    -ms-touch-action: double-tap-zoom;
-}
-
 svg:not(:root) {
     overflow: hidden;
 }
@@ -120,10 +115,5 @@ svg:not(:root) {
     margin: 0 auto;
     padding: 0 7%;
     max-width: em($block--max-width);
-
-    .lt-ie9 & {
-        min-width: em(600);
-        max-width: em(900);
-    }
 }
 

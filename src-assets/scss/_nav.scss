@@ -101,6 +101,9 @@
     padding: 0 em($unit * 2, 15);
     text-transform: uppercase;
     text-align: center;
+    outline: 0;
+    border: 0;
+
 
     &:focus, &:hover {
       outline: none;
