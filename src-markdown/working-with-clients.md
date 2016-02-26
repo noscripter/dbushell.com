@@ -13,19 +13,24 @@ I've worked successfully with many businesses. From large national organisations
 * My workflow will adapt to fit your availability and expertise
 
 <blockquote>
-  <p class="p--large p--quote">David provided us with beautiful and cost effective templates for our CMS that surpassed our high expectations from both the design and the tech perspective.</p>
-  <p class="p--small"><cite>Kevin Mueller &ndash; Studio Manager &ndash; <a href="/2014/05/07/responsive-design-for-uwe-wittwer/">Uwe Wittwer</a></cite></p>
+  <p class="p--large p--quote">David quickly immersed himself within the workings of our industry, and created a plan that concisely reflected [our] needs.</p>
+  <p class="p--small"><cite>Jon Home &ndash; Director &ndash; Asset Management &ndash; <a href="/2013/08/09/responsive-design-for-kings-transfer/">King’s Transfer Van Lines Inc.</a></cite></p>
 </blockquote>
 
 Every project is unique. Rather than offering a set package my approach to design ensures we're creating a website that works for your business:
 
 * My design process is heavily feedback-driven
-* You'll receive regular updates, not big surprises that require "sign off"
+* You'll receive regular updates not big surprises that require "sign off"
 * We'll test and iterate ideas in the web browser and on devices
+
+<blockquote>
+  <p class="p--large p--quote">David was able to display sound reasoning and rationale for the decisions and advice provided to us, with solid industry best practice knowledge.</p>
+  <p class="p--small"><cite>Chris King &ndash; [ASE Consulting](http://www.ase.co.uk/)</cite></p>
+</blockquote>
 
 Learn more about my [**web design process**](/responsive-design/).
 
-And if you're unsure about the technical stuff I'll help with web hosting and domains to ensure your website is up and running smoothly.
+And if you're unsure about the technical stuff I'll help with web hosting and domains to ensure your website gets up and running smoothly.
 
 <div class="boxed reversed">
     <h3>Get a free quote&hellip;</h3>

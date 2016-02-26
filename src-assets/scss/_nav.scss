@@ -148,7 +148,7 @@
     border: 2px solid $pink;
     box-shadow: 0 0 0 3px rgba($black, 0.2);
 
-    .css3d & {
+    .csstransforms & {
       display: block;
       opacity: 0;
       transform: scale(0.6);
@@ -211,8 +211,8 @@
 
   .nav__dropdown--hover,
   .nav__dropdown--active,
-  .css3d .nav__dropdown--hover,
-  .css3d .nav__dropdown--active {
+  .csstransforms .nav__dropdown--hover,
+  .csstransforms .nav__dropdown--active {
     opacity: 1;
     display: block;
     transform: none;

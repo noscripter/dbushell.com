@@ -181,7 +181,7 @@ if (/dbushell\.com/.test(window.location.hostname))
 
     app.nav = function()
     {
-      if (!$docEl.querySelector || !$docEl.dataset) return;
+      if (!$docEl.querySelector || !$docEl.classList) return;
 
       var $nav = $docEl.querySelector('.nav'),
           $navList = $nav.querySelector('.nav__list[data-root]'),
@@ -213,11 +213,21 @@ if (/dbushell\.com/.test(window.location.hostname))
         $navMoreList.classList.remove('nav__dropdown--hover');
       }, false);
 
+      function getData(el, attr)
+      {
+        return el ? ( el.dataset ? el.dataset[attr] : el.getAttribute('data-' + attr) ) : null;
+      }
+
+      function setData(el, attr, value)
+      {
+        return el ? ( el.dataset ? el.dataset[attr] = value : el.setAttribute('data-' + attr, value) ) : null;
+      }
+
       function sortBy(arr, attr)
       {
         return arr.sort(function(a, b) {
-          var ap = parseInt(a && a.dataset ? a.dataset[attr] || 100 : 100),
-              bp = parseInt(b && b.dataset ? b.dataset[attr] || 100 : 100);
+          var ap = parseInt(getData(a, attr) || 100),
+              bp = parseInt(getData(b, attr) || 100);
           return ap - bp;
         });
       }
@@ -251,7 +261,8 @@ if (/dbushell\.com/.test(window.location.hostname))
           // reduce until all items are on one line
           if (nav_width > free_width) {
             var $last = $navItems[$navItems.length - 1];
-            $last.dataset.width = $last.offsetWidth;
+            // $last.dataset.width = $last.offsetWidth;
+            setData($last, 'width', $last.offsetWidth);
 
             // prepend last item to the overflow list
             if ($navMoreList.children.length) {
@@ -268,7 +279,7 @@ if (/dbushell\.com/.test(window.location.hostname))
               if ($navMoreList.children.length === 1) {
               }
               // move the first item back into the main list if space is free
-              if (nav_width + parseInt($first.dataset.width, 10) < free_width) {
+              if (nav_width + parseInt(getData($first, 'width'), 10) < free_width) {
                 $navItems.push($first);
                 sortBy($navItems, 'order');
                 $navItems.forEach(function($item) {

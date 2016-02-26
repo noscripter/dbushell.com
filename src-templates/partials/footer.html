@@ -43,11 +43,9 @@
 var loaded = 0,
     onLoad = function(e) {
         if (e) {
-            win.dbushell.onLoad();
+            // win.dbushell.onLoad();
             setTimeout(function() {
-                requestAnimationFrame(function() {
-                    document.documentElement.className += ' js--anim-in';
-                });
+                document.documentElement.className += ' js-anim';
             }, 300);
         }
         if (++loaded >= 2) {

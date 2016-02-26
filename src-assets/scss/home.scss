@@ -29,6 +29,7 @@
 
   .block {
     position: relative;
+    margin-top: 5%;
   }
 }
 
@@ -36,7 +37,7 @@
   position: relative;
   z-index: $z-index--hero + 10;
   display: block;
-  margin-top: 5%;
+  // margin-top: 5%;
   margin-bottom: -2%;
   width: 55%;
   left: -5%;
@@ -48,14 +49,18 @@
                 transform 600ms cubic-bezier(.01,1.4,.6,1.2);
   }
 
-  .no-css3d &,
-  .js--anim-in & {
+  .no-csstransforms &,
+  .js-anim & {
     opacity: 1;
     transform: translateZ(0);
   }
 
   h1 {
     @include visually-hidden;
+  }
+
+  img {
+    width: 100%;
   }
 }
 
@@ -216,7 +221,7 @@
 {
   .home-star {
 
-    .css3d & {
+    .csstransforms & {
       display: block;
     }
   }
@@ -224,15 +229,30 @@
 
 @include respond-max($breakpoint--home - 1)
 {
+  .home-hero {
+
+    .block {
+      margin-top: 5%;
+    }
+  }
+
   .home-hero__logo {
-    margin-top: 5%;
+    // margin-top: 5%;
   }
 }
 
 @include respond-max($breakpoint--mobile - 1)
 {
+
+  .home-hero {
+
+    .block {
+      margin-top: 6%;
+    }
+  }
+
   .home-hero__logo {
-    margin-top: 6%;
+    // margin-top: 6%;
     width: 65%;
   }
 
@@ -286,7 +306,8 @@
   }
 
   .home-services__item {
-    flex-basis: 33.333%;
+    // flex-basis: 33.333%;
+    width: 33.333%;
     padding: 0 em($baseline/2);
     margin: 0;
 
@@ -298,6 +319,26 @@
       align-self: flex-end;
     }
   }
+
+  .no-flexbox {
+
+    .home-services {
+      overflow: hidden;
+    }
+
+    .home-services__item {
+      float: left;
+
+      &:nth-of-type(2) {
+        margin-top: em($baseline * 3);
+      }
+
+      &:nth-of-type(3) {
+        margin-top: em($baseline * 6);
+      }
+    }
+  }
+
 }
 
 /*
@@ -320,6 +361,10 @@
     bottom: em(49);
     background: $canvas;
   }
+}
+
+.js-ie .home-sectors:before {
+  display: none;
 }
 
 .home-sectors__item {
@@ -481,8 +526,10 @@
   }
 
   .home-sectors__item {
-    flex-basis: 45%;
+    // flex-basis: 45%;
+    width: 47%;
     height: em(350);
+    max-width: em(450);
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -519,6 +566,19 @@
     align-self: flex-end;
     background-color: $pink;
     box-shadow: em(-$unit * 4) 0 0 em(-$unit * 2) rgba($black, 0.1);
+    margin-top: em($baseline * 2);
+  }
+}
+
+.no-flexbox {
+
+
+  .home-businesses {
+    float: left;
+  }
+
+  .home-agencies {
+    float: right;
   }
 }
 

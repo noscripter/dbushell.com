@@ -6,7 +6,7 @@ template: service-design.html
 
 The number of web-accessible devices is truly a wonder of our information age. This can be a daunting canvas for design without a responsive approach.
 
-Mobile phones, tablets, desktops — can we even categorise these days? I specialise in embracing the Web's ubiquity. It's my job to design for all experiences because successful websites remain accessible to the whole audience.
+Mobile phones, tablets, desktops — can we even categorise these days? I specialise in embracing the web's ubiquity. It's my job to design for all experiences because successful websites remain accessible to the whole audience.
 
 My web design and development process is heavily feedback driven. It allows for the best collaboration between both parties, utilising my expertise in web design alongside my clients unique understanding of their business.
 
