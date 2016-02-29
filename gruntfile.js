@@ -85,7 +85,7 @@ module.exports = function(grunt)
                 options: {
                     watch: false,
                     metadata: {
-                        dev       : true,
+                        dev       : false,
                         site_ver  : '8.0.0',
                         site_url  : 'http://dbushell.com',
                         site_name : 'David Bushell &#8211; Web Design &amp; Front-end Development (based in Manchester, UK)',
@@ -143,7 +143,7 @@ module.exports = function(grunt)
                 files: [{
                     expand: true,
                     cwd: 'src-assets/',
-                    src: ['img/**/*.svg'],
+                    src: ['img/**/*.svg', '!img/icons.svg', '!img/stars.svg'],
                     dest: 'build/assets/'
                 }],
                 options: {
