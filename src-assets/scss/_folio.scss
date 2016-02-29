@@ -17,7 +17,7 @@
 @include non-critical {
 
     .folio {
-        z-index: $z-index--main + 1;
+        z-index: $z-index--home;
         position: relative;
     }
 
@@ -29,6 +29,7 @@
     }
 
     .folio__item {
+        z-index: $z-index--home + 10;
         position: relative;
         display: block;
         float: left;
@@ -43,7 +44,7 @@
     }
 
     .folio__link {
-        z-index: $z-index--main + 2;
+        z-index: $z-index--home + 11;
         @include no-tap-highlight;
         display: block;
         width: 100%;
@@ -74,7 +75,7 @@
     }
 
     .folio__label {
-        z-index: $z-index--main + 3;
+        z-index: $z-index--home + 12;
         position: absolute;
         display: block;
         top: 50%;
@@ -92,7 +93,7 @@
     }
 
     .folio__image {
-        z-index: $z-index--main + 2;
+        z-index: $z-index--home + 11;
         position: absolute;
         top: 0;
         left: 0;
@@ -103,7 +104,7 @@
         border-radius: em(7);
         width: calc(100% - #{em($unit * 3)});
         transform-style: preserve-3d;
-        transform: rotateY(-30deg) rotateX(2deg) translateX(-7%);
+        transform: rotateY(30deg) rotateX(2deg) translateX(7%);
         transition: opacity 200ms ease, filter 200ms ease, transform 200ms ease;
         backface-visibility: hidden;
     }

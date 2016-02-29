@@ -11,7 +11,7 @@
 
   & > .block {
     position: relative;
-    z-index: $z-index--hero + 100;
+    z-index: $z-index--home;
   }
 }
 
@@ -346,6 +346,7 @@
 */
 
 .home-sectors {
+  z-index: $z-index--home + 1;
   position: relative;
   margin-bottom: em($baseline * 2);
 
