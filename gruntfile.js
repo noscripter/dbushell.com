@@ -64,7 +64,7 @@ module.exports = function(grunt)
                 }
             },
             markdown: {
-                files: ['src-markdown/**/*.md'],
+                files: ['src-markdown/**/*.md', 'src-templates/**/*.html'],
                 tasks: ['dbushell_metalsmith'],
                 options: {
                     spawn: false,

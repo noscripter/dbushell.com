@@ -37,6 +37,10 @@ function plugin(grunt)
             metadata: { }
         });
 
+        function changed(filename, props, i) {
+            return !!( options.watch ? props.watching : true );
+        }
+
         var metalsmith = new Metalsmith(process.cwd());
 
         metalsmith.source(options.src);
@@ -147,9 +151,10 @@ function plugin(grunt)
         // mark file being watched
         if (options.watch) {
             options.watching = options.watching.replace(new RegExp('^' + options.src + '\/'), '');
+            options.watching = options.watching.replace(/^src-templates\//, '');
             metalsmith.use(function(files, metalsmith, done) {
                 Object.keys(files).forEach(function(file) {
-                    if (file === options.watching) {
+                    if (file === options.watching || files[file].template === options.watching) {
                         files[file].watching = true;
                     }
                 });
@@ -165,10 +170,10 @@ function plugin(grunt)
                 smartypants: true
             }))
 
-            .use(ms_branch('amp/*.html').use(ms_db_ampify({ })))
+            .use(ms_branch(changed).use(ms_branch('amp/*.html').use(ms_db_ampify({ }))))
 
             // metadata for RSS feed
-            .use(function (files, metalsmith, done) {
+            .use(ms_branch(changed).use(function (files, metalsmith, done) {
                 for (var file in files) {
                     if (!/.html/.test(path.extname(file))) {
                         continue;
@@ -176,7 +181,7 @@ function plugin(grunt)
                     files[file].rss_content = post__excerpt(files[file].contents.toString());
                 }
                 done();
-            })
+            }))
 
             .use(ms_collections({
                 latest: {
@@ -254,27 +259,11 @@ function plugin(grunt)
                 done();
             })
 
-            .use(ms_layouts({
+            .use(ms_branch(changed).use(ms_layouts({
                 engine: 'handlebars',
                 directory: 'src-templates',
                 partials: 'src-templates/partials'
-            }))
-
-            .use(ms_db_sitemap({ }))
-
-            .use(ms_feed({
-                author: 'David Bushell',
-                webMaster: 'hi@dbushell.com (David Bushell)',
-                title: 'dbushell.com',
-                description: 'David Bushell’s Web Design & Front-end Development Blog',
-                language: 'en',
-                site_url: options.metadata.site_url,
-                destination: 'rss.xml',
-                collection: 'blog',
-                postDescription: function(file) {
-                    return file.rss_content || '';
-                }
-            }))
+            })))
 
         ;
 
@@ -290,6 +279,25 @@ function plugin(grunt)
                 });
                 done();
             });
+        } else {
+
+            metalsmith.use(ms_db_sitemap({ }));
+            grunt.log.writeln('Building XML sitemap...');
+
+            metalsmith.use(ms_feed({
+                author: 'David Bushell',
+                webMaster: 'hi@dbushell.com (David Bushell)',
+                title: 'dbushell.com',
+                description: 'David Bushell’s Web Design & Front-end Development Blog',
+                language: 'en',
+                site_url: options.metadata.site_url,
+                destination: 'rss.xml',
+                collection: 'blog',
+                postDescription: function(file) {
+                    return file.rss_content || '';
+                }
+            }));
+            grunt.log.writeln('Building RSS feed...');
         }
 
         metalsmith.build(function(err) {
