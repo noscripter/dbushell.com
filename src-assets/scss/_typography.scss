@@ -397,11 +397,15 @@
     line-height: 1.5;
     padding: 0 em(3, 14);
 
-    p & {
+    p &,
+    li & {
       font-size: em(14, $p);
     }
   }
 
+  p iframe {
+    margin: em($baseline, $p) 0 em($baseline/2) 0;
+  }
 
   @include respond-min($breakpoint--mobile)
   {
