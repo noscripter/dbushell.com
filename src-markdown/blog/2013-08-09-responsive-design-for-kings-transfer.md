@@ -7,7 +7,7 @@ portfolio: true
 title: Responsive Design for King's Transfer
 ---
 
-The new [King’s Transfer](http://www.kingstransfer.com/) website has gone live. I worked on design and front-end development while [Peter Mitchell](http://peterjmit.com/) took care of all things back-end.
+The new King’s Transfer website has gone live. I worked on design and front-end development while [Peter Mitchell](http://peterjmit.com/) took care of all things back-end.
 
 This is my third in-depth responsive design[ case study](/showcase/) and my first as a freelancer. I feel it's my best work to-date and that's due to a great client and a real focus on the design process. I've documented the project below to showcase how I like to work.
 
