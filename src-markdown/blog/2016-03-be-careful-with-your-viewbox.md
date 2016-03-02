@@ -62,9 +62,11 @@ I checked my minified SVG sprite source and it looked suspiciously empty:
 
 If you're using a minifying tool based on [SVGO](https://github.com/svg/svgo) you need to disable a couple of plugins ('cleanupIDs' and 'removeViewBox'). This will ensure the `<symbol>` elements are not removed from your sprite.
 
-That fixed, I refreshed to find my icons were now visible but not scaling correctly. Regardless of what CSS `width` or `height` values I set they refused to listen. After a brief spell of bewilderment I realised that my minified sprite was still missing the `viewBox` attributes on each `<symbol>`. Browsers will not scale SVG without this attribute. Why was it being removed? That's because — and this took me an embarrassingly long time to notice — my `viewbox` attributes were lower-case.
+That fixed, I refreshed to find my icons were now visible but not scaling correctly. Regardless of what CSS `width` or `height` values I set they refused to listen. After a brief spell of bewilderment I realised that my minified sprite was still missing the `viewBox` attributes on each `<symbol>`. Browsers will not scale SVG without this attribute.
 
-From testing it seems browsers don't actually care but SVGO is case-sensitive in this scenario.  I've uploaded a test case on [CodePen](http://codepen.io/dbushell/pen/EKaRaV/) to demonstrate:
+Why was it being removed? That's because — and this took me an embarrassingly long time to notice — my `viewbox` attributes were lower-case. From testing it seems browsers don't actually care but SVGO is case-sensitive in this scenario. Not recognising the lower-case `viewbox` it was being removed.
+
+I've uploaded an example on [CodePen](http://codepen.io/dbushell/pen/EKaRaV/) to demonstrate:
 
 <span data-height="268" data-theme-id="0" data-slug-hash="EKaRaV" data-default-tab="result" data-user="dbushell" class='codepen'>See the Pen <a href='http://codepen.io/dbushell/pen/EKaRaV/'>SVG icon sprite test case</a> by David Bushell (<a href='http://codepen.io/dbushell'>@dbushell</a>) on <a href='http://codepen.io'>CodePen</a>.</span>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
