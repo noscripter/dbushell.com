@@ -6,11 +6,16 @@ template: single.html
 title: Responsive Tables (2)
 ---
 
+<div class="boxed reversed">
+<h3>NEW: <a href="/2016/03/04/css-only-responsive-tables/">CSS only Responsive Tables</a></h3>
+<p>See the link above for more recent developments.</p>
+</div>
+
 My [last article on responsive tables](http://dbushell.com/2012/01/04/responsive-calendar-demo/) was very popular so I've only gone and implemented the idea that I was alluding to with horizontal scrolling!
 
-[![Responsive Tables (2)](/wp-content/uploads/2012/01/rt_05_01_12.png)](http://dbushell.com/demos/tables/rt_05-01-12.html)
+<p class="post__image">![Responsive Tables (2)](/wp-content/uploads/2012/01/rt_05_01_12.png)</p>
 
-See [Responsive Tables Demo (2)](http://dbushell.com/demos/tables/rt_05-01-12.html) — **in a modern browser!** Webkit browsers handle both tables perfectly. Firefox & Opera handle the first version. The second version plays with/abuses the [flexible box layout](http://www.w3.org/TR/css3-flexbox/) and only works with a `-webkit-` prefix.
+See [Responsive Tables Demo (2)](/2016/03/04/css-only-responsive-tables/) — **in a modern browser!** Webkit browsers handle both tables perfectly. Firefox & Opera handle the first version. The second version plays with/abuses the [flexible box layout](http://www.w3.org/TR/css3-flexbox/) and only works with a `-webkit-` prefix.
 
 I'm confident with more ingenuity I can get this idea working in IE9. Please note: this is far from perfected!
 
