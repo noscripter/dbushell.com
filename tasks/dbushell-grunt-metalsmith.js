@@ -99,6 +99,7 @@ function plugin(grunt)
 
         // date formatting with Moment.js
         Handlebars.registerHelper('moment', function(context, format) {
+            if (!context) context = new Date();
             if (format === 'ISO') return Moment(context).toISOString();
             return Moment(context).format(format);
         });
