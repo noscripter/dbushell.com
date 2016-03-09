@@ -16,7 +16,7 @@ So that is what I made. I saved the logo as an _SVG_ file from Adobe Illustrator
 ### A small problem with objects
 
 
-I've embedding an external _SVG_ file using the <object> tag with my original _PNG_ image as a fallback (I hope this works in Internet Explorer! will test tomorrow). The problem with this technique is that I don't think it's possible to have a transparent background – it defaults to a white square. The simple solution I found was to embed a background image within the _SVG_ file. It works perfectly but doubles the file size.
+I've embedding an external _SVG_ file using the `<object>` tag with my original _PNG_ image as a fallback (I hope this works in Internet Explorer! will test tomorrow). The problem with this technique is that I don't think it's possible to have a transparent background – it defaults to a white square. The simple solution I found was to embed a background image within the _SVG_ file. It works perfectly but doubles the file size.
 
 If anyone knows a better solution let me know!
 
