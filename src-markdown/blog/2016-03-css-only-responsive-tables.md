@@ -36,6 +36,6 @@ If you're looking for professional front-end design [give me a shout](/contact/)
 
 ## Scrolling shadows
 
-Around the time I originally published this idea, **Lea Verou** wrote about [Pure CSS scrolling shadows](I've http://lea.verou.me/2012/04/background-attachment-local/). The shadows act as a visual indicator for content overflow and invite scrolling. Nicer than a hard cut-off in my opinion.
+Around the time I originally published this idea, **Lea Verou** wrote about [Pure CSS scrolling shadows](http://lea.verou.me/2012/04/background-attachment-local/). The shadows act as a visual indicator for content overflow and invite scrolling. Nicer than a hard cut-off in my opinion.
 
 I've found that `background-attachment: local` is unreliable on mobile devices. My alternate method works well enough to hide and reveal the shadows. I've commented the [CodePen](http://codepen.io/dbushell/full/8e6a1ee85418f3c5abe839647dbcdec5/) CSS to highlight the relevant styles.
