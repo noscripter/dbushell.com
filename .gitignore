@@ -12,4 +12,5 @@ httpdocs
 *.zip
 src-static/*
 build
+build-images
 tasks/tmp

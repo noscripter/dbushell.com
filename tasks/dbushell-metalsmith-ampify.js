@@ -1,4 +1,5 @@
-var imgsize     = require('image-size');
+var imgsize     = require('image-size'),
+    Moment      = require('moment');
 
 module.exports = plugin;
 
@@ -44,6 +45,9 @@ function plugin(options) {
             var data = file.contents.toString(),
                 images = data.match(/<img(.*?)>/g),
                 iframes = data.match(/<iframe(.*?)>/g);
+
+                // var image = '<p class="post__image"><img src="/images/amp/' + Moment(file.date).format('YYYY-MM-DD') + '-' + file.slug +  '.png" alt="' + file.title + '"></p>';
+                // data = data + image;
 
             if (images) {
                 var src, alt, dim, imgr = new RegExp('src="' + meta.site_url + '(.*?)"', 'g');
