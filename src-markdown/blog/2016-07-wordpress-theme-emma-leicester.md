@@ -64,3 +64,7 @@ I’m using modifier classes with `--infinite` to ensure grids used elsewhere on
 When clicked, blog articles from previous pages are loaded and appended to the grid. There is of course an option to automatically load new articles on scroll for the true “infinite scroll” effect. Personally I prefer a button because unexpected changes that force the page to repaint can cause scroll lag and jumpiness on mobile.
 
 This is a clean example of progressive enhancement in action.
+
+## Final Thoughts
+
+Thanks again to [Base Creative](https://www.basecreative.co.uk/) for allowing me to work on this project.
