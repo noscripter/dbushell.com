@@ -14,7 +14,7 @@ The only real downside of plentiful client work is the lack of time for my own p
 2. [Grunt tasks](https://github.com/dbushell/dbushell-Origin) to automate the build progress (Sass, etc)
 
 
-The idea is to save myself hours of repetitive work when starting a new website. However, it has started to feel heavy-handed. Over the last couple of years I’ve observed that only two tasks are crucial for speedy development: Sass, and simple HTML templating. I don’t need Grunt re-minifiying my JavaScript every edit. Nor do I need an intermediate version of images that get copied and compressed into the build directory.
+The idea is to save myself hours of repetitive work when starting a new website. However, ut has started to feel heavy-handed. Over the last couple of years I’ve observed that only two tasks are crucial for speedy development: Sass, and simple HTML templating. I don’t need Grunt re-minifiying my JavaScript every edit. Nor do I need an intermediate version of images that get copied and compressed into the build directory.
 
 Time to go back to basics.
 
@@ -23,7 +23,7 @@ Time to go back to basics.
 Originally I had decided to only save source files in the repo (not the compiled build). Going forward I’m committing the build directory. Sometimes I just want to checkout an older project and see it in the browser without having to install dependencies and run build tasks.
 
 I’ve removed all tasks and intermediate stages for JavaScript and images. Now they only exist in `./build/assets/`. 
-I’ve found that such tasks were overcomplicating the matter. This is especially true when my clients have their own deployment process that minifies and combines JavaScript. My efforts are often redundant. Intermediate versions of images were also wasteful because the original source is usually a PSD backed up elsewhere.
+I’ve found that such tasks were overcomplicating the matter. This is especially true when my clients have their own deployment process that minifies and combines JavaScript. My efforts were redundant. Intermediate versions of images were also wasteful because the original source is usually a PSD backed up elsewhere.
 
 Finally, I’ve really cut back on the “opinionated CSS”. There’s almost no design. Just pure CSS patterns. Well there is a little design, but it follows my personal conventions and patterns I find common enough to warrant inclusion.
 
