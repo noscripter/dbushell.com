@@ -141,7 +141,8 @@
         width: em($unit * 18);
         height: em($unit * 18);
 
-        &:after {
+        &:after,
+        &:before {
             position: absolute;
             overflow: hidden;
             display: block;
@@ -155,6 +156,18 @@
             background-size: 100% 100%;
             border: 3px solid $yellow;
             box-shadow: 0 0 0 3px $pink;
+        }
+
+        &:after {
+          opacity: 0;
+          transition: opacity 300ms;
+        }
+
+        &:hover {
+          &:after {
+            background-image: url("../img/me2.jpg");
+            opacity: 1;
+          }
         }
 
         @include respond-min($breakpoint--aside)
