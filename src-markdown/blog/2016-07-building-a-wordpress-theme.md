@@ -1,42 +1,41 @@
 ---
 date: 2016-07-14 10:00:00+00:00
 draft: false
-slug: wordpress-theme-emma-leicester
+slug: building-a-wordpress-theme
 template: single.html
 portfolio: true
 title: 'Building a WordPress Theme'
 ---
 
-I was delighted when [Base Creative](https://www.basecreative.co.uk/) asked me to help build their beautifully designed website for [Emma Leicester](http://www.emmaleicester.co.uk/). 
-It’s always a joy to work with Base Creative knowing that my role is made easier by the care and attention they deliver.
+I was delighted when [Base Creative](https://www.basecreative.co.uk/) asked me to help build a beautifully designed website on WordPress. It’s always a joy to work with Base Creative knowing that my role is made easier by the care and attention they deliver.
 
-<p class="post__image">![Website design for Emma Leicester by Base Creative, London](/images/blog/wordpress-theme-emma-leicester.png)</p>
+<p class="post__image">![Website design by Base Creative, London](/images/blog/wordpress-bc-theme.png)</p>
 
-<p class="p--large">In this review I’ll showcase a few of the defining techniques and challenges that made this project an interesting one to deliver. As with most projects I started with a static HTML build allowing me to focus on CSS and responsiveness in the browser.</p>
+<p class="p--large">In this review I’ll showcase a few of the defining techniques and challenges that made this an interesting project to deliver. As usual I started with a static HTML build allowing me to focus on CSS and responsiveness in the browser.</p>
 
 * * *
 
 ## Responsive Patterns
 
-Overall the design adapted nicely to varying screen sizes. The “article” component, used for listings blog posts, proved most challenging to code. The screenshots below illustrate how articles are designed to sit within a grid, resize, and change layout across breakpoints.
+Overall the design adapted nicely across devices. The “article” component, used for listings blog posts, proved most challenging to code. The screenshots below illustrate how articles are designed to sit within a grid, resize, and change layout across breakpoints.
 
-<p class="post__image">![Blog design for Emma Leicester by Base Creative, London](/images/blog/wordpress-eleicester-articles.png)</p>
+<p class="post__image">![Blog article design by Base Creative, London](/images/blog/wordpress-bc-articles.png)</p>
 
 Where possible I always aim to use standardised WordPress features. [**Post Thumbnails**](https://codex.wordpress.org/Post_Thumbnails) were the logical target for these article images. It’s important to avoid requiring multiple images because they make content management a chore.
 
 Through experimentation in the browser I discovered the optimal image size to cover all breakpoints. CSS is used to effectively center and crop the image if its aspect ratio differs to that of its parent container. Flexbox is used in supported browsers for perfect alignment. It’s remarkably tricky otherwise to get those buttons aligned to the bottom of the box! 
 
-Building the the CSS and HTML templates first leads to a much easier process of deconstruction and reassembling into a WordPress theme.
+Building the the CSS and HTML templates first lead to a much easier process of deconstruction and reassembling into a WordPress theme.
 
 ## Moving to WordPress
 
 For WordPress development I use [MAMP PRO](https://www.mamp.info/en/) because its fast to setup and manage local installs. To really make the most of WordPress as a **content management system** I find the [Advanced Custom Fields](https://www.advancedcustomfields.com/) plugin to be indispensable.
 
-With ACF I’ll often create a general options page to configure content. The homepage design for Emma Leicester’s website has two featured articles. I provided options to show or hide as well as specify the exact content to be featured. 
+With ACF I’ll often create a general options page to configure content. The homepage design for this website has two featured articles. I provided options to show or hide as well as specify the exact content to be featured. 
 
 *When building a WordPress theme it’s important to consider all scenarios and provide safe defaults alongside more granular control for the author if they desire*.
 
-<p class="post__image">![WordPress homepage options for Emma Leicester website](/images/blog/wordpress-eleicester-general-settings.png)</p>
+<p class="post__image">![WordPress homepage options](/images/blog/wordpress-bc-general-settings.png)</p>
 
 It’s debatable whether to show these fields on the general options page or when editing the homepage itself. Because there is similar featured content that appears across multiple templates I opted to keep all of these options in one place.
 
@@ -44,7 +43,7 @@ It’s debatable whether to show these fields on the general options page or whe
 
 Some blog posts will lead with a YouTube video. To provide the necessary CMS fields and taxonomy I combined the standard WordPress [Post Formats](https://codex.wordpress.org/Post_Formats) with conditional ACF options:
 
-<p class="post__image">![WordPress post formats for Emma Leicester website](/images/blog/wordpress-eleicester-video-format.png)</p>
+<p class="post__image">![WordPress post formats](/images/blog/wordpress-bc-video-format.png)</p>
 
 It would have been easier to simply expect the author to paste embed code within the main content editor. This is bad practice for several reasons:
 
@@ -64,7 +63,7 @@ the_content();
 ?>
 ```
 
-The `video_embed_code()` function exists in the theme’s `function.php` and uses the WordPress function `wp_kses()` [(see docs)](https://codex.wordpress.org/Function_Reference/wp_kses) to help sanitise content by only allowing specific HTML — an `iframe` or `video` element in this case.
+The `video_embed_code()` function exists in the theme’s `function.php` and uses the WordPress function `wp_kses()` [(see docs)](https://codex.wordpress.org/Function_Reference/wp_kses) to help sanitise content by allowing only specific HTML elements and attributes — an `<iframe>` or `<video>` in this case.
 
 ## Infinite Scroll
 
@@ -74,7 +73,7 @@ After some trial and error I settled on the aptly named, if a tad longwinded, [�
 
 For the infinite scroll to work you first implement the blog with standard “Previous” and “Next” pagination. At this stage blog pages are now perfectly **accessible** and **indexable**. Then you tell the plugin your CSS selectors:
 
-<p class="post__image">![WordPress infinite scroll plugin settings](/images/blog/wordpress-infinite-scroll-plugin.png)</p>
+<p class="post__image">![WordPress infinite scroll plugin settings](/images/blog/wordpress-bc-infinite-scroll.png)</p>
 
 These selectors match the HTML structure I’ve used for blog listings and pagination:
 
@@ -93,9 +92,9 @@ These selectors match the HTML structure I’ve used for blog listings and pagin
 
 The plugin uses JavaScript to replace the pagination with a customisable “More” button:
 
-<p class="post__image">![WordPress infinite scroll loading](/images/blog/wordpress-infinite-load.gif)</p>
+<p class="post__image">![WordPress infinite scroll loading](/images/blog/wordpress-bc-infinite-load.gif)</p>
 
-When clicked, blog articles from previous pages are loaded and appended to the grid. There is of course an option to automatically load new articles on scroll for the true “infinite scroll” effect. Personally I prefer a button because unexpected changes that force the page to repaint can cause scroll lag and jumpiness on mobile.
+When clicked, blog posts from previous pages are loaded and appended to the grid. There is of course an option to automatically load new articles on scroll for the true “infinite scroll” effect. Personally I prefer a button because unexpected changes that force the page to repaint can cause scroll lag and jumpiness on mobile.
 
 This is a clean example of **progressive enhancement** in action.
 
@@ -103,20 +102,20 @@ This is a clean example of **progressive enhancement** in action.
 
 Once I’ve built a theme I’ll take time to ensure the WordPress admin area is presented as nicely as possible. One particularly nice touch is to give the content editor the same typographic style and web fonts as the theme.
 
-<p class="post__image">![WordPress infinite scroll loading](/images/blog/wordpress-eleicester-editor.png)</p>
+<p class="post__image">![WordPress content editor](/images/blog/wordpress-bc-editor.png)</p>
 
 
 
-In the theme’s `functions.php` use this WordPress function to load CSS into the editor:
+In the theme’s `functions.php` this WordPress function loads CSS into the editor:
 
 ```php
 add_editor_style('assets/css/editor.css');
 ```
 
-To ensure the correct HTML classes are applied to typographic elements see [TinyMCE Custom Styles](https://codex.wordpress.org/TinyMCE_Custom_Styles). To use web fonts you need to load a TinyMCE plugin:
+To ensure the correct HTML classes are applied to typographic elements see [TinyMCE Custom Styles](https://codex.wordpress.org/TinyMCE_Custom_Styles). To load web fonts a TinyMCE plugin is used:
 
 ```php
-add_filter('mce_external_plugins', ‘my__mce_external_plugins');
+add_filter('mce_external_plugins', 'my__mce_external_plugins');
 function my__mce_external_plugins($plugins) {
   $plugins['webfonts'] = get_template_directory_uri().'/assets/js/admin/tinymce.webfonts.js';
   return $plugins;
@@ -150,6 +149,6 @@ This example uses Google Fonts but it’s trivial to replace the JavaScript with
 
 ## To Conclude
 
-Hopefully that gives you a glimpse into my process. These are just a few of the interesting aspects that make up WordPress theme development.
+Hopefully that gives you a glimpse into my process. These are just a few of the interesting aspects that make up WordPress theme development. WordPress has a lot of conventions and knowing these leads to a more robust and compatible theme.
 
 Thanks again to [**Base Creative**](https://www.basecreative.co.uk/) for involving me in this project. If you have a WordPress theme that needs designed or built — or both! — [please do get in touch](/contact/).
