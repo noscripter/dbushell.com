@@ -15,7 +15,7 @@ $prism-color-value:         #76d9e6 !default;
 $prism-color-string:        #e6d06c !default;
 $prism-color-name:          #e6d06c !default;
 $prism-color-number:        #a77afe !default;
-$prism-color-variable:      #ffffff !default;
+$prism-color-variable:      #fff;//$prism-color !default;
 $prism-color-selector:      #a6e22d !default;
 $prism-color-punctuation:   $prism-color-neutral !default;
 //$prism-color-funtion: #dc322f !default;
@@ -55,6 +55,10 @@ $prism-color-punctuation:   $prism-color-neutral !default;
         color: $prism-color-selector;
     }
 
+    &.function {
+      color: $prism-color;
+    }
+
     &.property,
     &.tag,
     &.constant,
@@ -92,7 +96,7 @@ $prism-color-punctuation:   $prism-color-neutral !default;
         cursor: help;
     }
 
-    &.debug { color: red }
+    &.debug { color: red; }
 }
 
 .language-markup {
@@ -114,7 +118,6 @@ $prism-color-punctuation:   $prism-color-neutral !default;
         }
     }
 }
-
 
 // .token.comment,
 // .token.prolog,

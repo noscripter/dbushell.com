@@ -1,24 +1,20 @@
-/*!
- *  Copyright (c) David Bushell | @dbushell | http://dbushell.com/
- */
+/*! Copyright (c) David Bushell | @dbushell | http://dbushell.com/ */
 
 @import "origin";
 
-@include critical {
-  @import "normalize";
-  @import "base";
-}
+// @include critical {
+//   @import "normalize";
+//   @import "base";
+// }
 
 @import "typography";
 @import "form";
 @import "post";
 @import "folio";
-// @import "header";
 @import "footer";
 @import "nav";
 
-@include non-critical {
-    // @import "tables";
-    @import "misc";
-    @import "prism";
-}
+// @include non-critical {
+  @import "misc";
+  @import "prism";
+// }
