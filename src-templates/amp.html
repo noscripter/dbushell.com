@@ -48,7 +48,7 @@
 
     <div class="block prose post">
         <p class="p--small"><strong><a rel="author" href="{{ site_url }}">David Bushell</a></strong></p>
-        <h1 class="post__title"><a rel="canonical" href="{{ site_url canonical }}">{{ post__title title }}</a></h1>
+        <h1 class="post__title"><a href="{{ site_url canonical }}">{{ post__title title }}</a></h1>
         <p class="post__date"><time datetime="{{ moment date "ISO" }}">{{ moment date "dddd" }} <strong>{{ moment date "D" }} <abbr title="{{ moment date "MMMM" }}">{{ moment date "MMM" }}</abbr> {{ moment date "YYYY" }}</strong></time></p>
         <div class="post__body">
         {{{ contents }}}
