@@ -96,7 +96,7 @@ $prism-color-punctuation:   $prism-color-neutral !default;
         cursor: help;
     }
 
-    &.debug { color: red; }
+    &.debug { color: $red; }
 }
 
 .language-markup {
