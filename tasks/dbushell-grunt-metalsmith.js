@@ -20,6 +20,8 @@ var Metalsmith  = require('metalsmith'),
 
 module.exports = plugin;
 
+var ms_db_noop = function() { return function (a, b, c) { c(); } };
+
 function plugin(grunt)
 {
     // based on https://github.com/doingweb/grunt-metalsmith
@@ -31,6 +33,7 @@ function plugin(grunt)
         var options = this.options({
             src: 'src-markdown',
             dest: 'build',
+            amp: false,
             clean: false,
             watch: false,
             partials: { },
@@ -62,17 +65,29 @@ function plugin(grunt)
         }
 
         // if A or B conditional
-        Handlebars.registerHelper('either', function(a, b, options) {
-            return (a || b) ? options.fn(this) : options.inverse(this);
+        Handlebars.registerHelper('either', function(a, b, opts) {
+            return (a || b) ? opts.fn(this) : opts.inverse(this);
         });
 
         // replicate WordPress `is_frontpage` and `is_single` template functions
-        Handlebars.registerHelper('is', function(type, options) {
-            var is = false;
-            if (type === 'home' && ['index.html'].indexOf(this.layout) > -1) is = true;
-            if (type === 'contact' && ['contact.html'].indexOf(this.layout) > -1) is = true;
-            if (type === 'single' && ['page.html', 'single.html'].indexOf(this.layout) > -1) is = true;
-            return is ? options.fn(this) : options.inverse(this);
+        Handlebars.registerHelper('is', function(type, opts) {
+            var is = false,
+                isSingle = ['page.html', 'single.html'].indexOf(this.layout) > -1;
+
+            if (type === 'home' && ['index.html'].indexOf(this.layout) > -1) {
+              is = true;
+            }
+            if (type === 'contact' && ['contact.html'].indexOf(this.layout) > -1) {
+              is = true;
+            }
+            if (type === 'single' && isSingle) {
+              is = true;
+            }
+            if (type === 'amp' && isSingle && options.amp) {
+              is = true;
+            }
+
+            return is ? opts.fn(this) : opts.inverse(this);
         });
 
         // output the contents of a file into the document
@@ -105,7 +120,7 @@ function plugin(grunt)
         });
 
         // format meta content for <title>
-        Handlebars.registerHelper('page_title', function(context, options) {
+        Handlebars.registerHelper('page_title', function(context, opts) {
             if (this.layout === 'index.html') {
                 return new Handlebars.SafeString(this.site_name);// + ' &#8211; ' + this.site_desc);
             }
@@ -165,13 +180,14 @@ function plugin(grunt)
 
         metalsmith.use(ms_drafts(true))
 
-            .use(ms_db_markup({ }))
+            .use(ms_db_markup(options))
 
             .use(ms_markdown({
                 smartypants: true
             }))
 
-            .use(ms_branch(changed).use(ms_branch('amp/*.html').use(ms_db_ampify({ }))))
+            // AMP pages (if option is enabled)
+            .use( options.amp ? ms_branch(changed).use( ms_branch('amp/*.html').use( ms_db_ampify({}) ) ) : ms_db_noop({ }) )
 
             // metadata for RSS feed
             .use(ms_branch(changed).use(function (files, metalsmith, done) {

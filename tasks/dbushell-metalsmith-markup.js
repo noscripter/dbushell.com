@@ -29,7 +29,7 @@ function plugin(options) {
             file.layout = file.template || 'page.html';
 
             // clone blog posts for amp alternative (contents Buffer is referenced for now)
-            if (file.layout === 'single.html') {
+            if (options.amp && file.layout === 'single.html') {
                 var amppath = filepath.replace(/^blog/, 'amp');
                 ampfiles[amppath] = _.clone(file);
                 ampfiles[amppath].layout = 'amp.html';
@@ -39,10 +39,12 @@ function plugin(options) {
 
         var i = 0;
 
-        // append ampfiles to file list
-        Object.keys(ampfiles).forEach(function (file) {
-            files[file] = ampfiles[file];
-        });
+        if (options.amp) {
+          // append ampfiles to file list
+          Object.keys(ampfiles).forEach(function (file) {
+              files[file] = ampfiles[file];
+          });
+        }
 
         done();
 
