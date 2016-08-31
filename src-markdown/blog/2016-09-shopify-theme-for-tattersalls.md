@@ -1,6 +1,6 @@
 ---
-date: 2016-08-01 10:00:00+00:00
-draft: false
+date: 2016-09-05 10:00:00+00:00
+draft: true
 slug: shopify-theme-for-tattersalls
 template: single.html
 title: 'Shopify Theme for Tattersalls'
