@@ -1,20 +1,20 @@
 ---
-date: 2016-09-05 10:00:00+00:00
-draft: true
-slug: shopify-theme-for-tattersalls
+date: 2016-10-03 10:00:00+00:00
+draft: false
+slug: building-a-shopify-theme
 template: single.html
-title: 'Shopify Theme for Tattersalls'
+title: 'Building a Shopify Theme'
 ---
 
-**Shopify** is an ecommerce platform that offers themeable store fronts online. I worked alongside the wonderful folks at [**Super Fantastico**](http://www.superfantastico.co.uk/) and [**Studio Tangerine**](http://studiotangerine.co.uk/) to develop the Shopify theme for [Tattersalls Shop](https://tattersalls.myshopify.com/).
+**Shopify** is an ecommerce platform that offers themeable store fronts online. I worked alongside the wonderful folks at [**Studio Tangerine**](http://studiotangerine.co.uk/) to develop a Shopify theme. I've documented interesting aspects of the process below.
 
-<p class="post__image">![Tattersalls Shopify theme design'](/images/blog/tattersalls-homepage-design.png)</p>
+<p class="post__image">![Shopify theme design](/images/blog/shopifytheme-homepage-design.png)</p>
 
 ## Getting started
 
 If you're familiar with [my workflow](/2016/07/14/building-a-wordpress-theme/) it will be no surprised that I first translated the design into static HTML & CSS before worrying about integration. Like all good designs this one was very modular so I coded a single page of all components and patterns.
 
-<p class="post__image">![Tattersalls Shopify front-end pattern library'](/images/blog/tattersalls-pattern-library.png)</p>
+<p class="post__image">![Shopify front-end pattern library](/images/blog/shopifytheme-pattern-library.png)</p>
 
 Building this page in the vein of a pattern library gave us the perfect opportunity to review the responsive design and interactive elements in the browser. Elements were tweaked and final decisions were made on things like the responsive navigation. I did preliminary browsering testing to ensure no major rendering issues — much easier to fix now than later!
 
@@ -39,13 +39,13 @@ Themes have to be developed and tested on the Shopify servers. This is not ideal
 
 When a customer clicks the "Add to Basket" button Shopify will take them to the checkout page by default. Shopify does however provide a JavaScript API that makes on-page interactivity a breeze to implement.
 
-<p class="post__image">![Shopify theme - interactive 'add to basket'](/images/blog/tattersalls-addtobasket.gif)</p>
+<p class="post__image">![Shopify theme - interactive 'add to basket'](/images/blog/shopifytheme-addtobasket.gif)</p>
 
-<p class="post__image">![Shopify theme - interactive basket](/images/blog/tattersalls-basket.gif)</p>
+<p class="post__image">![Shopify theme - interactive basket](/images/blog/shopifytheme-basket.gif)</p>
 
-For Tattersalls I used [**Cart.js**](https://cartjs.org/) which is an API wrapper and library to manage products in the basket. The trick is to override the form submission and call `CartJS.addItem()` passing the product variant ID, quantity, and callbacks. The Shopify API returns product data or a variety of errors such as insufficient stock so the customer can be informed accordingly.
+For this project I used [**Cart.js**](https://cartjs.org/) which is an API wrapper and library to manage products in the basket. The trick is to override the form submission and call `CartJS.addItem()` passing the product variant ID, quantity, and callbacks. The Shopify API returns product data or a variety of errors such as insufficient stock so the customer can be informed accordingly.
 
-<p class="post__image">![Shopify theme - interactive basket](/images/blog/tattersalls-basket.png)</p>
+<p class="post__image">![Shopify theme - interactive basket](/images/blog/shopifytheme-basket.png)</p>
 
 I'm using [**Mustache.js**](https://github.com/janl/mustache.js) for HTML templating. When Cart.js updates — new products added or items removed — the on-page basket is re-rendered. To do this I simply pass Mustache the HTML template and JSON data for the products.
 
@@ -75,11 +75,11 @@ If the basket design changes we can just edit the template and not worry about t
 
 Products in Shopify can have up to three options and product variants are generated as combinations thereof. By default Shopify only displays a single `<select>` input to choose all available variants from:
 
-<p class="post__image">![Shopify theme - default product option](/images/blog/tattersalls-product-options-1.png)</p>
+<p class="post__image">![Shopify theme - default product option](/images/blog/shopifytheme-product-options-1.png)</p>
 
 This isn't an ideal user experience, especially if there are hundreds of variants, so we're using a bit of JavaScript magic to break this field apart into multiple options:
 
-<p class="post__image">![Shopify theme - advanced product options](/images/blog/tattersalls-product-options-2.png)</p>
+<p class="post__image">![Shopify theme - advanced product options](/images/blog/shopifytheme-product-options-2.png)</p>
 
 The product options for "Size" and "Colour" have a unique UI design. Any other options are renders as individual `<select>` inputs. The default input is hidden and its value is updated to match the variant chosen from these options.
 
@@ -91,7 +91,7 @@ Our new interface doesn't account for this and it becomes quite the nightmare to
 
 *Amazon.co.uk* disables options from top to bottom. So in this example only colours available in the selected size are enabled. If a different colour is selected, the chosen size may be reset to nothing. This requires trial and error from the users to figure out which variants exist.
 
-I've opted not to disable anything for simplicities sake. If users does try to add an unavailable variant to the basket they'll get an appropriate alert. This decision is helped by the fact that Tattersalls wont be managing stock levels on Shopify.
+I've opted not to disable anything for simplicities sake. If users does try to add an unavailable variant to the basket they'll get an appropriate alert. This decision is helped by the fact that this store wont be managing stock levels on Shopify.
 
 ## Working with content
 
@@ -99,17 +99,17 @@ Building a Shopify theme is always a pleasant experience. The platform is very w
 
 It should be noted however that Shopify websites have a set formula with predefined templates. All stores follow the same format and you cant change the admin area (outside of theme settings). For example, each product has a single description:
 
-<p class="post__image">![Shopify theme - editing product description](/images/blog/tattersalls-product-edit.png)</p>
+<p class="post__image">![Shopify theme - editing product description](/images/blog/shopifytheme-product-edit.png)</p>
 
 To achieve the accordion design for this content requires JavaScript:
 
-<p class="post__image">![Shopify theme - product description as accordion design](/images/blog/tattersalls-product-description.png)</p>
+<p class="post__image">![Shopify theme - product description as accordion design](/images/blog/shopifytheme-product-description.png)</p>
 
 I used JavaScript to break apart the content by heading elements `<h1>` to `<h6>` before adding the expand/collapse to each section. This technique works fine on the front-end but the admin interface isn't as intuitive as it could be.
 
 Similarly, pages are limited to one content area. To manage the hero carousel we can only provide fields within the theme settings (which are somewhat limited).
 
-<p class="post__image">![Shopify theme - carousel settings](/images/blog/tattersalls-carousel-edit.png)</p>
+<p class="post__image">![Shopify theme - carousel settings](/images/blog/shopifytheme-carousel-edit.png)</p>
 
 ## Final thoughts
 
