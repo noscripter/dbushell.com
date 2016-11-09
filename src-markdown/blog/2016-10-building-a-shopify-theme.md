@@ -1,5 +1,5 @@
 ---
-date: 2016-10-03 10:00:00+00:00
+date: 2016-10-10 10:00:00+00:00
 draft: false
 slug: building-a-shopify-theme
 template: single.html
