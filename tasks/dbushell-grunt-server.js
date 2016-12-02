@@ -48,8 +48,8 @@ function plugin(grunt)
 
                         var html = $.html();
 
-                        html = html.replace(/(http:\/\/dbushell-metalsmith.dev)/g, 'http://192.168.1.70:8080');
-                        html = html.replace(/(http:\/\/dbushell.com)/g, 'http://192.168.1.70:8080');
+                        html = html.replace(/(http:\/\/dbushell-metalsmith.dev)/g, 'http://localhost:8080');
+                        html = html.replace(/(http:\/\/dbushell.com)/g, 'http://localhost:8080');
 
                         pRes.headers['content-length'] = html.length;
 

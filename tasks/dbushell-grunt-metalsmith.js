@@ -20,7 +20,7 @@ var Metalsmith  = require('metalsmith'),
 
 module.exports = plugin;
 
-var ms_db_noop = function() { return function (a, b, c) { c(); } };
+var ms_db_noop = function() { return function (a, b, c) { c(); }; };
 
 function plugin(grunt)
 {
