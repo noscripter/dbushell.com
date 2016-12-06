@@ -54,20 +54,26 @@ JSX is not native JavaScript so it must be transpiled. For this I’m using [Bab
 
 So the necessity to transpile code before it can run is a bit iffy. But it’s trivial for me to write Gulp watch tasks to do this in the background.
 
-I was flirting with the idea of using [TypeScript](https://www.typescriptlang.org/). Decided against it. Too much new tech at once and I’d be one of ‘those’ developers.
+I was flirting with the idea of using [TypeScript](https://www.typescriptlang.org/) (or [Flow](https://flowtype.org/)). Decided against it. Too much new tech at once and I’d be one of ‘those’ developers.
+
+## Dependencies
 
 I suspect a few readers are already balking over the number of names and acronyms I’ve already dropped. A year ago I wrote [“I don't do Angular, is that OK?”](http://dbushell.com/2015/02/04/i-dont-do-angular-is-that-ok/). I deliberated over what I should know as a professional front-end developer.
 
 The piece [“How it feels to learn JavaScript in 2016”](https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f) by _Jose Aguinaga_  sums up this quandary from an amusing, if cynical, perspective shared by many.
 
-As with all tools and technology some amount of prerequisite knowledge is required. Efficient development of React requires a bit of transpiling and automation know-how. Coding in plain JavaScript requires understanding of web standards. That, in turn, requires computer literacy — and so on down the dependency chain. To me it seems somewhat arbitrary, or at least highly subjective, where to draw the line.
+As with all tools and technology some amount of prerequisite knowledge is required. Efficient development of React requires a bit of transpiling and automation know-how. Coding in plain JavaScript requires understanding of web standards. That, in turn, requires computer literacy — and so on up and down the dependency chain. Obviously knowing how to turn on a computer is assumed but to me it seems somewhat arbitrary, or at least highly subjective, where to draw the line.
 
 I still don’t "do Angular" but now I do do React.
 
 That’s the worst sentence I’ve ever written.
 
-Anyway, my point is that rejecting new technology on the premise that it introduces complexity is simply wrong if said tech _proves_ to make life easy for those involved (not drive-by Githubers). And for me React make coding web apps a delight.
+Anyway, my point is that rejecting new technology on the premise that it introduces complexity is simply wrong if said tech _proves_ to make life easy for those involved (not drive-by Githubers). For me — and I ~~hope~~ plan for those reading my documentation — React make coding web apps a delightful experience.
+
+What makes React special is its singular focus on user interface. It doesn't box you into a framework. It doesn't force you to solve app architecture problems too early. From my own usage I believe this makes React the most approachable library of its ilk. 
 
 ## One last thing...
 
 It would be criminal not to give a shout-out to [Preact](https://preactjs.com/). A magical _"fast 3kB alternative to React with the same ES6 API"_ written by [Jason Miller](https://github.com/developit).
+
+[Vue](https://vuejs.org/) and [Inferno](https://github.com/trueadm/inferno) are also on my radar.
