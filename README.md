@@ -1,4 +1,4 @@
-dbushell-com
+dbushell.com
 ============
 
 > Build process and source for [dbushell.com](http://dbushell.com/)
