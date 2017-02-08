@@ -1,0 +1,16 @@
+{
+  "name": "dbushell.com",
+  "version": "9.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dbushell/dbushell.com.git"
+  },
+  "author": "David Bushell <david@dbushell.com>",
+  "license": "UNLICENSED - Copyright © David Bushell",
+  "homepage": "http://dbushell.com"
+}
