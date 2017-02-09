@@ -1,0 +1,227 @@
+
+$combined-css: false !default;
+$critical-css: false !default;
+
+@mixin critical {
+    @if $critical-css == true {
+        @content;
+    }
+    @else if $combined-css == true {
+        @content;
+    }
+}
+
+@mixin non-critical {
+    @if $critical-css == false {
+        @content;
+    }
+    @else if $combined-css == true {
+        @content;
+    }
+}
+
+@function em($px, $base: 16) {
+    @return ($px / $base) + em;
+}
+
+@mixin font-size($font-size, $line-height: true) {
+    font-size: em($font-size);
+    @if $line-height == true {
+        line-height: em(ceil($font-size / $unit) * $unit, $font-size);
+        // line-height: ceil($font-size / $baseline) * ($baseline / $font-size) + em;
+    }
+    @else {
+        line-height: em($line-height, $font-size);
+    }
+}
+
+// Units for consistent spacing, vertical rhythm, and a typographic baseline
+
+$unit            : 7;
+$gutter    : $unit * 4;
+$baseline  : $unit * 4;
+
+$unit--field     : $unit * 6;
+
+$p         : 20;
+$p--large  : 25;
+$p--small  : 16;
+
+$h0: 55;
+$h1: 45;
+$h2: 35;
+$h3: 30;
+$h4: 25;
+$h5: $p;
+$h6: $p;
+
+$footer--width     : 27;
+$footer--max-width : 400;
+$block--max-width  : 1140;
+$block--home       : 1200;
+$scrollbar--width  : 14;
+
+// Breakpoints used throughout the website
+
+$breakpoint--mini    : 420;
+$breakpoint--mobile  : 580;
+$breakpoint--home    : 768;
+$breakpoint--desktop : 960;
+$breakpoint--aside   : 1200;//1000;
+// $breakpoint--pinned  : $nav--pinned + $block--max-width + $footer--width + $scrollbar--width;
+
+
+
+$breakpoint--hero--1 : $breakpoint--mini;
+$breakpoint--hero--2 : $breakpoint--mobile;
+$breakpoint--hero--3 : 800;
+
+// zIndexes
+
+$z-index--main     : 1000;
+$z-index--hero     : 1500;
+$z-index--home     : 2000;
+$z-index--header   : 2000;
+$z-index--overlay  : 4000;
+$z-index--nav      : 5000;
+$z-index--footer   : 6000;
+
+// Colours
+
+$white  : #ffffff;
+$black  : #494b4d;
+$grey   : #919599;
+$beige  : #f2f0e6;
+$canvas : #d9d7ce;
+$pink   : #ff6680;
+$red    : #e55c5c;
+$green  : #a1e5cf;
+$blue   : #1d97bf;
+$yellow : #fffbcc;
+$dark-blue: #39809e;
+$dark-red : #bf5a56;
+
+
+$colour__hairline           : lighten(#b3b0aa, 15);
+$colour__hairline--light    : lighten($colour__hairline, 15);
+$colour__hairline--dark     : darken($colour__hairline, 15);
+
+
+// Font usage for normal, display, script, and monospace stacks
+
+$fonts--sans       : "futura-pt", ".SFNSDisplay-Regular", "Helvetica Neue", Arial, sans-serif;
+$fonts--serif      : $fonts--sans; // "ff-tisa-web-pro", Georgia, serif;
+$fonts--monospace  : Monaco, Courier, monospace;
+
+// now using universal IE stylesheet concept
+// https://github.com/jakearchibald/sass-ie/
+// $fix-media-queries: false !default;
+
+@mixin respond-min($width)
+{
+    @media screen and (min-width: em($width)) {
+        @content;
+    }
+}
+
+@mixin respond-min-max($w1, $w2)
+{
+    @media screen and (min-width: em($w1)) and (max-width: em($w2)) {
+        @content;
+    }
+}
+
+@mixin respond-max($width)
+{
+    @media screen and (max-width: em($width)) {
+        @content;
+    }
+}
+
+
+@function inner-percent($percent)
+{
+    @return percentage( ( (100 / (100 - ($percent * 2))) * $percent ) / 100);
+}
+
+// $ratio is required for nested grids
+// e.g. if parent container is 5 columns of 6 then ratio = 5/6
+
+@function gc-gutter($gutter_count: 1, $ratio: 1, $width: $breakpoint--desktop)
+{
+    $gutter: $gutter * $gutter_count;
+    $width: $width * $ratio;
+    @return percentage($gutter / $width);
+}
+
+@function gc-offset($col_count: 1, $col_total: 6, $ratio: 1, $width: $breakpoint--desktop, $inside: 0)
+{
+    $gutter: $gutter;
+    $width: $width * $ratio;
+
+    // calculate width of columns
+    $offset: $col_count * (($width - (($col_total - 1) * $gutter)) / $col_total);
+    // add width of gutters
+    $offset: $offset + (($col_count - $inside) * $gutter);
+    // return as a percentage
+    @return percentage($offset / $width);
+}
+
+@function gc-spanning($col_count: 1, $col_total: 6, $ratio: 1, $width: $breakpoint--desktop)
+{
+    @return gc-offset($col_count, $col_total, $ratio, $width, 1);
+}
+
+@mixin no-appearance {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+@mixin no-tap-highlight {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    outline: none;
+}
+
+@mixin text-truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+@mixin clearfix {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+    *zoom: 1;
+}
+
+// Hide from both screenreaders and browsers: h5bp.com/u
+@mixin hidden {
+    display: none;
+    visibility: hidden;
+}
+
+// Hide only visually, but have it available for screenreaders: h5bp.com/v
+@mixin visually-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+@mixin image-replacement {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: clip;
+    text-indent: 200%;
+}

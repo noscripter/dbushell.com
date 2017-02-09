@@ -8,4 +8,4 @@ node_modules
 bower_components
 .sass-cache
 *.log
-src/config.json
+dbushell.github.io

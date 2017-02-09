@@ -1,0 +1,41 @@
+{
+  "heading": "Website Navigation",
+  "items": [
+    {
+      "order": 1,
+      "priority": 1,
+      "text": "Home",
+      "href": "/"
+    },
+    {
+      "order": 2,
+      "priority": 4,
+      "text": "About",
+      "href": "/about/"
+    },
+    {
+      "order": 3,
+      "priority": 2,
+      "text": "Services",
+      "href": "/services/"
+    },
+    {
+      "order": 4,
+      "priority": 5,
+      "text": "Portfolio",
+      "href": "/showcase/"
+    },
+    {
+      "order": 5,
+      "priority": 6,
+      "text": "Blog",
+      "href": "/blog/"
+    },
+    {
+      "order": 6,
+      "priority": 3,
+      "text": "Contact",
+      "href": "/contact/"
+    }
+  ]
+}
