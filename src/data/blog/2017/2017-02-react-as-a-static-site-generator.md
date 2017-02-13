@@ -4,11 +4,11 @@ slug: react-as-a-static-site-generator
 title: 'React as a Static Site Generator'
 ---
 
-Last year I [redesigned my brand](/2016/02/29/a-bit-of-a-new-look/). Two years ago I converted my website from WordPress to a [static build process](/2015/05/11/wordpress-to-metalsmith/). It has served me well but my final process was rather convoluted. Hacks and plumbing to get Metalsmith plugins working _my way_ didn't helped.
+Two years ago I converted my website from WordPress to a [static build process](/2015/05/11/wordpress-to-metalsmith/). It has served me well but the final process was rather messy. Hacks and plumbing to get Metalsmith plugins working _my way_ didn't helped.
 
 Time for a new project!
 
-**Abstract**: rebuild my website using React as the renderer for a bespoke static site generator. Learn more Node and ES6 along the way.
+**Abstract**: rebuild my website using [React](https://facebook.github.io/react/) as the template engine for a bespoke static site generator. Learn more Node and ES6 along the way.
 
 **Rationale**: because I can. 
 
@@ -20,17 +20,19 @@ In January I wrapped up a long contract to build a React/Redux web app. I found 
 
 ## Writing the React Components
 
-I got off to a false start. It was a mistake to attempt to refactor HTML & CSS whilst translating everything into JSX. I got lost in a [refactoring tunnel](https://speakerdeck.com/csswizardry/refactoring-css-without-losing-your-mind).
+I got off to a false start. Last year's [redesign project](/2016/02/29/a-bit-of-a-new-look/) was a bit rushed in development and I wanted to fix some issues. It was a mistake to attempt to refactor HTML & CSS whilst translating everything into JSX. I got lost in a [refactoring tunnel](https://speakerdeck.com/csswizardry/refactoring-css-without-losing-your-mind).
 
 Restart. Step one: write components with existing markup. Step two: improve modularity once my site is rendering (still to do as of writing this).
 
 <p class="post__image">![Example code for my React components](/images/blog/dbushell-react-components.png)</p>
 
-All my [React components](https://github.com/dbushell/dbushell.com/tree/master/src/components) are functional/stateless. There is no logic to them because I'm don't plan to render client-side. I don't need to worry about an API service to provide data to the browser. My build script parses data and passes it along to React props.
+All my [React components](https://github.com/dbushell/dbushell.com/tree/master/src/components) are functional/stateless. There is no logic to them because I'm don't plan to render client-side. I don't need to worry about an API serving data to the browser. My build script parse data and pass it along to React properties once to render HTML.
 
-Some components — e.g. the [Bio](https://github.com/dbushell/dbushell.com/tree/master/src/components/bio)[graphy] in my footer — load default props from a JSON file. Lazier components have data hardcoded in the HTML ([Newletter](https://github.com/dbushell/dbushell.com/blob/master/src/components/newsletter/index.jsx) for example). When I get time I'll do a proper job abstracting these. It's not an urgent task because I doubt I'll ever need more than one instance.
+Some components — e.g. the [Bio](https://github.com/dbushell/dbushell.com/tree/master/src/components/bio)[graphy] — load default props from a JSON file. Lazier components have data hardcoded in the HTML ([Newletter](https://github.com/dbushell/dbushell.com/blob/master/src/components/newsletter/index.jsx) for example). When I get time I'll do a proper job abstracting these. It's not an urgent task because I doubt I'll ever need more than one instance.
 
-The [Blog](https://github.com/dbushell/dbushell.com/tree/master/src/components/blog) component is an interesting one. It displays recent posts and appears on all pages. It too loads JSON. I have a task to update this file before rendering (rather than passing new props from the parent). The reason for that is incidental, but it does allow pages to render with up-to-date content without parsing all of the blog data.
+<p class="post__image"><a href="/images/blog/dbushell-react-dataflow.svg">![dbushell.com build process data flow](/images/blog/dbushell-react-dataflow.svg)</a></p>
+
+The [Blog](https://github.com/dbushell/dbushell.com/tree/master/src/components/blog) component is an interesting one. It displays recent posts and appears on all pages. It too loads JSON. I have a task to update this file before rendering (rather than passing new props from the parent). The reason for that is incidental, but it does allow pages to render with up-to-date content without parsing all of the blog data again.
 
 I'm storing page content like blog articles as Markdown with YML front matter. A result of exporting WordPress to a format Metalsmith liked. This has proven good enough and I see no reason to change.
 
@@ -52,16 +54,14 @@ render() {
     return {__html: props.html};
   };
   return (
-    <div className="post__body" dangerouslySetInnerHTML={html()}/>
+    <div className="post" dangerouslySetInnerHTML={html()}/>
   );
 }
 ```
 
-This seems like an acceptable solution. I see no reason to convert the content to React elements only to render back to HTML immediately.
+This seems like an acceptable solution. I see no reason to convert the inner content to React elements only to render back to HTML immediately.
 
-## Handlebars
-
-I render everything inside the body tag with React. I'm using Handlebars to glue together the final page. This allows me to inline CSS and JS with header/footer partials. It's simpler and less fussy about formatting. For the same reason I'm also using Handlebars to build my RSS and Sitemap XML files. This avoid any workarounds for namespaced attributes.
+I render everything inside the body tag with React. I'm using Handlebars to glue together the final page. This allows me to inline CSS with header/footer partials. It's simpler and less fussy about formatting. For the same reason I'm also using Handlebars to build my RSS and Sitemap XML files. This avoid any workarounds for namespaced attributes.
 
 ## Hello GitHub Pages
 
