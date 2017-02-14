@@ -2,7 +2,7 @@ import Bio from './bio';
 import Block from './block';
 import Blog from './blog';
 import Button from './button';
-import CTAQuote from './cta-quote';
+import Cta from './cta';
 import Excerpt from './excerpt';
 import Field from './field';
 import Footer from './footer';
@@ -20,7 +20,7 @@ export {
   Block,
   Blog,
   Button,
-  CTAQuote,
+  Cta,
   Excerpt,
   Field,
   Footer,

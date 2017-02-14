@@ -3,7 +3,7 @@ import ReactDOMServer from 'react-dom/server';
 import {formatTitle} from '../../build/helpers';
 import {renderFooter} from '../../components/footer';
 import {renderNav} from '../../components/nav';
-import {Block, Newsletter, Time} from '../../components';
+import {Block, Cta, Time} from '../../components';
 
 class Article extends Component {
   render() {
@@ -23,19 +23,19 @@ class Article extends Component {
         );
       }
     };
+    const ctaProps = {
+      title: 'More from me…',
+      link: 'Why not hire me!',
+      paragraph: '<a href="/blog/">Read more on my blog</a> and follow <a rel="me noopener noreferrer" target="_blank" href="http://twitter.com/dbushell" title="David Bushell on Twitter">@dbushell</a>. If you like what I do:'
+    };
     return (
       <main className="main main--single">
         <Block classList={['prose', 'post']}>
           <h1 className="post__title" dangerouslySetInnerHTML={title()}/>
           {date()}
           <div className="post__body" dangerouslySetInnerHTML={body()}/>
-          <Newsletter/>
           <hr/>
-          <p>
-            <a rel="me noopener noreferrer" target="_blank" href="http://twitter.com/dbushell">Follow @dbushell on Twitter</a>
-            <br/>
-            <a href="/blog/">Return to Blog</a>
-          </p>
+          <Cta {...ctaProps}/>
         </Block>
       </main>
     );
