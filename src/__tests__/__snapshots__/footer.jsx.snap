@@ -1,11 +1,13 @@
 exports[`Footer component renders with defaults 1`] = `
 "<footer id=\"footer\" class=\"footer\">
   <div class=\"block\">
-    <div class=\"prose footer__profile\">
-      <div class=\"footer__avatar\"></div>
-      <h3><a href=\"/about/\">I&#x2019;m David Bushell</a></h3>
-      <p class=\"p--light\">Based in the UK, near Manchester, I freelance for small businesses, start-ups, individuals, and fellow web agencies &#x2014; all over the world.</p>
-    </div>
+    <section class=\"b-bio\" role=\"complementary\" itemscope=\"\" itemtype=\"http://schema.org/Person\">
+      <div class=\"b-bio__image\"><img src=\"/assets/img/me3.jpg\" alt=\"David Bushell\"></div>
+      <div class=\"b-bio__main\" itemprop=\"description\">
+        <h3><a href=\"/about/\" itemprop=\"name\">David Bushell</a></h3>
+        <p class=\"p--light\">Based in the UK, near Manchester, I freelance for small businesses, start-ups, individuals, and fellow web agencies &#x2014; all over the world.</p>
+      </div>
+    </section>
     <a href=\"/contact/\" class=\"footer__hire\"><img src=\"/assets/img/dbushell-for-hire.svg\" alt=\"Available for Hire\"></a>
     <aside class=\"prose footer__blog\" role=\"complementary\">
       <h3>From the blog&#x2026;</h3>
@@ -27,11 +29,13 @@ exports[`Footer component renders with defaults 1`] = `
 exports[`Footer component renders without "for hire" element 1`] = `
 "<footer id=\"footer\" class=\"footer\">
   <div class=\"block\">
-    <div class=\"prose footer__profile\">
-      <div class=\"footer__avatar\"></div>
-      <h3><a href=\"/about/\">I&#x2019;m David Bushell</a></h3>
-      <p class=\"p--light\">Based in the UK, near Manchester, I freelance for small businesses, start-ups, individuals, and fellow web agencies &#x2014; all over the world.</p>
-    </div>
+    <section class=\"b-bio\" role=\"complementary\" itemscope=\"\" itemtype=\"http://schema.org/Person\">
+      <div class=\"b-bio__image\"><img src=\"/assets/img/me3.jpg\" alt=\"David Bushell\"></div>
+      <div class=\"b-bio__main\" itemprop=\"description\">
+        <h3><a href=\"/about/\" itemprop=\"name\">David Bushell</a></h3>
+        <p class=\"p--light\">Based in the UK, near Manchester, I freelance for small businesses, start-ups, individuals, and fellow web agencies &#x2014; all over the world.</p>
+      </div>
+    </section>
     <hr>
     <aside class=\"prose footer__blog\" role=\"complementary\">
       <h3>From the blog&#x2026;</h3>
