@@ -1,29 +1,22 @@
 import React, {PropTypes} from 'react';
 
-// temporary old markup
 const Bio = props => {
+  const schema = {
+    itemScope: true,
+    itemType: 'http://schema.org/Person'
+  };
   return (
-    <div className="prose footer__profile">
-      <div className="footer__avatar"/>
-      <h3><a href={props.href}>{props.title}</a></h3>
-      <p className="p--light">{props.text}</p>
-    </div>
+    <section className="b-bio" role="complementary" {...schema}>
+      <div className="b-bio__image">
+        <img src={props.imageSrc} alt={props.imageAlt}/>
+      </div>
+      <div className="b-bio__main" itemProp="description">
+        <h3><a href={props.href} itemProp="name">{props.title}</a></h3>
+        <p className="p--light">{props.text}</p>
+      </div>
+    </section>
   );
 };
-
-// const Bio = props => {
-//   return (
-//     <div className="bio">
-//       <div className="bio__image">
-//         <img src={props.imageSrc} alt={props.imageAlt}/>
-//       </div>
-//       <div className="bio__main">
-//         <h3><a href={props.href}>{props.title}</a></h3>
-//         <p>{props.text}</p>
-//       </div>
-//     </div>
-//   );
-// };
 
 Bio.propTypes = {
   imageSrc: PropTypes.string,

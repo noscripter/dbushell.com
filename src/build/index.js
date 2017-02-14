@@ -24,6 +24,7 @@ global.DBUSHELL = {
 // page container classes
 const Page = require('../containers/page');
 const Portfolio = require('../containers/portfolio');
+const Patterns = require('../containers/patterns');
 const Contact = require('../containers/contact');
 const Home = require('../containers/home');
 const Pages = require('./pages');
@@ -109,12 +110,19 @@ export async function build() {
       pageHeading: Contact.defaultProps.pageHeading
     });
   }
+  // write pattern library
+  if (argv.patterns || argv.all) {
+    await publish(Patterns, {
+      pagePath: '/pattern-library/'
+    });
+  }
   // write home page
   if (argv.home || argv.all) {
     await publish(Home, {
       pagePath: '/'
     });
   }
+  // write RSS and Sitemap XML
   if (argv.feeds || argv.all) {
     await buildFeeds();
   }

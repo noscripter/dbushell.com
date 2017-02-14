@@ -1,0 +1,68 @@
+/*! Bio (block) */
+
+.b-bio {
+  max-width: em(560);
+}
+
+.b-bio__image {
+  position: relative;
+  overflow: hidden;
+  width: em($unit * 14);
+  height: em($unit * 14);
+  margin: 0 auto em($unit * 3) auto;
+  border-radius: 100%;
+  border: em(3) solid $yellow;
+  box-shadow: 0 0 0 em(3) $pink;
+
+  .footer & {
+    margin-top: em(-$unit);
+  }
+}
+
+.b-bio__main {
+  overflow: hidden;
+  text-align: center;
+}
+
+@include respond-min($breakpoint--mini) {
+
+  .b-bio__image {
+    width: em($unit * 16);
+    height: em($unit * 16);
+  }
+
+}
+
+@include respond-min($breakpoint--mobile) {
+
+  .b-bio__image {
+    width: em($unit * 18);
+    height: em($unit * 18);
+  }
+
+}
+
+@include respond-min($breakpoint--aside) {
+
+  .b-bio__image {
+
+    .footer & {
+      margin-top: em(-$unit * 2);
+    }
+  }
+
+}
+
+@include respond-min-max($breakpoint--mobile, $breakpoint--aside - 1) {
+
+  .b-bio__image {
+    float: left;
+    margin-right: em($gutter / 2);
+    margin-bottom: em($baseline - $unit);
+  }
+
+  .b-bio__main {
+    text-align: left;
+  }
+
+}
