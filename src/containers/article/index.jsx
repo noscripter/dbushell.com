@@ -3,7 +3,7 @@ import ReactDOMServer from 'react-dom/server';
 import {formatTitle} from '../../build/helpers';
 import {renderFooter} from '../../components/footer';
 import {renderNav} from '../../components/nav';
-import {Block, Cta, Time} from '../../components';
+import {Block, Cta, Time, Newsletter} from '../../components';
 
 class Article extends Component {
   render() {
@@ -36,6 +36,7 @@ class Article extends Component {
           <div className="post__body" dangerouslySetInnerHTML={body()}/>
           <hr/>
           <Cta {...ctaProps}/>
+          <Newsletter/>
         </Block>
       </main>
     );

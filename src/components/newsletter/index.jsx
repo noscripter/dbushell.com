@@ -3,9 +3,8 @@ import React from 'react';
 const Newsletter = () => {
   return (
     <aside className="newsletter" role="complementary">
-      <form id="newsletter" action="http://dbushell.us1.list-manage1.com/subscribe/post?u=f1621b8d47b205bc9a898c68f&amp;id=84a4c62ca9" method="post" name="mc-embedded-subscribe-form" target="_blank" noValidate>
-        <hr/>
-        <h4>Side Projects Newsletter</h4>
+      <form id="newsletter" action="//dbushell.us1.list-manage.com/subscribe/post?u=f1621b8d47b205bc9a898c68f&amp;id=84a4c62ca9" method="post" name="mc-embedded-subscribe-form" target="_blank" noValidate>
+        <h4>Side projects newsletter</h4>
         <p className="p--small">Every now and then I release something cool, be the first to know!</p>
         <div className="form form--single newsletter__form">
           <ul className="form__list">
