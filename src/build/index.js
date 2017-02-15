@@ -12,7 +12,7 @@ global.DBUSHELL = {
   __pSrc: path.join(process.cwd(), '/src/data/portfolio'),
   __pConfig: require('../containers/portfolio/config'),
   siteVer: '9.0.0',
-  siteProtocol: 'http:',
+  siteProtocol: 'https:',
   siteRoot: 'dbushell.com',
   siteName: 'David Bushell &#8211; Web Design &amp; Front-end Development (based in Manchester, UK)',
   siteDesc: 'David Bushell make websites. I help small businesses, start-ups, individuals, and fellow web agencies make the most of their web presence.',

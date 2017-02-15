@@ -27,7 +27,7 @@ const rssTmp = compile('/src/templates/rss.xml');
 const rssEntryTmp = compile('/src/templates/partials/rss-entry.xml');
 
 export function loc(href) {
-  return `http://${path.join(DBUSHELL.siteRoot, href)}`;
+  return `${DBUSHELL.siteProtocol}//${path.join(DBUSHELL.siteRoot, href)}`;
 }
 
 export function lastmod(filePath, isAbs) {
