@@ -2,6 +2,12 @@
   "heading": "From the blog…",
   "items": [
     {
+      "id": "web-security-and-cloudflare",
+      "title": "Web Security and Cloudflare",
+      "href": "/2017/02/17/web-security-and-cloudflare/",
+      "date": 1487325600000
+    },
+    {
       "id": "react-as-a-static-site-generator",
       "title": "React as a Static Site Generator",
       "href": "/2017/02/13/react-as-a-static-site-generator/",
@@ -30,12 +36,6 @@
       "title": "Colour Accessibility",
       "href": "/2016/09/01/colour-accessibility/",
       "date": 1472724000000
-    },
-    {
-      "id": "building-a-wordpress-theme",
-      "title": "Building a WordPress Theme",
-      "href": "/2016/07/14/building-a-wordpress-theme/",
-      "date": 1468490400000
     }
   ]
 }
