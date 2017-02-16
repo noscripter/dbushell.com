@@ -25,13 +25,13 @@ class Portfolio extends Component {
               <li className="folio__item" style={{backgroundColor: '#d8ac59'}}>
                 <a className="folio__link" href="/2015/03/18/responsive-design-for-houden/">
                   <span className="folio__label">Houden</span>
-                  <img className="folio__image" src="/assets/img/portfolio/houden.jpg" alt="Houden"/>
+                  <img className="folio__image" src="/assets/img/portfolio/houden.png" alt="Houden"/>
                 </a>
               </li>
               <li className="folio__item" style={{backgroundColor: '#993300'}}>
                 <a className="folio__link" href="/2014/05/07/responsive-design-for-uwe-wittwer/">
                   <span className="folio__label">Uwe Wittwer</span>
-                  <img className="folio__image" src="/assets/img/portfolio/uwewittwer.jpg" alt="Uwe Wittwer"/>
+                  <img className="folio__image" src="/assets/img/portfolio/uwewittwer.png" alt="Uwe Wittwer"/>
                 </a>
               </li>
               <li className="folio__item" style={{backgroundColor: '#b72817'}}>
