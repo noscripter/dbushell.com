@@ -10,9 +10,9 @@ const Bio = props => {
       <div className="b-bio__image">
         <img src={props.imageSrc} alt={props.imageAlt}/>
       </div>
-      <div className="b-bio__main" itemProp="description">
-        <h3><a href={props.href} itemProp="name">{props.title}</a></h3>
-        <p className="p--light">{props.text}</p>
+      <div className="b-bio__main">
+        <h3 itemProp="name"><a href={props.href}>{props.title}</a></h3>
+        <p className="p--light" itemProp="description">{props.text}</p>
       </div>
     </section>
   );
