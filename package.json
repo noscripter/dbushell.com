@@ -85,7 +85,7 @@
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.4.2",
     "striptags": "^3.0.1",
-    "xo": "^0.17.1",
+    "xo": "^0.20.0",
     "yargs": "^6.6.0"
   }
 }
